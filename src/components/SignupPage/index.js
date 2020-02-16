@@ -55,7 +55,7 @@ export default function SignupPage() {
           </label>
           <div className="form-field-error">{errors.consent}</div>
 
-          <button onClick={handleSubmit}>{isSubmitting ? 'Loading' : 'Sign Up'}</button>
+          <button type="submit" onClick={handleSubmit}>{isSubmitting ? 'Loading' : 'Sign Up'}</button>
         </div>
       )}
     </Formik>
