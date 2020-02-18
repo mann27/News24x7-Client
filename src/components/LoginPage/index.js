@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
+import React from "react";
+import ReactDOM from "react-dom";
 
-class LoginPage extends Component {
-    render() {
-        return (
-            <div>
-                LoginPage
+import "./login.css";
+import ValidatedLoginForm from "./ValidatedLoginForm";
 
-            </div>
-        )
-    }
+function App() {
+  return (
+    <div className="App">
+      
+      <ValidatedLoginForm />
+    </div>
+  );
 }
-
-export default LoginPage;
+export default App
