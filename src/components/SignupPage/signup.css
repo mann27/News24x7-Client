@@ -1,4 +1,4 @@
-/*
+/* 
 .form {
     display: flex;
     width: 20em;
@@ -24,12 +24,12 @@
   button {
     align-self: center;
     margin: 1em;
-  }*/
+  }
   * {
     box-sizing: border-box;
-    
+ 
   }
-  
+   */
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
       sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
