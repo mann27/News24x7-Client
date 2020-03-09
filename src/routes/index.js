@@ -10,7 +10,6 @@ const IndexRoutes = () => {
     return (
         <Switch>
             <Route path="/hello" component={HelloWorld} />
-
             <Route exact path="/" component={HomePage} />
             <Route path="/login" component={LoginPage} />
             <Route path="/signup" component={SignupPage} />

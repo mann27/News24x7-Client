@@ -4,6 +4,7 @@ import './App.css';
 
 import IndexRoutes from './routes/index.js';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <div className="container">
           <IndexRoutes />
         </div>
+        <Footer />
       </Router>
     </div>
   );
