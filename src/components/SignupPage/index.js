@@ -20,32 +20,32 @@ class SignupPage extends Component {
           setTimeout(() => {
             console.log('User has been sucessfully saved!', values)
             setSubmitting(false)
-          }, 2000)
+          }, 500)
         }}
       >
         {({ isSubmitting, errors, handleChange, handleSubmit }) => (
           <div className="form">
             <label className="form-field" htmlFor="email">
               <span>E-mail:</span>
-              <input name="email" type="email" onChange={handleChange} />
+              <input name="email" type="email" placeholder="Enter your email" onChange={handleChange} />
             </label>
             <div className="form-field-error">{errors.email}</div>
 
             <label className="form-field" htmlFor="userName">
               <span>UserName</span>
-              <input name="userName" type="name" onChange={handleChange} />
+              <input name="userName" type="name" placeholder="Enter username" onChange={handleChange} />
             </label>
             <div className="form-field-error">{errors.name}</div>
 
             <label className="form-field" htmlFor="password">
               <span>Password:</span>
-              <input name="password" type="password" onChange={handleChange} />
+              <input name="password" type="password" placeholder="Enter password"onChange={handleChange} />
             </label>
             <div className="form-field-error">{errors.password}</div>
 
             <label className="form-field" htmlFor="passwordConfirmation">
               <span>Confirm password:</span>
-              <input name="passwordConfirmation" type="password" onChange={handleChange} />
+              <input name="passwordConfirmation" type="password" placeholder="Re-enter password" onChange={handleChange} />
             </label>
             <div className="form-field-error">{errors.passwordConfirmation}</div>
 
