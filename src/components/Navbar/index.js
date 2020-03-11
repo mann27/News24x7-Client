@@ -84,7 +84,7 @@ export default class NavBar extends Component {
             });
     };
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.getSearchData();
     }
 
@@ -115,13 +115,13 @@ export default class NavBar extends Component {
                                 </div>
                             </Grid>
                             <Grid item style={{ padding: '0px' }}>
-                                <Link to="/login" activeStyle={{ color: 'black' }}><NavButton >Login</NavButton></Link>
-                                <Link to="/signup" activeStyle={{ color: 'black' }}><NavButton >Signup</NavButton></Link>
+                                <Link to="/login" activestyle={{ color: 'black' }}><NavButton >Login</NavButton></Link>
+                                <Link to="/signup" activestyle={{ color: 'black' }}><NavButton >Signup</NavButton></Link>
                             </Grid>
                         </Grid>
                     </Toolbar>
                 </AppBar>
-                <Toolbar id="back-to-top-anchor" />
+                <div id="back-to-top-anchor" />
                 <ScrollTop {...this.props}>
                     <Fab color="secondary" size="small" aria-label="scroll back to top">
                         X

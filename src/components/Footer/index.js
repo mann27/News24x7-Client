@@ -1,5 +1,5 @@
 import React from 'react';
-import { CssBaseline, Typography, Container, Link } from '@material-ui/core';
+import { Typography, Container, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 function Copyright() {
@@ -19,7 +19,8 @@ const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh',
+        marginTop: '50px'
+        //minHeight: '100vh',
     },
     footer: {
         padding: theme.spacing(1, 1),
@@ -34,13 +35,13 @@ export default function Footer() {
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
             <footer className={classes.footer}>
                 <Container>
                     <Copyright />
                 </Container>
             </footer>
         </div>
+
     );
 }
 

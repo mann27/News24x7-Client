@@ -25,31 +25,31 @@ class SignupPage extends Component {
       >
         {({ isSubmitting, errors, handleChange, handleSubmit }) => (
           <div className="form">
-            <label className="form-field" htmlFor="email">
+            <label htmlFor="email">
               <span>E-mail:</span>
               <input name="email" type="email" placeholder="Enter your email" onChange={handleChange} />
             </label>
             <div className="form-field-error">{errors.email}</div>
 
-            <label className="form-field" htmlFor="userName">
+            <label htmlFor="userName">
               <span>UserName</span>
               <input name="userName" type="name" placeholder="Enter username" onChange={handleChange} />
             </label>
             <div className="form-field-error">{errors.name}</div>
 
-            <label className="form-field" htmlFor="password">
+            <label htmlFor="password">
               <span>Password:</span>
-              <input name="password" type="password" placeholder="Enter password"onChange={handleChange} />
+              <input name="password" type="password" placeholder="Enter password" onChange={handleChange} />
             </label>
             <div className="form-field-error">{errors.password}</div>
 
-            <label className="form-field" htmlFor="passwordConfirmation">
+            <label htmlFor="passwordConfirmation">
               <span>Confirm password:</span>
               <input name="passwordConfirmation" type="password" placeholder="Re-enter password" onChange={handleChange} />
             </label>
             <div className="form-field-error">{errors.passwordConfirmation}</div>
 
-            <label className="form-field" htmlFor="consent">
+            <label htmlFor="consent">
               <span>Consent:</span>
               <input name="consent" type="checkbox" onChange={handleChange} />
             </label>

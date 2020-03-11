@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        <div className="container">
+        <div className="content" style={{ marginTop: '10px' }}>
           <IndexRoutes />
         </div>
         <Footer />
