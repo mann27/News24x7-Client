@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Paper, Grid, Button } from '@material-ui/core'
 import Axios from 'axios';
 import Comment from '../Comment'
-
+import './postStyle.css'
 export default class Post extends Component {
 
     constructor() {
@@ -36,19 +36,20 @@ export default class Post extends Component {
             this.state.comments.map(comment => <Comment comment={comment} />)
         ) : (<p>Loading comments..</p>);
         return (
-            <Paper>
-                <Grid container spacing={3} style={{ marginTop: '15px' }}>
-                    <Grid item={true} xs={3}>
-                        <img src={this.props.post.userImage} alt="user" style={{ width: '50px', height: '50px' }} />
-                        {this.props.post.handleName}
+            <Paper >
+                <Grid container spacing={3} class="postshape">
+                    <Grid item={true} xs={3} >
+                        <img src={this.props.post.userImage} alt="user" class="usershape"  />
+                         <div className="handle"> {this.props.post.handleName} </div>
+                      
                     </Grid>
-                    <Grid item={true} xs={9}>
-                        <b>{this.props.post.title}</b>
+                    <Grid item={true} xs={9} class="title"  >
+                        <b >{this.props.post.title}</b>
                     </Grid>
                 </Grid>
-                <p>{this.props.post.body}</p>
+                <div className="postbody"><p>{this.props.post.body}</p></div>
                 <p>likes:{this.props.post.likeCount}</p>
-                <Button onClick={this.handleShowCommentsClick}>show</Button>
+                <button  onClick={this.handleShowCommentsClick}>show</button>
                 <p>Comments {this.props.post.commentCount}</p>
                 {this.state.showComments ? <div>{commentMarkup}</div> : null}
             </Paper>
