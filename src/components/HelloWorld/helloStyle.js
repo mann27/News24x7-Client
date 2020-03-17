@@ -1,4 +1,4 @@
-const footerStyle = {
+const helloStyle = {
     info: {
         color: 'blue',
         textAlign: 'center',
@@ -8,4 +8,4 @@ const footerStyle = {
 
     }
 };
-export default footerStyle;
+export default helloStyle;

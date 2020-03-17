@@ -3,24 +3,18 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 
 import IndexRoutes from './routes/index.js';
-<<<<<<< HEAD
-import Navbar from './components/NavBar';
-import SignupPage from './components/SignupPage'
-||||||| merged common ancestors
-import Navbar from './components/NavBar';
-=======
 import Navbar from './components/Navbar';
->>>>>>> a46d7880cc6bc47cca119260a8801992c545c905
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Navbar />
-        <div className="container">
+        <div className="content" style={{ marginTop: '10px' }}>
           <IndexRoutes />
         </div>
-        <SignupPage/>
+        <Footer />
       </Router>
     </div>
   );
