@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
-import { Paper, Grid } from '@material-ui/core'
+import { Paper, Grid, Button } from '@material-ui/core'
 import Axios from 'axios';
 import Comment from '../Comment'
 
 export default class Post extends Component {
 
-    state = {
-        comments: null
+    constructor() {
+        super();
+        this.state = {
+            comments: null,
+            showComments: false
+        }
+        this.handleShowCommentsClick = this.handleShowCommentsClick.bind(this);
     }
+
 
     componentDidMount() {
         Axios.get(`/post/${this.props.post.postId}`)
@@ -17,6 +23,12 @@ export default class Post extends Component {
                 })
             })
             .catch(err => console.log(err));
+    }
+
+    handleShowCommentsClick() {
+        this.setState({
+            showComments: true
+        })
     }
 
     render() {
@@ -36,8 +48,9 @@ export default class Post extends Component {
                 </Grid>
                 <p>{this.props.post.body}</p>
                 <p>likes:{this.props.post.likeCount}</p>
+                <Button onClick={this.handleShowCommentsClick}>show</Button>
                 <p>Comments {this.props.post.commentCount}</p>
-                {commentMarkup}
+                {this.state.showComments ? <div>{commentMarkup}</div> : null}
             </Paper>
         )
     }
