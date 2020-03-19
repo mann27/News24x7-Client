@@ -37,6 +37,7 @@ class HomePage extends Component {
                         <Grid item={true} xs={4}>
                             <Paper>
                                 <h1>XTRA</h1>
+                                <p>User profile</p>
                             </Paper>
                         </Grid>
                     </Grid>

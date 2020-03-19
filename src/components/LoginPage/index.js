@@ -1,18 +1,49 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { Formik } from "formik";
 import * as Yup from "yup";
 import '../SignupPage/signup.css'
+import axios from 'axios';
 const MIN_PASSWORD_LENGTH = 6;
 
-
 class LoginPage extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            email: "",
+            password: "",
+            dberrors: [],
+            loading: false
+        }
+    }
     render() {
+        const { dberrors } = this.state
         return (
             <Formik
                 initialValues={{ email: "", password: "" }}
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
                         console.log("Logging in", values);
+                        this.setState({
+                            loading: true,
+                            email: values.email,
+                            password: values.password
+                        })
+                        axios.post('/login', values)
+                            .then(res => {
+                                console.log(res.data)
+                                localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`)
+                                this.setState({ loading: false })
+                                this.props.history.push('/');
+                            })
+                            .catch(err => {
+                                console.log(err);
+                                this.setState({
+                                    dberrors: err.response.data,
+                                    loading: false
+                                })
+                            })
                         setSubmitting(false);
                     }, 500);
                 }}
@@ -66,8 +97,14 @@ class LoginPage extends Component {
                                     <div className="form-field-error">{errors.password}</div>
                                 )}
                                 <button type="submit" disabled={isSubmitting}>
-                                    Login
+                                    login
                                 </button>
+                                {this.state.loading ? <p>loading...</p> : (
+                                    (dberrors.err && (<p className="dberrors">{dberrors.err}</p>))  /* validating user */
+                                    || (dberrors.general && (<p className="dberrors">{dberrors.general}</p>)) /* checking user cred */
+                                )}
+                                <br />
+                                <small>don't have an account ? sign up <Link to="/signup">here</Link></small>
                             </form>
                         </div>
                     );
