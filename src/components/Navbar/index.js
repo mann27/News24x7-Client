@@ -115,6 +115,7 @@ export default class NavBar extends Component {
                                 </div>
                             </Grid>
                             <Grid item style={{ padding: '0px' }}>
+                                <Link to="/help/faq" activestyle={{ color: 'black' }}><NavButton >Help</NavButton></Link>
                                 <Link to="/login" activestyle={{ color: 'black' }}><NavButton >Login</NavButton></Link>
                                 <Link to="/signup" activestyle={{ color: 'black' }}><NavButton >Signup</NavButton></Link>
                             </Grid>

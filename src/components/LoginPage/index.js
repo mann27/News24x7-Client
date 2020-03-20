@@ -16,13 +16,11 @@ class LoginPage extends Component {
     constructor() {
         super();
         this.state = {
-            email: "",
-            password: "",
-            dberrors: {},
+            dberrors: {}
         }
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps.ui.errors) {
             this.setState({
                 dberrors: nextProps.ui.errors
@@ -39,10 +37,6 @@ class LoginPage extends Component {
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
                         console.log("Logging in", values);
-                        this.setState({
-                            email: values.email,
-                            password: values.password
-                        })
                         this.props.loginUser(values, this.props.history)
                         setSubmitting(false);
                     }, 500);

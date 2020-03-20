@@ -1,26 +1,29 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import propTypes from 'prop-types'
 import { Formik } from 'formik'
 import validate from './validate-yup'
 import getValidationSchema from './getValidationSchema-yup'
 import './signup.css'
-import Axios from 'axios'
 
+//redux
+import { connect } from 'react-redux';
+import { signupUser } from '../../redux/actions/userActions'
 class SignupPage extends Component {
 
   constructor() {
     super();
     this.state = {
-      email: '',
-      password: '',
-      confirmPassword: '',
-      handle: '',
-      loading: false,
       dberrors: {}
     }
   }
-
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.ui.errors) {
+      this.setState({ dberrors: nextProps.ui.errors });
+    }
+  }
   render() {
+    const { ui: { loading } } = this.props
     const { dberrors } = this.state
     return (
       <Formik
@@ -34,34 +37,14 @@ class SignupPage extends Component {
         validate={validate(getValidationSchema)}
         onSubmit={(values, { setSubmitting, setErrors }) => {
           setTimeout(() => {
-            this.setState({
-              email: values.email,
-              password: values.password,
-              confirmPassword: values.passwordConfirmation,
-              handle: values.userName,
-              loading: true
-            })
-            const newUser = {
+            const newUserData = {
               email: values.email,
               password: values.password,
               confirmPassword: values.passwordConfirmation,
               handle: values.userName
             }
-            console.log('User has been sucessfully saved!', newUser)
-            Axios.post('/signup', newUser)
-              .then(res => {
-                console.log(res.data);
-                localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
-                this.setState({ loading: false });
-                this.props.history.push('/');
-              })
-              .catch(err => {
-                console.log(err);
-                this.setState({
-                  dberrors: err.response.data,
-                  loading: false
-                })
-              })
+            console.log('User has been sucessfully saved!', newUserData)
+            this.props.signupUser(newUserData, this.props.history)
             setSubmitting(false)
           }, 500)
         }}
@@ -99,7 +82,7 @@ class SignupPage extends Component {
             <div className="form-field-error">{errors.consent}</div>
 
             <button type="submit" onClick={handleSubmit}>{isSubmitting ? 'Loading' : 'Sign Up'}</button>
-            {this.state.loading ? <p>loading...</p> : (
+            {loading ? <p>loading...</p> : (
               (dberrors.email && (<p className="dberrors">{dberrors.email}</p>))
               || (dberrors.error && (<p className="dberrors">{dberrors.error}</p>))
             )}
@@ -112,6 +95,23 @@ class SignupPage extends Component {
   }
 }
 
-export default SignupPage;
+SignupPage.propTypes = {
+  user: propTypes.object.isRequired,
+  ui: propTypes.object.isRequired,
+  signupUser: propTypes.func.isRequired
+}
+
+const mapStateToProps = (state) => {
+  return {
+    ui: state.ui,
+    user: state.user
+  }
+}
+
+const mapActionsToProps = {
+  signupUser
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(SignupPage);
 
 
