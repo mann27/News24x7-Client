@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import propTypes from 'prop-types'
 import { Formik } from "formik";
 import * as Yup from "yup";
 import '../SignupPage/signup.css'
-import axios from 'axios';
+//Redux 
+import { connect } from 'react-redux';
+import { loginUser } from '../../redux/actions/userActions';
+
 const MIN_PASSWORD_LENGTH = 6;
+
 
 class LoginPage extends Component {
 
@@ -13,11 +18,20 @@ class LoginPage extends Component {
         this.state = {
             email: "",
             password: "",
-            dberrors: [],
-            loading: false
+            dberrors: {},
         }
     }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.ui.errors) {
+            this.setState({
+                dberrors: nextProps.ui.errors
+            })
+        }
+    }
+
     render() {
+        const { ui: { loading } } = this.props
         const { dberrors } = this.state
         return (
             <Formik
@@ -26,24 +40,10 @@ class LoginPage extends Component {
                     setTimeout(() => {
                         console.log("Logging in", values);
                         this.setState({
-                            loading: true,
                             email: values.email,
                             password: values.password
                         })
-                        axios.post('/login', values)
-                            .then(res => {
-                                console.log(res.data)
-                                localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`)
-                                this.setState({ loading: false })
-                                this.props.history.push('/');
-                            })
-                            .catch(err => {
-                                console.log(err);
-                                this.setState({
-                                    dberrors: err.response.data,
-                                    loading: false
-                                })
-                            })
+                        this.props.loginUser(values, this.props.history)
                         setSubmitting(false);
                     }, 500);
                 }}
@@ -99,10 +99,10 @@ class LoginPage extends Component {
                                 <button type="submit" disabled={isSubmitting}>
                                     login
                                 </button>
-                                {this.state.loading ? <p>loading...</p> : (
+                                {loading ? <p>loading...</p> :
                                     (dberrors.err && (<p className="dberrors">{dberrors.err}</p>))  /* validating user */
                                     || (dberrors.general && (<p className="dberrors">{dberrors.general}</p>)) /* checking user cred */
-                                )}
+                                }
                                 <br />
                                 <small>don't have an account ? sign up <Link to="/signup">here</Link></small>
                             </form>
@@ -114,4 +114,19 @@ class LoginPage extends Component {
     }
 }
 
-export default LoginPage;
+LoginPage.propTypes = {
+    loginUser: propTypes.func.isRequired,
+    user: propTypes.object.isRequired,
+    ui: propTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    user: state.user,
+    ui: state.ui
+})
+
+const mapActionsToProps = {
+    loginUser
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(LoginPage);

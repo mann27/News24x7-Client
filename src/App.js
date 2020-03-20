@@ -4,7 +4,11 @@ import { Switch, Route } from "react-router-dom";
 import AuthRoute from './routes/authRoute';
 import jwtDecode from 'jwt-decode'
 import './App.css';
+//REDUX
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
+//Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HelloWorld from './components/HelloWorld';
@@ -30,20 +34,22 @@ if (token) {
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <div className="content" style={{ marginTop: '10px' }}>
-          <Switch>
-            <Route path="/hello" component={HelloWorld} />
-            <Route exact path="/" component={HomePage} />
-            <AuthRoute path="/login" component={LoginPage} authenticated={authenticated} />
-            <AuthRoute path="/signup" component={SignupPage} authenticated={authenticated} />
-          </Switch>
-        </div>
-        <Footer />
-      </Router>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Router>
+          <Navbar />
+          <div className="content" style={{ marginTop: '10px' }}>
+            <Switch>
+              <Route path="/hello" component={HelloWorld} />
+              <Route exact path="/" component={HomePage} />
+              <AuthRoute path="/login" component={LoginPage} authenticated={authenticated} />
+              <AuthRoute path="/signup" component={SignupPage} authenticated={authenticated} />
+            </Switch>
+          </div>
+          <Footer />
+        </Router>
+      </div>
+    </Provider>
   );
 }
 
