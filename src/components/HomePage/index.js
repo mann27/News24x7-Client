@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Container, Grid, Paper } from '@material-ui/core'
 import Post from './Post'
+import UserDetails from './UserDetails'
 import colors from '../../utils/base-module'
 import './homeStyle.css';
 
@@ -36,8 +37,7 @@ class HomePage extends Component {
                         </Grid>
                         <Grid item={true} xs={4}>
                             <Paper>
-                                <h1>XTRA</h1>
-                                <p>User profile</p>
+                                <UserDetails />
                             </Paper>
                         </Grid>
                     </Grid>

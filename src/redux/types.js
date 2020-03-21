@@ -8,6 +8,7 @@ export const LOADING_USER = 'LOADING_USER';
 export const SET_ERRORS = 'SET_ERRORS';
 export const LOADING_UI = 'LOADING_UI';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const UNLOADING_UI = 'UNLOADING_UI';
 
 
 //data reducer types

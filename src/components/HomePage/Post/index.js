@@ -36,7 +36,7 @@ export default class Post extends Component {
         dayjs.extend(relativeTime)
         let commentMarkup = this.state.comments ? (
             Object.keys(this.state.comments).length === 0 ? <p>No comments</p> :
-                this.state.comments.map(comment => <Comment comment={comment} />)
+                this.state.comments.map(comment => <Comment key={comment.id} comment={comment} />)
         ) : (<p>Loading comments..</p>);
         let { userImage, handleName, title, body, likeCount, commentCount, createdAt } = this.props.post;
         return (
