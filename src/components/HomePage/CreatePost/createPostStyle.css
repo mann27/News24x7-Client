@@ -1,12 +1,37 @@
-.add-new-post {
+.card-body {
     padding: 10px;
     background-color: #EEEEEE;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
-
+.card-header{
+    padding: 10px;
+    background-color: #08c;
+    font-size: 17px;
+    font-weight: 500;
+    color: #fff;
+    outline: none;
+}
+/*
 .add-new-post:hover{    
     background-color: white;
     border: 1px solid #0078d3;
+}*/
+
+.post-link{
+    padding:10px;
+
+}
+.form-group{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+
+}
+
+#text-area{
+    height: 100px;
+    width: 100%;
+
 }
