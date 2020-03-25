@@ -1,0 +1,13 @@
+.addCommentContainer{
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.commentinp{
+    margin:0px 5px;
+}
+
+.commentbtn{
+    margin:0px 5px;
+}

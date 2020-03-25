@@ -2,28 +2,57 @@ import React, { Component } from 'react';
 import { Container, Grid, Paper } from '@material-ui/core';
 import UserDetails from '../../UserDetails';
 import UserDetailsSkleton from '../../../../utils/UserDetailsSkleton';
-import PostSkleton from '../../../../utils/PostSkleton';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getPost } from '../../../../redux/actions/dataActions';
+import { getPost, submitComment } from '../../../../redux/actions/dataActions';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import ChatIcon from '@material-ui/icons/Chat';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Comment from '../../Comment';
+import './postDetailsStyle.css'
 
 class PostDetails extends Component {
 
     constructor() {
         super();
-        this.state = {}
+        this.state = {
+            commentbody: '',
+            postId: '',
+            errors: {}
+        }
+        this.handleOnChange = this.handleOnChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        if (nextProps.data.post) {
+            this.setState({
+                postId: nextProps.data.post.postId
+            })
+        }
+        if (nextProps.ui.errors) {
+            this.setState({ errors: nextProps.ui.errors });
+        }
+        if (!nextProps.ui.errors && !nextProps.ui.loading) {
+            this.setState({ commentbody: '' });
+        }
     }
 
     componentDidMount() {
         const url = window.location.href;
         const result = url.match(/[^\/]+$/)[0];
         this.props.getPost(result);
+    }
+
+    handleOnChange(e) {
+        this.setState({ commentbody: e.target.value });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.submitComment(this.state.postId, { body: this.state.commentbody })
     }
 
     render() {
@@ -66,6 +95,13 @@ class PostDetails extends Component {
                                 </div>
                             </Paper>
                             <Paper style={{ marginTop: '20px' }}>
+                                <h3>COMMENTS:</h3>
+                                <form onSubmit={this.handleSubmit}>
+                                    <div className="addCommentContainer">
+                                        <input className="commentinp" type='text' value={this.state.commentbody} placeholder="add new comment" onChange={this.handleOnChange} />
+                                        <button className="commentbtn" type="submit" >comment</button>
+                                    </div>
+                                </form>
                                 {commentMarkUp}
                             </Paper>
                         </Grid>
@@ -101,7 +137,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapActionsToProps = {
-    getPost
+    getPost,
+    submitComment
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(PostDetails);

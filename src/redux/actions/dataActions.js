@@ -1,4 +1,4 @@
-import { SET_POST, SET_POSTS, LOADING_DATA, LOADING_UI, UNLOADING_UI } from '../types';
+import { SET_POST, SET_POSTS, LOADING_DATA, LOADING_UI, UNLOADING_UI, SUBMIT_COMMENT, SET_ERRORS } from '../types';
 import axios from 'axios';
 
 export const getPosts = () => (dispatch) => {
@@ -28,3 +28,20 @@ export const getPost = (postId) => (dispatch) => {
         })
         .catch((err) => console.log(err));
 };
+
+export const submitComment = (postId, commentData) => (dispatch) => {
+    axios.post(`/post/${postId}/comment`, commentData)
+        .then((res) => {
+            dispatch({
+                type: SUBMIT_COMMENT,
+                payload: res.data
+            });
+            dispatch({ type: UNLOADING_UI });
+        })
+        .catch((err) => {
+            dispatch({
+                type: SET_ERRORS,
+                payload: err.response.data
+            });
+        });
+}
