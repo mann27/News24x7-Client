@@ -2,62 +2,50 @@ import React, { Component } from 'react'
 import { Paper, Grid } from '@material-ui/core'
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import Axios from 'axios';
-import Comment from '../Comment'
+import ChatIcon from '@material-ui/icons/Chat';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import './postStyle.css'
-export default class Post extends Component {
+import { Link } from 'react-router-dom'
 
-    constructor() {
-        super();
-        this.state = {
-            comments: null,
-            showComments: false
-        }
-        this.handleShowCommentsClick = this.handleShowCommentsClick.bind(this);
-    }
-
-    componentDidMount() {
-        Axios.get(`/post/${this.props.post.postId}`)
-            .then((res) => {
-                this.setState({
-                    comments: res.data.comments
-                })
-            })
-            .catch(err => console.log(err));
-    }
-
-    handleShowCommentsClick() {
-        this.setState({
-            showComments: true
-        })
-    }
+class Post extends Component {
 
     render() {
         dayjs.extend(relativeTime)
-        let commentMarkup = this.state.comments ? (
-            Object.keys(this.state.comments).length === 0 ? <p>No comments</p> :
-                this.state.comments.map(comment => <Comment key={comment.id} comment={comment} />)
-        ) : (<p>Loading comments..</p>);
-        let { userImage, handleName, title, body, likeCount, commentCount, createdAt } = this.props.post;
+        let { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags } = this.props.post;
+        const redirect = `/post/${this.props.post.postId}`;
         return (
-            <Paper >
+            <Paper style={{ marginTop: '25px', paddingLeft: '10px' }}>
                 <Grid container spacing={3} className="postshape">
                     <Grid item={true} xs={3} >
                         <img src={userImage} alt="user" className="usershape" />
-                        <div className="handle"> {handleName} </div>
-
+                        <p className="handle"> {handleName} </p>
                     </Grid>
                     <Grid item={true} xs={9} className="title"  >
-                        <b >{title}</b>
+                        <b style={{ marginBottom: '0px' }}>{title}</b>
+                        <div className="time-tags">
+                            <p style={{ fontSize: 'small' }}>{dayjs(createdAt).fromNow()}</p>
+                            <p style={{ marginLeft: '20px', fontSize: 'medium' }}>{tags}</p>
+                        </div>
                     </Grid>
                 </Grid>
-                <p>{dayjs(createdAt).fromNow()}</p>
-                <div className="postbody"><p>{body}</p></div>
-                <p>likes:{likeCount}</p>
-                <button onClick={this.handleShowCommentsClick}>show</button>
-                <p>Comments {commentCount}</p>
-                {this.state.showComments ? <div>{commentMarkup}</div> : null}
+                <p className="postbody">{body}</p>
+                <Grid container spacing={3}>
+                    <Grid item={true} xs={9}>
+                        <div className="like-comment">
+                            <FavoriteIcon />
+                            <p>{likeCount} likes</p>
+                            <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
+                            <p style={{ marginLeft: '10px' }}>{commentCount} Comments</p>
+                        </div>
+                    </Grid>
+                    <Grid item={true} xs={3}>
+                        <Link to={redirect}><button >expand</button></Link>
+                    </Grid>
+                </Grid>
+
             </Paper>
         )
     }
 }
+
+export default (Post);

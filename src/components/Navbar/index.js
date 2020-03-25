@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import propTypes from 'prop-types'
 import { AppBar, Toolbar, Typography, useScrollTrigger, Fab, Zoom, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import colors from '../../utils/base-module';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../redux/actions/userActions'
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -45,13 +49,22 @@ function ScrollTop(props) {
     );
 }
 
-export default class NavBar extends Component {
+class NavBar extends Component {
 
-    state = {
-        query: "",
-        data: [],
-        filteredData: []
-    };
+    constructor() {
+        super();
+        this.state = {
+            query: "",
+            data: [],
+            filteredData: []
+        };
+        this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    }
+
+    handleLogoutClick = () => {
+        console.log('logging out!');
+        this.props.logoutUser();
+    }
 
     handleInputChange = event => {
         const query = event.target.value;
@@ -89,6 +102,7 @@ export default class NavBar extends Component {
     }
 
     render() {
+        const { user: { authenticated } } = this.props
         return (
             <React.Fragment>
                 <AppBar color='inherit'>
@@ -116,12 +130,20 @@ export default class NavBar extends Component {
                             </Grid>
                             <Grid item style={{ padding: '0px' }}>
                                 <Link to="/help/faq" activestyle={{ color: 'black' }}><NavButton >Help</NavButton></Link>
-                                <Link to="/login" activestyle={{ color: 'black' }}><NavButton >Login</NavButton></Link>
-                                <Link to="/signup" activestyle={{ color: 'black' }}><NavButton >Signup</NavButton></Link>
+                                {authenticated ? (
+                                    <Link to="/" activestyle={{ color: 'black' }}><NavButton onClick={this.handleLogoutClick} >Logout</NavButton></Link>
+                                ) : (
+                                        <span>
+                                            <Link to="/login" activestyle={{ color: 'black' }}><NavButton >Login</NavButton></Link>
+                                            <Link to="/signup" activestyle={{ color: 'black' }}><NavButton >Signup</NavButton></Link>
+                                        </span>
+
+                                    )}
+
                             </Grid>
                         </Grid>
                     </Toolbar>
-                </AppBar>
+                </AppBar >
                 <div id="back-to-top-anchor" />
                 <ScrollTop {...this.props}>
                     <Fab color="secondary" size="small" aria-label="scroll back to top">
@@ -133,3 +155,18 @@ export default class NavBar extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+}
+
+const mapActionsToProps = {
+    logoutUser
+}
+
+NavBar.propTypes = {
+    user: propTypes.object.isRequired
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(NavBar);

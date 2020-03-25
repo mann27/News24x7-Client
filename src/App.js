@@ -19,6 +19,7 @@ import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import HomePage from './components/HomePage';
 import HelpPage from './components/HelpPage';
+import PostDetails from './components/HomePage/Post/PostDetails'
 
 axios.defaults.baseURL = 'https://asia-east2-news-sen3.cloudfunctions.net/api';
 
@@ -50,6 +51,7 @@ function App() {
               <Route exact path="/" component={HomePage} />
               <AuthRoute path="/login" component={LoginPage} />
               <AuthRoute path="/signup" component={SignupPage} />
+              <Route path="/post/:postId" component={PostDetails} />
             </Switch>
           </div>
           <Footer />

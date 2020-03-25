@@ -1,0 +1,10 @@
+.commentContainer{
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.handle{
+    margin-right: 20px;
+    padding-left: 10px;
+}

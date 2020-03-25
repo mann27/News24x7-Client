@@ -31,18 +31,18 @@
   }
   
   .postshape{
-            margin-top: 15px;
-            margin-left: 15px;
+     margin-left: 15px;
   }
   .usershape {
-    margin-top: 15px;
-    border-radius: 50px;
+    margin-top: 5px;
+    border-radius: 100%;
     border-color:grey;
     border-style: solid;
     border-width: 0.2mm;
-  padding: 0px;
-  width: 150px;
-  height: 150px;
+    padding: 0px;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0px;
   }
   .title{
     font-size: 16px;
@@ -53,10 +53,23 @@
   }
 
 .postbody{
-    margin-top: 15px;
+    margin-top: 0px;
     border-color: #007eff;
+    margin-bottom: 0px;
 }
 .handle{
+    padding-top: 0px;
+    margin-top: 0px;
     font-weight: 100;
-    font-size: 1cm;
+    font-size: medium;
+}
+.like-comment{
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
+}
+.time-tags {
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
 }

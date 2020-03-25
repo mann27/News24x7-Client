@@ -1,35 +1,34 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import propTypes from 'prop-types';
 import { Container, Grid, Paper } from '@material-ui/core'
 import Post from './Post'
 import UserDetails from './UserDetails'
 import CreatePost from './CreatePost';
+import PostSkleton from '../../utils/PostSkleton';
+import UserDetailsSkleton from '../../utils/UserDetailsSkleton';
 import colors from '../../utils/base-module'
 import './homeStyle.css';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import { getPosts } from '../../redux/actions/dataActions';
 
 class HomePage extends Component {
 
-    state = {
-        posts: null
+    constructor() {
+        super();
+        this.state = {}
     }
     componentDidMount() {
-        axios.get('/posts')
-            .then(res => {
-                this.setState({ posts: res.data })
-            })
-            .catch(err => {
-                console.log(err);
-            })
+        this.props.getPosts();
     }
 
     render() {
         const { user: { authenticated } } = this.props
-        let PostMarkup = this.state.posts ? (
-            this.state.posts.map(post => <Post key={post.postId} post={post} />)
-        ) : (<p>Loading...</p>);
+        const { data: { posts, loading } } = this.props
+        const uiloading = this.props.ui.loading;
+        let PostMarkup = !loading ? (
+            posts.map(post => <Post key={post.postId} post={post} />)
+        ) : (<PostSkleton />);
         return (
             <div style={{ backgroundColor: colors.LIGHT_GREY }}>
                 <Container maxWidth="md" style={{ paddingTop: '30px' }}>
@@ -45,9 +44,10 @@ class HomePage extends Component {
                         </Grid>
                         <Grid item={true} xs={4}>
                             <Paper>
-                                {authenticated ? <UserDetails /> :
-                                    <p><Link to="/login">login</Link> to see your details</p>
-                                }
+                                {!uiloading ?
+                                    (authenticated ? <UserDetails /> :
+                                        <p><Link to="/login">login</Link> to see your details</p>
+                                    ) : <UserDetailsSkleton />}
                             </Paper>
                         </Grid>
                     </Grid>
@@ -58,13 +58,22 @@ class HomePage extends Component {
 }
 
 HomePage.propTypes = {
-    user: propTypes.object.isRequired
+    user: propTypes.object.isRequired,
+    data: propTypes.object.isRequired,
+    ui: propTypes.object.isRequired,
+    getPosts: propTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user
+        user: state.user,
+        data: state.data,
+        ui: state.ui
     }
 }
 
-export default connect(mapStateToProps)(HomePage);
+const mapActionsToProps = {
+    getPosts
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(HomePage);

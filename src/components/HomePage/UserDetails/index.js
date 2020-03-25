@@ -4,19 +4,16 @@ import propTypes from 'prop-types'
 
 class UserDetails extends Component {
     render() {
-        const { user: { creds: { handle, imageUrl, email } }, ui: { loading } } = this.props;
+        const { user: { creds: { handle, imageUrl, email } } } = this.props;
         return (
             <div>
-                {loading ? <center>loading ....</center> :
-                    (
-                        <center>
-                            <h2>User Details</h2>
-                            <img src={imageUrl} alt="user" height={100} width={100} style={{ borderRadius: '50%' }} />
-                            <br />
-                            <h3>@{handle}</h3>
-                            <p>Email : {email}</p>
-                        </center>
-                    )}
+                <center>
+                    <h2>User Details</h2>
+                    <img src={imageUrl} alt="user" height={100} width={100} style={{ borderRadius: '50%' }} />
+                    <br />
+                    <h3>@{handle}</h3>
+                    <p>Email : {email}</p>
+                </center>
             </div>
         )
     }
@@ -24,13 +21,11 @@ class UserDetails extends Component {
 
 UserDetails.propTypes = {
     user: propTypes.object.isRequired,
-    ui: propTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => {
     return {
         user: state.user,
-        ui: state.ui
     }
 }
 
