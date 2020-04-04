@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import colors from '../../utils/base-module';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { logoutUser } from '../../redux/actions/userActions'
 
 
@@ -102,7 +103,8 @@ class NavBar extends Component {
     }
 
     render() {
-        const { user: { authenticated } } = this.props
+        const { user: { authenticated, creds: { handle } } } = this.props
+        const userlink = `/user/${handle}`;
         return (
             <React.Fragment>
                 <AppBar color='inherit'>
@@ -131,7 +133,10 @@ class NavBar extends Component {
                             <Grid item style={{ padding: '0px' }}>
                                 <Link to="/help/faq" activestyle={{ color: 'black' }}><NavButton >Help</NavButton></Link>
                                 {authenticated ? (
-                                    <Link to="/" activestyle={{ color: 'black' }}><NavButton onClick={this.handleLogoutClick} >Logout</NavButton></Link>
+                                    <span>
+                                        <Link to="/" activestyle={{ color: 'black' }}><NavButton onClick={this.handleLogoutClick} >Logout</NavButton></Link>
+                                        <Link to={userlink} activestyle={{ color: 'black' }}><AccountCircleIcon fontSize="large" style={{ verticalAlign: 'middle' }} /></Link>
+                                    </span>
                                 ) : (
                                         <span>
                                             <Link to="/login" activestyle={{ color: 'black' }}><NavButton >Login</NavButton></Link>

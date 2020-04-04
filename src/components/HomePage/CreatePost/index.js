@@ -5,49 +5,40 @@ import TextFieldGroup from './TextFieldGroup';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { createPost } from '../../../redux/actions/dataActions';
 
 class CreatePost extends Component {
 
   constructor() {
     super();
     this.state = {
-      url: '',
-      text: '',
+      title: '',
+      body: '',
+      tags: '',
       errors: {}
     };
+    this.onPostSubmit = this.onPostSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit(e) {
+  onPostSubmit(e) {
     e.preventDefault();
-
-    if (!this.props.auth.isAuthenticated) {
-      this.props.history.push('/');
+    const newpost = {
+      title: this.state.title,
+      body: this.state.body,
+      tags: this.state.tags
     }
-
-    const { user } = this.props.auth;
-
-    const newPost = {
-      url: this.state.url,
-      //      handle: this.state.handle,
-      text: this.state.text,
-      name: user.name,
-
-    };
-    console.log(this.props.auth);
-
-    this.props.addPost(newPost);
+    this.props.createPost(newpost);
     this.setState({
-      text: '',
-      url: ''
+      title: '',
+      body: '',
+      tags: ''
     });
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-
 
   render() {
     const { user: { authenticated } } = this.props
@@ -58,33 +49,32 @@ class CreatePost extends Component {
           <div className="card-header bg-info text-white">Say Somthing...</div>
           {authenticated ? (
             <div className="card-body">
-              <form onSubmit={this.onSubmit}>
+              <form onSubmit={this.onPostSubmit}>
                 <div className="form-group">
                   <TextFieldGroup
-                    placeholder="URL"
-                    name="url"
-                    type="url"
-                    value={this.state.url}
+                    placeholder="title"
+                    name="title"
+                    type="title"
+                    value={this.state.title}
                     onChange={this.onChange}
-                    error={errors.url}
+                    error={errors.title}
                   />
                   <TextAreaFieldGroup
                     placeholder="Thoughts"
-                    name="text"
-                    value={this.state.text}
+                    name="body"
+                    value={this.state.body}
                     onChange={this.onChange}
-                    error={errors.text}
+                    error={errors.body}
                   />
                   <TextFieldGroup
-                    placeholder="Add Tags"
-                    name="text"
+                    placeholder="Add Tags seperated with a space"
+                    name="tags"
                     type="text"
-                    value={this.state.text}
+                    value={this.state.tags}
                     onChange={this.onChange}
-                    error={errors.text}
+                    error={errors.tags}
                   />
                 </div>
-
                 <button>
                   Submit
               </button>
@@ -107,4 +97,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(CreatePost);
+const mapActionsToProps = {
+  createPost
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(CreatePost);

@@ -12,6 +12,8 @@ import ChatIcon from '@material-ui/icons/Chat';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Comment from '../../Comment';
 import './postDetailsStyle.css'
+import spin from '../../../../utils/black_spinner.gif';
+
 
 class PostDetails extends Component {
 
@@ -72,36 +74,49 @@ class PostDetails extends Component {
                 <Container maxWidth="md" style={{ paddingTop: '30px' }}>
                     <Grid container spacing={2}>
                         <Grid item={true} xs={8}>
-                            <Paper>
-                                <Grid container spacing={3} className="postshape">
-                                    <Grid item={true} xs={3} >
-                                        <img src={userImage} alt="user" className="usershape" />
-                                        <p className="handle"> {handleName} </p>
+                            {!uiloading ? (
+                                <Paper>
+                                    <Grid container spacing={3} className="postshape">
+                                        <Grid item={true} xs={3} >
+                                            <img src={userImage} alt="user" className="usershape" />
+                                            <p className="handle"> {handleName} </p>
+                                        </Grid>
+                                        <Grid item={true} xs={9} className="title"  >
+                                            <b style={{ marginBottom: '0px' }}>{title}</b>
+                                            <div className="time-tags">
+                                                <p style={{ fontSize: 'small' }}>{dayjs(createdAt).fromNow()}</p>
+                                                <p style={{ marginLeft: '20px', fontSize: 'medium' }}>{tags}</p>
+                                            </div>
+                                        </Grid>
                                     </Grid>
-                                    <Grid item={true} xs={9} className="title"  >
-                                        <b style={{ marginBottom: '0px' }}>{title}</b>
-                                        <div className="time-tags">
-                                            <p style={{ fontSize: 'small' }}>{dayjs(createdAt).fromNow()}</p>
-                                            <p style={{ marginLeft: '20px', fontSize: 'medium' }}>{tags}</p>
-                                        </div>
-                                    </Grid>
-                                </Grid>
-                                <p className="postbody">{body}</p>
-                                <div className="like-comment">
-                                    <FavoriteIcon />
-                                    <p>{likeCount} likes</p>
-                                    <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
-                                    <p style={{ marginLeft: '10px' }}>{commentCount} Comments</p>
-                                </div>
-                            </Paper>
+                                    <p className="postbody">{body}</p>
+                                    <div className="like-comment">
+                                        <FavoriteIcon />
+                                        <p>{likeCount} likes</p>
+                                        <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
+                                        <p style={{ marginLeft: '10px' }}>{commentCount} Comments</p>
+                                    </div>
+                                </Paper>
+                            ) : (
+                                    <Paper style={{ padding: '30px' }}>
+                                        <center>
+                                            <img src={spin} alt="loading..."></img>
+                                        </center>
+                                    </Paper>
+                                )}
                             <Paper style={{ marginTop: '20px' }}>
                                 <h3>COMMENTS:</h3>
-                                <form onSubmit={this.handleSubmit}>
-                                    <div className="addCommentContainer">
-                                        <input className="commentinp" type='text' value={this.state.commentbody} placeholder="add new comment" onChange={this.handleOnChange} />
-                                        <button className="commentbtn" type="submit" >comment</button>
-                                    </div>
-                                </form>
+                                {authenticated ?
+                                    <form onSubmit={this.handleSubmit}>
+                                        <div className="addCommentContainer">
+                                            <input className="commentinp" type='text' value={this.state.commentbody} placeholder="add new comment" onChange={this.handleOnChange} />
+                                            <button className="commentbtn" type="submit" >comment</button>
+                                        </div>
+                                    </form> : (
+                                        <center>
+                                            <p><Link to="/login">login</Link> or <Link to="/signup">signup</Link> to add an comment</p>
+                                        </center>
+                                    )}
                                 {commentMarkUp}
                             </Paper>
                         </Grid>

@@ -1,5 +1,6 @@
-import { SET_USER, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, SET_UNAUTHENTICATED, UNLOADING_UI } from '../types';
+import { SET_USER, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, SET_UNAUTHENTICATED, UNLOADING_UI, SET_USERPOSTS } from '../types';
 import axios from 'axios';
+import { getPosts } from './dataActions';
 
 export const loginUser = (userData, history) => (dispatch) => {
     dispatch({ type: LOADING_UI });
@@ -57,8 +58,25 @@ export const getUserData = () => (dispatch) => {
         })
 }
 
+export const getUserPosts = (handle) => (dispatch, getState) => {
+    dispatch({ type: LOADING_UI })
+    dispatch(getPosts());
+    const userpost = [];
+    getState().data.posts.map((upost) => {
+        if (upost.handleName === handle) {
+            userpost.push(upost);
+        }
+    });
+    dispatch({
+        type: SET_USERPOSTS,
+        payload: userpost
+    })
+    dispatch({ type: UNLOADING_UI });
+}
+
 const setAuthorizationHeader = (token) => {
     const FBIdToken = `Bearer ${token}`;
     localStorage.setItem('FBIdToken', FBIdToken);
     axios.defaults.headers.common['Authorization'] = FBIdToken;
 };
+

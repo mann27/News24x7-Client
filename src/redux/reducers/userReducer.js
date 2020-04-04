@@ -1,9 +1,10 @@
-import { SET_USER, SET_AUTHENTICATED, SET_UNAUTHENTICATED } from '../types';
+import { SET_USER, SET_AUTHENTICATED, SET_UNAUTHENTICATED, SET_USERPOSTS } from '../types';
 
 const initialState = {
     authenticated: false,
     creds: {},
-    likes: []
+    likes: [],
+    posts: []
 }
 
 export default function (state = initialState, action) {
@@ -21,6 +22,11 @@ export default function (state = initialState, action) {
             return {
                 authenticated: true,
                 ...action.payload
+            }
+        case SET_USERPOSTS:
+            return {
+                ...state,
+                posts: action.payload
             }
         default:
             return state
