@@ -3,6 +3,11 @@ front-end
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisites
+
+Node.js should be installed [https://nodejs.org/en/](https://nodejs.org/en/) <br />
+Add redux dev-tools extension to chrome.
+
 ## Available Scripts
 
 In the project directory, you can run:
