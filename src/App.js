@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import AuthRoute from './routes/authRoute';
 import jwtDecode from 'jwt-decode'
 import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 //REDUX
 import { Provider } from 'react-redux';
@@ -21,6 +22,7 @@ import HomePage from './components/HomePage';
 import HelpPage from './components/HelpPage';
 import PostDetails from './components/HomePage/Post/PostDetails'
 import userPage from './components/UserPage';
+
 
 axios.defaults.baseURL = 'https://asia-east2-news-sen3.cloudfunctions.net/api';
 
@@ -42,6 +44,7 @@ if (token) {
 function App() {
   return (
     <Provider store={store}>
+      <ToastContainer autoClose={8000} />
       <div className="App">
         <Router>
           <Navbar />

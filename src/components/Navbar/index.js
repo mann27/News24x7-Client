@@ -62,8 +62,8 @@ class NavBar extends Component {
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
     }
 
+
     handleLogoutClick = () => {
-        console.log('logging out!');
         this.props.logoutUser();
     }
 

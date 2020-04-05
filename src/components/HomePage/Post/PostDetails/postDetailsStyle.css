@@ -11,3 +11,9 @@
 .commentbtn{
     margin:0px 5px;
 }
+.delete-btn button{
+    float: right;
+    margin-left: 280px;
+    color: red;
+    background-color: whitesmoke;
+}

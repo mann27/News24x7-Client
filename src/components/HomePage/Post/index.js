@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Paper, Grid } from '@material-ui/core'
+import { Paper, Grid, Container } from '@material-ui/core'
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -15,20 +15,23 @@ class Post extends Component {
         const redirect = `/post/${this.props.post.postId}`;
         return (
             <Paper style={{ marginTop: '25px', paddingLeft: '10px' }}>
-                <Grid container spacing={3} className="postshape">
-                    <Grid item={true} xs={3} >
-                        <img src={userImage} alt="user" className="usershape" />
-                        <p className="handle"> {handleName} </p>
+                <Link to={redirect} className="link">
+                    <Grid container spacing={3} className="postshape">
+                        <Grid item={true} xs={3} >
+                            <img src={userImage} alt="user" className="usershape" />
+                            <p className="handle"> {handleName} </p>
+                        </Grid>
+                        <Grid item={true} xs={9} className="title"  >
+                            <b style={{ marginBottom: '0px' }}>{title}</b>
+                            <div className="time-tags">
+                                <p style={{ fontSize: 'small' }}>{dayjs(createdAt).fromNow()}</p>
+                                <p style={{ marginLeft: '20px', fontSize: 'medium' }}>{tags}</p>
+                            </div>
+                        </Grid>
                     </Grid>
-                    <Grid item={true} xs={9} className="title"  >
-                        <b style={{ marginBottom: '0px' }}>{title}</b>
-                        <div className="time-tags">
-                            <p style={{ fontSize: 'small' }}>{dayjs(createdAt).fromNow()}</p>
-                            <p style={{ marginLeft: '20px', fontSize: 'medium' }}>{tags}</p>
-                        </div>
-                    </Grid>
-                </Grid>
-                <p className="postbody">{body}</p>
+                    <p className="postbody">{body}</p>
+                </Link>
+
                 <Grid container spacing={3}>
                     <Grid item={true} xs={9}>
                         <div className="like-comment">
@@ -39,10 +42,8 @@ class Post extends Component {
                         </div>
                     </Grid>
                     <Grid item={true} xs={3}>
-                        <Link to={redirect}><button >expand</button></Link>
                     </Grid>
                 </Grid>
-
             </Paper>
         )
     }

@@ -16,10 +16,20 @@ class HomePage extends Component {
 
     constructor() {
         super();
-        this.state = {}
+        this.state = {
+            type: "r"
+        }
     }
     componentDidMount() {
-        this.props.getPosts();
+        if (typeof this.props.data.posts !== 'undefined' && this.props.data.posts.length > 0) { }
+        else
+            this.props.getPosts(this.state.type);
+    }
+
+    onClickType = (ty) => {
+        console.log(ty);
+        this.props.getPosts(ty);
+        this.props.history.push('/');
     }
 
     render() {
@@ -49,10 +59,17 @@ class HomePage extends Component {
                                         <p><Link to="/login">login</Link> to see your details</p>
                                     ) : <UserDetailsSkleton />}
                             </Paper>
+                            <Paper>
+                                <center>
+                                    <button type="buttton" onClick={() => this.onClickType("r")}>Recent</button>
+                                    <button type="button" onClick={() => this.onClickType("ml")}>most liked</button>
+                                    <button type="button" onClick={() => this.onClickType("t")}>trending</button>
+                                </center>
+                            </Paper>
                         </Grid>
                     </Grid>
                 </Container>
-            </div>
+            </div >
         )
     }
 }

@@ -5,7 +5,7 @@ import UserDetailsSkleton from '../../../../utils/UserDetailsSkleton';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getPost, submitComment } from '../../../../redux/actions/dataActions';
+import { getPost, submitComment, deletePost } from '../../../../redux/actions/dataActions';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -57,6 +57,19 @@ class PostDetails extends Component {
         this.props.submitComment(this.state.postId, { body: this.state.commentbody })
     }
 
+    showDelete = () => {
+        if (this.props.user.authenticated)
+            if (this.props.data.post.handleName === this.props.user.creds.handle) {
+                return true;
+            }
+        return false;
+    }
+
+    onClickDelete = () => {
+        this.props.deletePost(this.props.data.post.postId);
+        this.props.history.push('/')
+    }
+
     render() {
         const { user: { authenticated } } = this.props;
         dayjs.extend(relativeTime)
@@ -95,6 +108,10 @@ class PostDetails extends Component {
                                         <p>{likeCount} likes</p>
                                         <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
                                         <p style={{ marginLeft: '10px' }}>{commentCount} Comments</p>
+                                        {
+                                            authenticated && this.showDelete() ? <span className="delete-btn"><button type="button" onClick={this.onClickDelete}>delete</button></span> : null
+                                        }
+
                                     </div>
                                 </Paper>
                             ) : (
@@ -153,7 +170,8 @@ const mapStateToProps = (state) => {
 
 const mapActionsToProps = {
     getPost,
-    submitComment
+    submitComment,
+    deletePost
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(PostDetails);
