@@ -18,7 +18,7 @@ class Post extends Component {
         let { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId } = this.props.post;
         const redirect = `/post/${this.props.post.postId}`;
         return (
-            <Paper style={{ marginTop: '25px', paddingLeft: '10px' }}>
+            <Paper style={{ marginTop: '25px', paddingLeft: '10px', paddingRight:'10px', paddingBottom: '10px' }}>
                 <Link to={redirect} className="link">
                     <Grid container spacing={3} className="postshape">
                         <Grid item={true} xs={3} >
@@ -29,7 +29,7 @@ class Post extends Component {
                             <b style={{ marginBottom: '0px' }}>{title}</b>
                             <div className="time-tags">
                                 <p style={{ fontSize: 'small' }}>{dayjs(createdAt).fromNow()}</p>
-                                <p style={{ marginLeft: '20px', fontSize: 'medium' }}>{tags}</p>
+                                <p style={{ marginLeft: '20px', fontSize: 'medium' }}><u>{tags}</u></p>
                             </div>
                         </Grid>
                     </Grid>
