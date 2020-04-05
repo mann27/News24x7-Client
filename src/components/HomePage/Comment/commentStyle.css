@@ -5,6 +5,13 @@
 }
 
 .handle{
-    margin-right: 20px;
-    padding-left: 10px;
+    padding-top: 0px;
+    padding-right: 5px;
+    margin-top: 0px;
+    font-weight: 100;
+    font-size: medium;
+    color: black;
+}
+.combody {
+    padding-left: 5px;
 }
