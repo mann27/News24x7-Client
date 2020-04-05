@@ -31,7 +31,10 @@
   }
   
   .postshape{
-     margin-left: 15px;
+     margin-left: 0px;
+    background-color:rgb(162, 209, 233);
+    margin-right: 0px;
+    padding-right: 5px;
   }
   .usershape {
     margin-top: 5px;
@@ -39,7 +42,7 @@
     border-color:grey;
     border-style: solid;
     border-width: 0.2mm;
-    padding: 0px;
+    padding:0px;
     width: 50px;
     height: 50px;
     margin-bottom: 0px;
@@ -49,27 +52,59 @@
     width: 100%;
     display: block;
     border-radius: 4px;
-    font-style: italic;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    padding-right: 5px;
+    margin-right: 10px;
+
   }
 
 .postbody{
     margin-top: 0px;
     border-color: #007eff;
-    margin-bottom: 0px;
+    border-style: hidden;
+    border-radius: 0px;
+    margin-bottom: 0px; 
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 5px 5px 5px 5px;
+    background-color: paleturquoise;
 }
 .handle{
     padding-top: 0px;
     margin-top: 0px;
     font-weight: 100;
     font-size: medium;
+  
 }
-.like-comment{
+.like-share-comment-bookmark{
   margin-top: 0px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
 }
 .time-tags {
   margin-top: 0px;
   display: flex;
+  justify-content: space-around;
   align-items: center;
+  font-size: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.time {
+  margin-left: '20px';
+  
+  
+}
+.tags {
+  margin-left: '20px';
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: underline;
+  font-style: initial;
+}
+.comment-login {
+  text-align: center;
+  padding: 5px 5px 5px 5px ;
 }
