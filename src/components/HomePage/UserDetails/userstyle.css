@@ -1,0 +1,12 @@
+.userstyle {
+    border-style: hidden;
+
+}
+.heading {
+    padding: 10px;
+    background-color: #08c;
+    font-size: 17px;
+    font-weight: 500;
+    color: white;
+    outline: none;
+}

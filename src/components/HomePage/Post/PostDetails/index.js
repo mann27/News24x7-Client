@@ -102,7 +102,7 @@ class PostDetails extends Component {
                     <Grid container spacing={1}>
                         <Grid item={true} xs={8}>
                             {!uiloading ? (
-                                <Paper>
+                                <Paper style= {{paddingLeft: '10px', paddingRight:'10px'}}>
                                     <Grid container spacing={3} className="postshape">
                                         <Grid item={true} xs={3} >
                                             <img src={userImage} alt="user" className="usershape" />
@@ -117,7 +117,7 @@ class PostDetails extends Component {
                                                     <p>{dayjs(createdAt).fromNow()}</p>
                                                 </div>
                                                 <div className="tags">
-                                                    <p>{tags}</p>
+                                                    <p style={{ marginLeft: '20px', fontSize: 'medium' }}><u>{tags}</u></p>
                                                 </div>
                                             </div>
                                         </Grid>

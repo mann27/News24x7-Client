@@ -24,3 +24,24 @@
     color: red;
     background-color: whitesmoke;
 }
+.postshape{
+    margin-left: 15px;
+    border: #007eff;
+    border-style: hidden;
+    background-color: #a0ccf8;
+ }
+
+ .time-tags {
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  .like-share-comment-bookmark{
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }  
