@@ -1,79 +1,65 @@
 import React, { Component } from 'react'
-import propTypes from 'prop-types';
-import { Container, Grid, Paper } from '@material-ui/core'
-import Post from './Post'
-import UserDetails from './UserDetails'
-import CreatePost from './CreatePost';
-import PostSkleton from '../../utils/PostSkleton';
-import UserDetailsSkleton from '../../utils/UserDetailsSkleton';
-import colors from '../../utils/base-module'
-import './homeStyle.css';
+import { Paper, Grid } from '@material-ui/core'
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import ChatIcon from '@material-ui/icons/Chat';
+import ShareIcon from '@material-ui/icons/Share';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import ReportIcon from '@material-ui/icons/Report';
+
+import './postStyle.css'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux';
-import { getPosts } from '../../redux/actions/dataActions';
+import LikeButton from './LikeButton';
 
-class HomePage extends Component {
-
-    constructor() {
-        super();
-        this.state = {}
-    }
-    componentDidMount() {
-        this.props.getPosts();
-    }
+class Post extends Component {
 
     render() {
-        const { user: { authenticated } } = this.props
-        const { data: { posts, loading } } = this.props
-        const uiloading = this.props.ui.loading;
-        let PostMarkup = !loading ? (
-            posts.map(post => <Post key={post.postId} post={post} />)
-        ) : (<PostSkleton />);
+        dayjs.extend(relativeTime)
+        let { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId } = this.props.post;
+        const redirect = `/post/${this.props.post.postId}`;
         return (
-            <div style={{ backgroundColor: colors.LIGHT_GREY }}>
-                <Container maxWidth="md" style={{ paddingTop: '30px' }}>
-                    <Grid container spacing={2}>
-                        <Grid item={true} xs={8}>
-                            <Paper style={{ padding: '10px' }}>
-                                <CreatePost />
-                            </Paper>
-                            <div style={{ marginTop: '20px' }}>
-                                {PostMarkup}
-                            </div>
-
-                        </Grid>
-                        <Grid item={true} xs={4}>
-                            <Paper>
-                                {!uiloading ?
-                                    (authenticated ? <UserDetails /> :
-                                        <p><Link to="/login">login</Link> to see your details</p>
-                                    ) : <UserDetailsSkleton />}
-                            </Paper>
-                        </Grid>
+            <Paper style={{ marginTop: '25px', paddingLeft: '10px' }}>
+                <Grid container spacing={3} className="postshape">
+                    <Grid item={true} xs={3} >
+                        <img src={userImage} alt="user" className="usershape" />
+                        <p className="handle"> {handleName} </p>
                     </Grid>
-                </Container>
-            </div>
+                    <Grid item={true} xs={9} className="title"  >
+                    <div className="title">
+                                            <b style={{ marginBottom: '0px' }}>{title}</b>
+                                            </div>
+                                            <div className="time-tags">
+                                                <div className = "time">
+                                                <p>{dayjs(createdAt).fromNow()}</p>
+                                                </div>
+                                                <div className="tags">
+                                                <p>{tags}</p>
+                                                </div>
+                                            </div>
+                    </Grid>
+                </Grid>
+                <p className="postbody">{body}</p>
+                <Grid container spacing={3}>
+                    <Grid item={true} xs={9}>
+                        <div className="like-share-comment-bookmark">
+                            <LikeButton key={postId} postId={postId} />
+                            <p>{likeCount} likes</p>
+                            
+                            <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
+                            <p style={{ marginLeft: '5px' }}>{commentCount} Comments</p>
+                            <BookmarkIcon/>
+                            <ShareIcon style={{ marginLeft: '15px' , marginRight:'0px'}} />
+                            <ReportIcon/>
+                        </div>
+                    </Grid>
+                    <Grid item={true} xs={3}>
+                        <Link to={redirect}><button >expand</button></Link>
+                    </Grid>
+                </Grid>
+
+            </Paper>
         )
     }
 }
 
-HomePage.propTypes = {
-    user: propTypes.object.isRequired,
-    data: propTypes.object.isRequired,
-    ui: propTypes.object.isRequired,
-    getPosts: propTypes.func.isRequired
-}
-
-const mapStateToProps = (state) => {
-    return {
-        user: state.user,
-        data: state.data,
-        ui: state.ui
-    }
-}
-
-const mapActionsToProps = {
-    getPosts
-}
-
-export default connect(mapStateToProps, mapActionsToProps)(HomePage);
+export default (Post);
