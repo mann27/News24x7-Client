@@ -62,8 +62,8 @@ class HomePage extends Component {
                             <Paper>
                                 <center>
                                     <button type="buttton" onClick={() => this.onClickType("r")}>Recent</button>
-                                    <button type="button" onClick={() => this.onClickType("ml")}>most liked</button>
-                                    <button type="button" onClick={() => this.onClickType("t")}>trending</button>
+                                    <button type="button" onClick={() => this.onClickType("ml")}>Most Liked</button>
+                                    <button type="button" onClick={() => this.onClickType("t")}>Trending</button>
                                 </center>
                             </Paper>
                         </Grid>

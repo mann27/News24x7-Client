@@ -46,13 +46,13 @@ class CreatePost extends Component {
     return (
       <div className="post-form mb-3 shadow rounded mt-4">
         <div className="card card-info">
-          <div className="card-header bg-info text-white">Say Somthing...</div>
+          <div className="card-header bg-info text-white">Say <b>Something</b>...</div>
           {authenticated ? (
             <div className="card-body">
               <form onSubmit={this.onPostSubmit}>
                 <div className="form-group">
                   <TextFieldGroup
-                    placeholder="title"
+                    placeholder="Title"
                     name="title"
                     type="title"
                     value={this.state.title}
@@ -60,7 +60,7 @@ class CreatePost extends Component {
                     error={errors.title}
                   />
                   <TextAreaFieldGroup
-                    placeholder="enter your news link here"
+                    placeholder="Enter your link here"
                     name="body"
                     value={this.state.body}
                     onChange={this.onChange}

@@ -87,7 +87,7 @@ class SignupPage extends Component {
               || (dberrors.error && (<p className="dberrors">{dberrors.error}</p>))
             )}
             <br />
-            <small>Already have an account ? log in <Link to="/login">here</Link></small>
+            <small>Already have an Account ? Log In <Link to="/login">here</Link></small>
           </div>
         )}
       </Formik >

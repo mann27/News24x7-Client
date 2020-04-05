@@ -91,14 +91,14 @@ class LoginPage extends Component {
                                     <div className="form-field-error">{errors.password}</div>
                                 )}
                                 <button type="submit" disabled={isSubmitting}>
-                                    login
+                                    logIn
                                 </button>
                                 {loading ? <p>loading...</p> :
                                     (dberrors.err && (<p className="dberrors">{dberrors.err}</p>))  /* validating user */
                                     || (dberrors.general && (<p className="dberrors">{dberrors.general}</p>)) /* checking user cred */
                                 }
                                 <br />
-                                <small>don't have an account ? sign up <Link to="/signup">here</Link></small>
+                                <small>Don't have an Account? Sign Up <Link to="/signup">here</Link></small>
                             </form>
                         </div>
                     );
