@@ -6,6 +6,7 @@ import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getPost, submitComment, deletePost } from '../../../../redux/actions/dataActions';
+import copy from "copy-to-clipboard";
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -25,10 +26,12 @@ class PostDetails extends Component {
         this.state = {
             commentbody: '',
             postId: '',
-            errors: {}
+            errors: {},
+            copyText: ''
         }
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.copyToClipBoard = this.copyToClipBoard.bind(this);
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -71,6 +74,14 @@ class PostDetails extends Component {
     onClickDelete = () => {
         this.props.deletePost(this.props.data.post.postId);
         this.props.history.push('/')
+    }
+
+    copyToClipBoard = () => {
+        const el = window.location.href + `/post/${this.props.data.post.postId}`
+        copy(el);
+        this.setState({
+            copyText: 'Copied!'
+        })
     }
 
     render() {
@@ -123,9 +134,8 @@ class PostDetails extends Component {
                                         {
                                             authenticated && this.showDelete() ? <span className="delete-btn"><button type="button" onClick={this.onClickDelete}>delete</button></span> : null
                                         }
-                                        <p style={{ marginLeft: '5px' }}>{commentCount} Comments</p>
                                         <BookmarkIcon />
-                                        <ShareIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
+                                        {this.state.copyText ? <p>{this.state.copyText}</p> : <a onClick={this.copyToClipBoard}><ShareIcon style={{ marginLeft: '15px', marginRight: '0px' }} /></a>}
                                         <ReportIcon />
                                     </div>
                                 </Paper>

@@ -60,7 +60,7 @@ class CreatePost extends Component {
                     error={errors.title}
                   />
                   <TextAreaFieldGroup
-                    placeholder="Thoughts"
+                    placeholder="enter your news link here"
                     name="body"
                     value={this.state.body}
                     onChange={this.onChange}

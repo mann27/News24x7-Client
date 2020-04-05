@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Paper, Grid, Container } from '@material-ui/core'
+import { Paper, Grid } from '@material-ui/core'
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -33,8 +33,8 @@ class Post extends Component {
                             </div>
                         </Grid>
                     </Grid>
-                    <p className="postbody">{body}</p>
                 </Link>
+                <a href={body} className="postbody">{body}</a>
                 <Grid container spacing={3}>
                     <Grid item={true} xs={9}>
                         <div className="like-share-comment-bookmark">
