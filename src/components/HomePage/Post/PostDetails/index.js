@@ -9,6 +9,9 @@ import { getPost, submitComment } from '../../../../redux/actions/dataActions';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import ChatIcon from '@material-ui/icons/Chat';
+import ShareIcon from '@material-ui/icons/Share';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import ReportIcon from '@material-ui/icons/Report';
 import Comment from '../../Comment';
 import './postDetailsStyle.css'
 import spin from '../../../../utils/black_spinner.gif';
@@ -70,9 +73,9 @@ class PostDetails extends Component {
 
         const uiloading = this.props.ui.loading;
         return (
-            <div style={{ backgroundColor: '#EEEEEE' }}>
+            <div style={{ backgroundColor: '#08c' }}>
                 <Container maxWidth="md" style={{ paddingTop: '30px' }}>
-                    <Grid container spacing={2}>
+                    <Grid container spacing={1}>
                         <Grid item={true} xs={8}>
                             {!uiloading ? (
                                 <Paper>
@@ -81,20 +84,32 @@ class PostDetails extends Component {
                                             <img src={userImage} alt="user" className="usershape" />
                                             <p className="handle"> {handleName} </p>
                                         </Grid>
-                                        <Grid item={true} xs={9} className="title"  >
+                                        <Grid item={true} xs={9}  >
+                                            <div className="title">
                                             <b style={{ marginBottom: '0px' }}>{title}</b>
+                                            </div>
                                             <div className="time-tags">
-                                                <p style={{ fontSize: 'small' }}>{dayjs(createdAt).fromNow()}</p>
-                                                <p style={{ marginLeft: '20px', fontSize: 'medium' }}>{tags}</p>
+                                                <div className = "time">
+                                                <p>{dayjs(createdAt).fromNow()}</p>
+                                                </div>
+                                                <div className="tags">
+                                                <p>{tags}</p>
+                                                </div>
                                             </div>
                                         </Grid>
                                     </Grid>
-                                    <p className="postbody">{body}</p>
-                                    <div className="like-comment">
+                                    <div className="postbody">
+                                    <p >{body}</p>
+                                    </div>
+                                    <div className="like-share-comment-bookmark">
                                         <LikeButton key={postId} postId={postId} />
                                         <p>{likeCount} likes</p>
+                                       
                                         <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
-                                        <p style={{ marginLeft: '10px' }}>{commentCount} Comments</p>
+                                        <p style={{ marginLeft: '5px' }}>{commentCount} Comments</p>
+                                        <BookmarkIcon/>
+                                        <ShareIcon style={{ marginLeft: '15px' , marginRight:'0px'}} />
+                                        <ReportIcon/>
                                     </div>
                                 </Paper>
                             ) : (
@@ -105,7 +120,9 @@ class PostDetails extends Component {
                                     </Paper>
                                 )}
                             <Paper style={{ marginTop: '20px' }}>
+                                <div className="comments">
                                 <h3>COMMENTS:</h3>
+                                {commentMarkUp}
                                 {authenticated ?
                                     <form onSubmit={this.handleSubmit}>
                                         <div className="addCommentContainer">
@@ -113,11 +130,12 @@ class PostDetails extends Component {
                                             <button className="commentbtn" type="submit" >comment</button>
                                         </div>
                                     </form> : (
-                                        <center>
+                                        <div className="comment-login">
                                             <p><Link to="/login">login</Link> or <Link to="/signup">signup</Link> to add an comment</p>
-                                        </center>
+                                        </div>
                                     )}
-                                {commentMarkUp}
+                                    </div>
+                                
                             </Paper>
                         </Grid>
                         <Grid item={true} xs={4}>

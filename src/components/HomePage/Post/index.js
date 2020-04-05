@@ -3,6 +3,10 @@ import { Paper, Grid } from '@material-ui/core'
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import ChatIcon from '@material-ui/icons/Chat';
+import ShareIcon from '@material-ui/icons/Share';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import ReportIcon from '@material-ui/icons/Report';
+
 import './postStyle.css'
 import { Link } from 'react-router-dom'
 import LikeButton from './LikeButton';
@@ -21,21 +25,31 @@ class Post extends Component {
                         <p className="handle"> {handleName} </p>
                     </Grid>
                     <Grid item={true} xs={9} className="title"  >
-                        <b style={{ marginBottom: '0px' }}>{title}</b>
-                        <div className="time-tags">
-                            <p style={{ fontSize: 'small' }}>{dayjs(createdAt).fromNow()}</p>
-                            <p style={{ marginLeft: '20px', fontSize: 'medium' }}>{tags}</p>
-                        </div>
+                    <div className="title">
+                                            <b style={{ marginBottom: '0px' }}>{title}</b>
+                                            </div>
+                                            <div className="time-tags">
+                                                <div className = "time">
+                                                <p>{dayjs(createdAt).fromNow()}</p>
+                                                </div>
+                                                <div className="tags">
+                                                <p>{tags}</p>
+                                                </div>
+                                            </div>
                     </Grid>
                 </Grid>
                 <p className="postbody">{body}</p>
                 <Grid container spacing={3}>
                     <Grid item={true} xs={9}>
-                        <div className="like-comment">
+                        <div className="like-share-comment-bookmark">
                             <LikeButton key={postId} postId={postId} />
                             <p>{likeCount} likes</p>
+                            
                             <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
-                            <p style={{ marginLeft: '10px' }}>{commentCount} Comments</p>
+                            <p style={{ marginLeft: '5px' }}>{commentCount} Comments</p>
+                            <BookmarkIcon/>
+                            <ShareIcon style={{ marginLeft: '15px' , marginRight:'0px'}} />
+                            <ReportIcon/>
                         </div>
                     </Grid>
                     <Grid item={true} xs={3}>
