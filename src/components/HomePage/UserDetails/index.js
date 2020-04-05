@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import propTypes from 'prop-types'
-
+import './userstyle.css'
 class UserDetails extends Component {
     render() {
         const { user: { creds: { handle, imageUrl, email } } } = this.props;
         return (
-            <div>
+            <div className="userstyle">
                 <center>
-                    <h2>User Details</h2>
+                    <p className="heading">User Details</p>
                     <img src={imageUrl} alt="user" height={100} width={100} style={{ borderRadius: '50%' }} />
                     <br />
                     <h3>@{handle}</h3>
