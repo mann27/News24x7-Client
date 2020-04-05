@@ -32,6 +32,9 @@
   
   .postshape{
      margin-left: 15px;
+     border: #007eff;
+     border-style: hidden;
+     background-color: #a0ccf8;
   }
   .usershape {
     margin-top: 5px;
@@ -49,14 +52,17 @@
     width: 100%;
     display: block;
     border-radius: 4px;
-    font-style: italic;
+    
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
 .postbody{
-    margin-top: 0px;
+    margin-top: 20px;
     border-color: #007eff;
     margin-bottom: 0px;
     margin-left: 10px;
+    padding-top: 10px;
+   
 }
 .handle{
     padding-top: 0px;
@@ -64,15 +70,19 @@
     font-weight: 100;
     font-size: medium;
 }
-.like-comment{
+.like-share-comment-bookmark{
   margin-top: 0px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
 }
 .time-tags {
   margin-top: 0px;
   display: flex;
   align-items: center;
+  
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .link {
