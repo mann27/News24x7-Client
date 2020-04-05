@@ -3,15 +3,15 @@ import { Paper, Grid } from '@material-ui/core'
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import ChatIcon from '@material-ui/icons/Chat';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import './postStyle.css'
 import { Link } from 'react-router-dom'
+import LikeButton from './LikeButton';
 
 class Post extends Component {
 
     render() {
         dayjs.extend(relativeTime)
-        let { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags } = this.props.post;
+        let { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId } = this.props.post;
         const redirect = `/post/${this.props.post.postId}`;
         return (
             <Paper style={{ marginTop: '25px', paddingLeft: '10px' }}>
@@ -32,7 +32,7 @@ class Post extends Component {
                 <Grid container spacing={3}>
                     <Grid item={true} xs={9}>
                         <div className="like-comment">
-                            <FavoriteIcon />
+                            <LikeButton key={postId} postId={postId} />
                             <p>{likeCount} likes</p>
                             <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
                             <p style={{ marginLeft: '10px' }}>{commentCount} Comments</p>

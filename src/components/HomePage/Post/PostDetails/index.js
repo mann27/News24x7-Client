@@ -9,10 +9,10 @@ import { getPost, submitComment } from '../../../../redux/actions/dataActions';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import ChatIcon from '@material-ui/icons/Chat';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import Comment from '../../Comment';
 import './postDetailsStyle.css'
 import spin from '../../../../utils/black_spinner.gif';
+import LikeButton from '../LikeButton';
 
 
 class PostDetails extends Component {
@@ -60,7 +60,7 @@ class PostDetails extends Component {
     render() {
         const { user: { authenticated } } = this.props;
         dayjs.extend(relativeTime)
-        const { data: { post: { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags } } } = this.props;
+        const { data: { post: { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId } } } = this.props;
         const { data: { post: { comments } } } = this.props;
         const commentMarkUp = comments ? (
             comments.map((comment) =>
@@ -91,7 +91,7 @@ class PostDetails extends Component {
                                     </Grid>
                                     <p className="postbody">{body}</p>
                                     <div className="like-comment">
-                                        <FavoriteIcon />
+                                        <LikeButton key={postId} postId={postId} />
                                         <p>{likeCount} likes</p>
                                         <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
                                         <p style={{ marginLeft: '10px' }}>{commentCount} Comments</p>
