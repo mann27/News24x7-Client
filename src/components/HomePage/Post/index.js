@@ -23,7 +23,7 @@ class Post extends Component {
     }
 
     copyToClipBoard = () => {
-        const el = window.location.href + `/post/${this.props.post.postId}`
+        const el = window.location.href + `post/${this.props.post.postId}`
         copy(el);
         this.setState({
             copyText: 'Copied!'

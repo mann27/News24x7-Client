@@ -122,9 +122,7 @@ class PostDetails extends Component {
                                             </div>
                                         </Grid>
                                     </Grid>
-                                    <div className="postbody">
-                                        <p >{body}</p>
-                                    </div>
+                                    <a href={body} className="postbody">{body}</a>
                                     <div className="like-share-comment-bookmark">
                                         <LikeButton key={postId} postId={postId} />
                                         <p>{likeCount} likes</p>
