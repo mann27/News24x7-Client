@@ -10,3 +10,19 @@
     color: white;
     outline: none;
 }
+
+.upload-btn {
+    background-color: white;
+    color: black;
+    padding: 2px 4px;
+    font-size: 14px;
+    font-weight: 300;
+    display:inline-block;
+}
+
+.upload-file {
+    width: 200px;
+    display:inline-block;
+    margin-right:10px;
+    font-size: 15px;
+}

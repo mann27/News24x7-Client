@@ -74,6 +74,17 @@ export const getUserPosts = (handle) => (dispatch, getState) => {
     dispatch({ type: UNLOADING_UI });
 }
 
+export const uploadUserImage = (formData) => (dispatch) => {
+    dispatch({ type: LOADING_UI });
+    axios.post('/user/image', formData)
+        .then(() => {
+            dispatch(getUserData());
+        })
+        .catch((err) => console.log(err));
+}
+
+
+
 const setAuthorizationHeader = (token) => {
     const FBIdToken = `Bearer ${token}`;
     localStorage.setItem('FBIdToken', FBIdToken);
