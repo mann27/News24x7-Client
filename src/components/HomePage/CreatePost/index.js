@@ -7,6 +7,8 @@ import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { createPost } from '../../../redux/actions/dataActions';
 
+import { storage } from '../../../firebase';
+
 class CreatePost extends Component {
 
   constructor() {
@@ -15,24 +17,31 @@ class CreatePost extends Component {
       title: '',
       body: '',
       tags: '',
-      errors: {}
+      errors: {},
+      url: '',
+      uploadmsg: ''
     };
     this.onPostSubmit = this.onPostSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   onPostSubmit(e) {
     e.preventDefault();
-    const newpost = {
+    const postData = {
       title: this.state.title,
       body: this.state.body,
-      tags: this.state.tags
+      tags: this.state.tags,
+      imgurl: this.state.url
     }
-    this.props.createPost(newpost);
+    console.log(postData);
+    this.props.createPost(postData);
     this.setState({
       title: '',
       body: '',
-      tags: ''
+      tags: '',
+      url: '',
+      uploadmsg: ''
     });
   }
 
@@ -40,9 +49,31 @@ class CreatePost extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  handleChange(event) {
+    if (event.target.files[0]) {
+      this.setState({ uploadmsg: "uploading..." })
+      const image = event.target.files[0];
+      const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      uploadTask.on('state_changed',
+        (snapshot) => {
+          // progress fn
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          storage.ref('images').child(image.name).getDownloadURL().then(url => {
+            this.setState({ url: url });
+            this.setState({ uploadmsg: "Uploaded !" })
+          })
+        });
+    }
+  }
+
+
   render() {
     const { user: { authenticated } } = this.props
-    const { errors } = this.state;
+    const { errors, uploadmsg } = this.state;
     return (
       <div className="post-form mb-3 shadow rounded mt-4">
         <div className="card card-info">
@@ -74,6 +105,8 @@ class CreatePost extends Component {
                     onChange={this.onChange}
                     error={errors.tags}
                   />
+                  <input type="file" hidden="hidden" id="imageInput" onChange={this.handleChange} className="upload-file"></input>
+                  <p>{uploadmsg}</p>
                 </div>
                 <button>
                   Submit

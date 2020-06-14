@@ -54,11 +54,6 @@ class NavBar extends Component {
 
     constructor() {
         super();
-        this.state = {
-            query: "",
-            data: [],
-            filteredData: []
-        };
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
     }
 
@@ -67,43 +62,8 @@ class NavBar extends Component {
         this.props.logoutUser();
     }
 
-    handleInputChange = event => {
-        const query = event.target.value;
-
-        this.setState(prevState => {
-            const filteredData = prevState.data.filter(element => {
-                return element.name.toLowerCase().includes(query.toLowerCase());
-            });
-
-            return {
-                query,
-                filteredData
-            };
-        });
-    };
-
-    getSearchData = () => {
-        fetch(`http://localhost:4000/restaurants`) // search from field
-            .then(response => response.json())
-            .then(data => {
-                const { query } = this.state;
-                const filteredData = data.filter(element => {
-                    return element.name.toLowerCase().includes(query.toLowerCase());
-                });
-
-                this.setState({
-                    data,
-                    filteredData
-                });
-            });
-    };
-
-    UNSAFE_componentWillMount() {
-        this.getSearchData();
-    }
-
     render() {
-        const { user: { authenticated, creds: { handle } } } = this.props
+        const { user: { authenticated, creds: { handle, imageUrl } } } = this.props
         const userlink = `/user/${handle}`;
         return (
             <React.Fragment>
@@ -115,27 +75,18 @@ class NavBar extends Component {
                             container
                             spacing={4}>
                             <Grid item>
-
                             </Grid>
-                            <Grid item style={{ marginTop: '8px' }} >
-                                <div className="searchForm">
-                                    <form>
-                                        <input
-                                            placeholder="Search for..."
-                                            value={this.state.query}
-                                            onChange={this.handleInputChange}
-                                        />
-                                    </form>
-                                    {/* How to show the filtered data*/}
-                                    <div>{this.state.filteredData.map(i => <p>{i.name}</p>)}</div>
-                                </div>
-                            </Grid>
-                            <Grid item style={{ padding: '0px' }}>
-                                <Link to="/help/faq" activestyle={{ color: 'black' }}><NavButton >Help</NavButton></Link>
+                            <Grid item style={{ padding: '0px', marginBottom: '10px' }}>
+                                <Link to="/help/faq" activestyle={{ color: 'black' }}><NavButton style={{ marginTop: '0px' }} >Help</NavButton></Link>
                                 {authenticated ? (
                                     <span>
-                                        <Link to="/" activestyle={{ color: 'black' }}><NavButton onClick={this.handleLogoutClick} >Logout</NavButton></Link>
-                                        <Link to={userlink} activestyle={{ color: 'black' }}><AccountCircleIcon fontSize="large" style={{ verticalAlign: 'middle' }} /></Link>
+                                        <Link to="/" activestyle={{ color: 'black' }}><NavButton style={{ marginTop: '0px' }} onClick={this.handleLogoutClick} >Logout</NavButton></Link>
+                                        <Link to={userlink} activestyle={{ color: 'black' }}>
+                                            <span>
+                                                <img src={imageUrl} alt="user" className="usershape" style={{ marginTop: '25px' }} />
+                                                <span style={{ marginBottom: '10px', verticalAlign: 'center' }}>{handle}</span>
+                                            </span>
+                                        </Link>
                                     </span>
                                 ) : (
                                         <span>

@@ -73,6 +73,7 @@ export const submitComment = (postId, commentData) => (dispatch) => {
 }
 
 export const createPost = (postData) => (dispatch) => {
+    console.log(postData);
     axios.post('/newpost', postData)
         .then((res) => {
             dispatch({

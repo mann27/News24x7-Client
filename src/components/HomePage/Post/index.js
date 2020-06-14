@@ -36,7 +36,7 @@ class Post extends Component {
 
     render() {
         dayjs.extend(relativeTime)
-        let { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId } = this.props.post;
+        let { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId, postImage } = this.props.post;
         const redirect = `/post/${this.props.post.postId}`;
         return (
             <Paper style={{ marginTop: '25px', paddingLeft: '10px', paddingRight: '10px', paddingBottom: '10px' }}>
@@ -55,6 +55,7 @@ class Post extends Component {
                         </Grid>
                     </Grid>
                 </Link>
+                {postImage ? <img src={postImage} alt="img" className="postimage" /> : null}
                 <a href={body} className="postbody">{body}</a>
                 <Grid container spacing={3}>
                     <Grid item={true} xs={9}>
