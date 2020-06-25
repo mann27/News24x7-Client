@@ -34,9 +34,9 @@
      margin-left: 15px;
      border: #007eff;
      border-style: hidden;
+     margin-top: 20px;
   }
   .usershape {
-    margin-top: 5px;
     border-radius: 100%;
     border-color:grey;
     border-style: solid;
@@ -44,14 +44,13 @@
     padding: 0px;
     width: 50px;
     height: 50px;
-    margin-bottom: 0px;
+    display: inline;
   }
   .title{
     font-size: 16px;
     width: 100%;
     display: block;
     border-radius: 4px;
-    
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
@@ -60,14 +59,15 @@
     border-color: #007eff;
     margin-bottom: 0px;
     margin-left: 10px;
-    padding-top: 10px;
-   
+    padding-top: 25px;
 }
 .handle{
-    padding-top: 0px;
-    margin-top: 0px;
+    display: inline;
     font-weight: 100;
     font-size: medium;
+    float: left;
+    padding-top: 10px;
+    margin-right: 0px;
 }
 .like-share-comment-bookmark{
   margin-top: 0px;
@@ -87,4 +87,11 @@
 .link {
   text-decoration: none; 
   color: black;
+}
+
+.postimage {
+  min-width: 400px;
+  min-height:150px ;
+  max-width: 500px;
+  max-height: 200px;
 }

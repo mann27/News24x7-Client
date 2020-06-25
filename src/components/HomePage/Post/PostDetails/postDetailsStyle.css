@@ -29,17 +29,35 @@
     border-style: hidden;
  }
 
- .time-tags {
-    margin-top: 0px;
-    display: flex;
-    align-items: center;
-    
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.time-tags {
+margin-top: 0px;
+display: flex;
+align-items: center;
+
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.like-share-comment-bookmark{
+margin-top: 0px;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+}  
+
+.handle {
+    display: inline;
+    font-weight: 100;
+    font-size: medium;
+    float: left;
+    padding-top: 10px;
+    padding-left: 5px;
+    margin-right: 0px;
+}
+
+.postimage {
+    min-width: 400px;
+    min-height:150px ;
+    max-width: 500px;
+    max-height: 200px;
   }
-  .like-share-comment-bookmark{
-    margin-top: 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-  }  
+  

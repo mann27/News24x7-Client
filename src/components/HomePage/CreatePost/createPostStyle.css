@@ -7,9 +7,9 @@
 }
 .card-header{
     padding: 10px;
-    background-color: #08c;
-    font-size: 17px;
-    font-weight: 500;
+    background-color: rgb(59, 133, 207);
+    font-size: 22px;
+    font-weight: 600;
     color: #fff;
     outline: none;
 }
@@ -33,5 +33,11 @@
 #text-area{
     height: 100px;
     width: 100%;
+}
 
+.btn-post {
+    width: 150px;
+    background-color:rgb(59, 133, 207);
+    font-size: x-large;
+    margin: 0px;
 }

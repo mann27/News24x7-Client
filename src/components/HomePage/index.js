@@ -11,6 +11,7 @@ import './homeStyle.css';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { getPosts } from '../../redux/actions/dataActions';
+import adv from '../../utils/images/ad.png';
 
 class HomePage extends Component {
 
@@ -59,11 +60,17 @@ class HomePage extends Component {
                                         <p><Link to="/login">login</Link> to see your details</p>
                                     ) : <UserDetailsSkleton />}
                             </Paper>
-                            <Paper>
-                                <center>
+                            <Paper style={{ marginTop: '20px' }}>
+                                <center className="btn-select">
+                                    <p>Sort the posts by</p>
                                     <button type="buttton" onClick={() => this.onClickType("r")}>Recent</button>
                                     <button type="button" onClick={() => this.onClickType("ml")}>Most Liked</button>
                                     <button type="button" onClick={() => this.onClickType("t")}>Trending</button>
+                                </center>
+                            </Paper>
+                            <Paper style={{ marginTop: '40px' }}>
+                                <center>
+                                    <img src={adv} alt="advertisement" style={{ width: '270px', height: '600px' }}></img>
                                 </center>
                             </Paper>
                         </Grid>

@@ -1,5 +1,8 @@
-import { SET_POST, SET_POSTS, LOADING_DATA, LOADING_UI, UNLOADING_UI, SUBMIT_COMMENT, SET_ERRORS, CREATE_POST, LIKE_POST, UNLIKE_POST, DELETE_POST } from '../types';
+import { SET_POST, SET_POSTS, LOADING_DATA, LOADING_UI, UNLOADING_UI, SUBMIT_COMMENT, SET_ERRORS, CREATE_POST, LIKE_POST, UNLIKE_POST, DELETE_POST, SET_USER_POSTS } from '../types';
 import axios from 'axios';
+import store from '../store';
+import { isEmptyArray } from 'formik';
+
 
 export const getPosts = (type) => (dispatch) => {
     dispatch({ type: LOADING_DATA });
@@ -54,6 +57,19 @@ export const getPost = (postId) => (dispatch) => {
         })
         .catch((err) => console.log(err));
 };
+
+export const getUserPosts = (handle) => (dispatch) => {
+    dispatch({ type: LOADING_UI });
+    axios.get(`/userposts/${handle}`)
+        .then((res) => {
+            dispatch({
+                type: SET_USER_POSTS,
+                payload: res.data
+            })
+            dispatch({ type: UNLOADING_UI });
+        })
+        .catch((err) => console.log(err));
+}
 
 export const submitComment = (postId, commentData) => (dispatch) => {
     axios.post(`/post/${postId}/comment`, commentData)

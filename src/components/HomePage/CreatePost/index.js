@@ -108,9 +108,11 @@ class CreatePost extends Component {
                   <input type="file" hidden="hidden" id="imageInput" onChange={this.handleChange} className="upload-file"></input>
                   <p>{uploadmsg}</p>
                 </div>
-                <button>
-                  Submit
-              </button>
+                <center>
+                  <button className="btn-post">
+                    Post
+                </button>
+                </center>
               </form>
             </div>
           ) : <p> <Link to="/login">login</Link>  or <Link to="/signup">signup</Link> to create the post</p>}

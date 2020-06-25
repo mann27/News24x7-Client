@@ -21,3 +21,4 @@ export const DELETE_POST = 'DELETE_POST';
 export const CREATE_POST = 'POST_POST';
 export const SUBMIT_COMMENT = 'SUBMIT_COMMENT';
 export const LOADING_DATA = 'LOADING_DATA';
+export const SET_USER_POSTS = 'SET_USER_POSTS';

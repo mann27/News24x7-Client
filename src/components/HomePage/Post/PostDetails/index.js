@@ -87,7 +87,7 @@ class PostDetails extends Component {
     render() {
         const { user: { authenticated } } = this.props;
         dayjs.extend(relativeTime)
-        const { data: { post: { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId } } } = this.props;
+        const { data: { post: { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId, postImage } } } = this.props;
         const { data: { post: { comments } } } = this.props;
         const commentMarkUp = comments ? (
             comments.map((comment) =>
@@ -105,8 +105,14 @@ class PostDetails extends Component {
                                 <Paper style={{ paddingLeft: '10px', paddingRight: '10px' }}>
                                     <Grid container spacing={3} className="postshape">
                                         <Grid item={true} xs={3} >
-                                            <img src={userImage} alt="user" className="usershape" />
-                                            <p className="handle"> {handleName} </p>
+                                            <Grid container spacing={3}>
+                                                <Grid item xs={4}>
+                                                    <img src={userImage} alt="user" className="usershape" />
+                                                </Grid>
+                                                <Grid item xs={8}>
+                                                    <p className="handle"> {handleName} </p>
+                                                </Grid>
+                                            </Grid>
                                         </Grid>
                                         <Grid item={true} xs={9}  >
                                             <div className="title">
@@ -122,7 +128,12 @@ class PostDetails extends Component {
                                             </div>
                                         </Grid>
                                     </Grid>
-                                    <a href={body} className="postbody">{body}</a>
+                                    <center>
+                                        {postImage ? <img src={postImage} alt="img" className="postimage" /> : null}
+                                    </center>
+                                    <div style={{ paddingTop: '20px', paddingBottom: '10px' }}>
+                                        <a href={body} className="postbody">{body}</a>
+                                    </div>
                                     <div className="like-share-comment-bookmark">
                                         <LikeButton key={postId} postId={postId} />
                                         <p>{likeCount} likes</p>

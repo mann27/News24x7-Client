@@ -1,26 +1,32 @@
 import React, { Component } from 'react'
 import { Grid } from '@material-ui/core'
 import { Link } from 'react-router-dom'
+import './help.css'
 
 import HelpRoutes from '../../routes/HelpRoutes'
 
 export default class HelpPage extends Component {
     render() {
         return (
-            <div>
-                <Grid container style={{ marginTop: '50px' }}>
-                    <Grid item={true} sm={4}>
-                        <center>
-                            <Link to="/help/support" >support</Link>
-                            <br />
-                            <Link to="/help/faq">FAQ's</Link>
-                        </center>
-                    </Grid>
-                    <Grid item={true} sm={8}>
-                        <HelpRoutes />
-                    </Grid>
+            <Grid container >
+                <Grid item={true} sm={4} style={{ marginTop: '150px', marginBottom: '160px' }} >
+                    <center>
+                        <Link to="/help/support" style={{ textDecoration: 'none' }}>
+                            <h1 className="side-menu-title">support</h1>
+                        </Link>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <Link to="/help/faq" style={{ textDecoration: 'none' }}>
+                            <h1 className="side-menu-title">FAQ's</h1>
+                        </Link>
+                    </center>
                 </Grid>
-            </div>
+                <Grid item={true} sm={8}>
+                    <HelpRoutes />
+                </Grid>
+            </Grid>
         )
     }
 }

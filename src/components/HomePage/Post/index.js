@@ -41,22 +41,32 @@ class Post extends Component {
         return (
             <Paper style={{ marginTop: '25px', paddingLeft: '10px', paddingRight: '10px', paddingBottom: '10px' }}>
                 <Link to={redirect} className="link">
-                    <Grid container spacing={3} className="postshape">
+                    <Grid container spacing={2} className="postshape">
                         <Grid item={true} xs={3} >
-                            <img src={userImage} alt="user" className="usershape" />
-                            <p className="handle"> {handleName} </p>
+                            <Grid container spacing={3}>
+                                <Grid item xs={4}>
+                                    <img src={userImage} alt="user" className="usershape" />
+                                </Grid>
+                                <Grid item xs={8} style={{ marginTop: '10px' }}>
+                                    <p className="handle"> {handleName} </p>
+                                </Grid>
+                            </Grid>
                         </Grid>
                         <Grid item={true} xs={9} className="title"  >
                             <b style={{ marginBottom: '0px' }}>{title}</b>
                             <div className="time-tags">
                                 <p style={{ fontSize: 'small' }}>{dayjs(createdAt).fromNow()}</p>
-                                <p style={{ marginLeft: '20px', fontSize: 'medium' }}><u>{tags}</u></p>
+                                <p style={{ marginLeft: '20px', fontSize: 'medium', color: 'black' }}><u>{tags}</u></p>
                             </div>
                         </Grid>
                     </Grid>
                 </Link>
-                {postImage ? <img src={postImage} alt="img" className="postimage" /> : null}
-                <a href={body} className="postbody">{body}</a>
+                <center>
+                    {postImage ? <img src={postImage} alt="img" className="postimage" /> : null}
+                </center>
+                <div style={{ paddingTop: '20px', paddingBottom: '10px' }}>
+                    <a href={body} className="postbody">{body}</a>
+                </div>
                 <Grid container spacing={3}>
                     <Grid item={true} xs={9}>
                         <div className="like-share-comment-bookmark">

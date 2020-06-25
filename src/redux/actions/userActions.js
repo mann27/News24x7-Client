@@ -1,6 +1,5 @@
 import { SET_USER, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, SET_UNAUTHENTICATED, UNLOADING_UI, SET_USERPOSTS } from '../types';
 import axios from 'axios';
-import { getPosts } from './dataActions';
 
 export const loginUser = (userData, history) => (dispatch) => {
     dispatch({ type: LOADING_UI });
@@ -36,6 +35,19 @@ export const signupUser = (newUserData, history) => (dispatch) => {
         })
 }
 
+export const getUserPosts = (handle) => (dispatch) => {
+    dispatch({ type: LOADING_UI });
+    axios.get(`/userposts/${handle}`)
+        .then((res) => {
+            dispatch({
+                type: SET_USERPOSTS,
+                payload: res.data
+            })
+            dispatch({ type: UNLOADING_UI });
+        })
+        .catch((err) => console.log(err));
+}
+
 export const logoutUser = () => (dispatch) => {
     localStorage.removeItem('FBIdToken');
     delete axios.defaults.headers.common['Authorization'];
@@ -56,22 +68,6 @@ export const getUserData = () => (dispatch) => {
             dispatch({ type: UNLOADING_UI })
             console.log(err)
         })
-}
-
-export const getUserPosts = (handle) => (dispatch, getState) => {
-    dispatch({ type: LOADING_UI })
-    dispatch(getPosts());
-    const userpost = [];
-    getState().data.posts.map((upost) => {
-        if (upost.handleName === handle) {
-            userpost.push(upost);
-        }
-    });
-    dispatch({
-        type: SET_USERPOSTS,
-        payload: userpost
-    })
-    dispatch({ type: UNLOADING_UI });
 }
 
 export const uploadUserImage = (formData) => (dispatch) => {

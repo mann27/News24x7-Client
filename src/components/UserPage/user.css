@@ -1,0 +1,32 @@
+.img-user {
+    border-radius: 50%;
+}
+
+.handle-user {
+    font-size: 45px;
+    font-weight: 500;
+    font-style: normal;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(82, 140, 197);
+    margin: 0em;
+}
+
+.user-email {
+    color: black;
+    padding: 0%;
+    margin: 0px;
+    font-family: monospace;
+    font-size: large;
+}
+
+.user-cake {
+    margin-top: 20px;
+    color: black;
+    font-size: large;
+}
+
+.score {
+    font-weight: 500;
+    color: black;
+    margin: 0px;
+}

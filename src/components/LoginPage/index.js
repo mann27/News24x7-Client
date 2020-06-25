@@ -63,6 +63,9 @@ class LoginPage extends Component {
                     } = props;
                     return (
                         <div className="form">
+                            <center>
+                                <h2 className="head-log">LOG IN</h2>
+                            </center>
                             <form onSubmit={handleSubmit}>
                                 <label htmlFor="email" >Email</label>
                                 <input
@@ -90,15 +93,19 @@ class LoginPage extends Component {
                                 {errors.password && touched.password && (
                                     <div className="form-field-error">{errors.password}</div>
                                 )}
-                                <button type="submit" disabled={isSubmitting}>
-                                    logIn
+                                <center>
+                                    <button type="submit" disabled={isSubmitting}>
+                                        logIn
                                 </button>
+                                    <br style={{ margin: '0px', padding: '0px' }}></br>
+                                    <small>Don't have an Account? Sign Up <Link to="/signup">here</Link></small>
+                                </center>
+
                                 {loading ? <p>loading...</p> :
                                     (dberrors.err && (<p className="dberrors">{dberrors.err}</p>))  /* validating user */
                                     || (dberrors.general && (<p className="dberrors">{dberrors.general}</p>)) /* checking user cred */
                                 }
-                                <br />
-                                <small>Don't have an Account? Sign Up <Link to="/signup">here</Link></small>
+                                <br /> <br /> <br /> <br /><br />
                             </form>
                         </div>
                     );

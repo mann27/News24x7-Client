@@ -4,9 +4,9 @@
 }
 .heading {
     padding: 10px;
-    background-color: #08c;
-    font-size: 17px;
-    font-weight: 500;
+    background-color: rgb(59, 133, 207);
+    font-size: 24px;
+    font-weight: 600;
     color: white;
     outline: none;
 }
@@ -25,4 +25,11 @@
     display:inline-block;
     margin-right:10px;
     font-size: 15px;
+}
+
+.hande-side {
+    color:black;
+    font-size: xx-large;
+    font-weight: 700;
+    margin: 10px;
 }

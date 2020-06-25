@@ -1,30 +1,71 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
-// import Post from '../HomePage/Post';
-import { getUserPosts } from '../../redux/actions/userActions';
+import Post from '../HomePage/Post';
 import { Container } from '@material-ui/core';
-// import PostSkleton from '../../utils/PostSkleton';
-
+import PostSkleton from '../../utils/PostSkleton';
+import { getUserPosts } from '../../redux/actions/dataActions';
+import { Grid } from '@material-ui/core';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import './user.css'
 class UserPage extends Component {
 
-    // componentDidMount() {
-    //     const name = window.location.href.split("/").pop();
-    //     this.props.getUserPosts(name);
-    // }
+    _isMounted = false;
+
+    componentDidMount() {
+        this._isMounted = true;
+        const name = window.location.href.split("/").pop();
+        console.log(name);
+        this.props.getUserPosts(name)
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
 
     render() {
-        // const { data: { posts } } = this.props;
-        const { user: { creds: { handle } } } = this.props;
-        // const { ui: { loading } } = this.props;
-        // const name = window.location.href.split("/").pop();
-        // const userPostMarkup = !loading ? (posts.map(post => <Post key={post.postId} post={post} />)) :
-        //     (<PostSkleton />)
-
+        dayjs.extend(relativeTime)
+        const { user: { creds: { handle, imageUrl, email, createdAt } } } = this.props;
+        const { ui: { loading } } = this.props;
+        const { data: { userposts } } = this.props;
+        var userPostMarkup;
+        var score = 0;
+        if (userposts !== undefined) {
+            userPostMarkup = !loading ? (userposts.map((post) => <Post key={post.postId} post={post} />)) : (<PostSkleton />)
+            userposts.map((post) => {
+                if (post.handleName === window.location.href.split("/").pop()) {
+                    score += post.likeCount;
+                }
+            });
+        }
+        else {
+            userPostMarkup = <PostSkleton />
+        }
         return (
-            <Container xs="small">
-                {/* {userPostMarkup} */}
-                <h1> User details of {handle}</h1>
+            <Container xs="small" style={{ marginTop: '60px' }}>
+                <Grid container>
+                    <Grid item xs={4}>
+                        <center>
+                            <img src={imageUrl} alt="user image" className="img-user"></img>
+                        </center>
+                    </Grid>
+                    <Grid item xs={8}>
+                        <h1 className="handle-user">{handle}</h1>
+                        <p className="user-email">{email}</p>
+                        <p className="user-cake"> Cake Day : {dayjs(createdAt).format("dddd, MMMM D YYYY")}</p>
+                        <h3 className="score">Posts score : {score}</h3>
+
+                    </Grid>
+                </Grid>
+                <Container>
+                    <center>
+                        <h1 className="handle-user">Your posts</h1>
+                    </center>
+                    <hr></hr>
+                    {userPostMarkup}
+                </Container>
             </Container>
         )
     }

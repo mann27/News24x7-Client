@@ -1,0 +1,31 @@
+.nav-title {
+    font-size: xx-large;
+    font-family: cursive;
+    font-weight: 800;
+    margin: 0px;
+    color: rgba(216, 20, 20, 0.795);
+    padding-left: 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.nav-link h3{
+    color: rgb(82, 140, 197);
+}
+
+.nav-link h3:hover {
+    color : blue;
+}
+
+.nav-logo {
+    height : 70px;
+    width: 100px;
+    margin: 0em;
+    padding: 0%;
+}

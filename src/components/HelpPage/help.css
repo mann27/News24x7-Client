@@ -1,0 +1,61 @@
+.side-menu-title {
+    color : black;
+    text-decoration: none;
+    margin: 0em;
+}
+
+.title-right {
+    color :  rgb(82, 140, 197);
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    margin-bottom: 0em;
+}
+
+.support-img {
+    height: 300px;
+    width: 450px;
+    margin-left : 180px;
+}
+
+.faq-img {
+    height: 400px;
+    width: 450px;
+    margin-left : 150px;
+}
+
+.list-faq {
+  margin-right: 80px;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.faq-que{
+  border-radius: 15px;
+}
+
+.faq-ans {
+  padding-left: 10px;
+}
+
+.sup-text {
+  background-color: white;
+  color: black;
+  font-size: xx-large;
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btn-ask {
+  margin: 0px;
+  height: 40px;
+}
+
+.inp-ask {
+  height: 40px;
+}

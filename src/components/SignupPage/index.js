@@ -50,7 +50,10 @@ class SignupPage extends Component {
         }}
       >
         {({ isSubmitting, errors, handleChange, handleSubmit }) => (
-          <div className="form">
+          <div className="form" style={{ marginTop: '50px' }}>
+            <center>
+              <h2 className="head-log">SIGN UP</h2>
+            </center>
             <label htmlFor="email">
               <span>E-mail:</span>
               <input name="email" type="email" placeholder="Enter your email" onChange={handleChange} />
@@ -75,19 +78,18 @@ class SignupPage extends Component {
             </label>
             <div className="form-field-error">{errors.passwordConfirmation}</div>
 
-            <label htmlFor="consent">
-              <span>Consent:</span>
-              <input name="consent" type="checkbox" onChange={handleChange} />
-            </label>
-            <div className="form-field-error">{errors.consent}</div>
-
-            <button type="submit" onClick={handleSubmit}>{isSubmitting ? 'Loading' : 'Sign Up'}</button>
+            <center>
+              <div style={{ marginRight: '65px' }}>
+                <button type="submit" onClick={handleSubmit}>{isSubmitting ? 'Loading' : 'Sign Up'}</button>
+                <br />
+                <small>Already have an Account ? Log In <Link to="/login">here</Link></small>
+              </div>
+            </center>
             {loading ? <p>loading...</p> : (
               (dberrors.email && (<p className="dberrors">{dberrors.email}</p>))
               || (dberrors.error && (<p className="dberrors">{dberrors.error}</p>))
             )}
             <br />
-            <small>Already have an Account ? Log In <Link to="/login">here</Link></small>
           </div>
         )}
       </Formik >
