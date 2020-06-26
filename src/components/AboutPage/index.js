@@ -10,7 +10,10 @@ const AboutPage = () => {
                 <img src="https://www.naranjadigital.mx/wp-content/uploads/2019/06/Millenials-Pic-696x392.jpg" alt="Group image" />
             </center>
             <h3>
-                lorem ipsum
+                Welcome to News24x7 !. This is a news portal where you can post the links of various trending news and enhance a discussion on the same. This website is developed by students of DAIICT as their Software Engineering Term Project under the guidance of Prof. Saurabh Tiwari.
+
+We hope that our website provides you a good platform for the discussion on the latest and trending news. If you have any queries feel free to contact our developers team! 
+
             </h3>
             <center>
                 <h1 style={{ marginBottom: "0px" }}>Our Team</h1>
