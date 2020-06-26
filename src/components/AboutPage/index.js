@@ -20,106 +20,99 @@ const AboutPage = () => {
                         <Grid container spacing={6}>
                             <Grid item xs>
                                 <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
+                                    <h2> Aniket Kaduskar [201701005]</h2>
                                     <hr></hr>
-                                    <p> Developer</p>
+                                    <p> Project Manager</p>
                                 </Paper>
                             </Grid>
                             <Grid item xs>
                                 <Paper>
                                     <h2> Mann Shah [201701019]</h2>
                                     <hr></hr>
-                                    <p> Developer</p>
+                                    <p> Front-End/Back-End Developer</p>
                                 </Paper>
                             </Grid>
                             <Grid item xs>
                                 <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
+                                    <h2> Donika Juthani [201701037]</h2>
                                     <hr></hr>
-                                    <p> Developer</p>
-                                </Paper>
-                            </Grid>
-                        </Grid>
-                        <Grid container spacing={6}>
-                            <Grid item xs>
-                                <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
-                                    <hr></hr>
-                                    <p> Developer</p>
-                                </Paper>
-                            </Grid>
-                            <Grid item xs>
-                                <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
-                                    <hr></hr>
-                                    <p> Developer</p>
-                                </Paper>
-                            </Grid>
-                            <Grid item xs>
-                                <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
-                                    <hr></hr>
-                                    <p> Developer</p>
+                                    <p> UI/UX Designer/Front- End Developer</p>
                                 </Paper>
                             </Grid>
                         </Grid>
                         <Grid container spacing={6}>
                             <Grid item xs>
                                 <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
+                                    <h2> Romil Joshi [201701014]</h2>
                                     <hr></hr>
-                                    <p> Developer</p>
+                                    <p> Back-End Developer/ Tester </p>
                                 </Paper>
                             </Grid>
                             <Grid item xs>
                                 <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
+                                    <h2> Avi Gupta [201701031]</h2>
                                     <hr></hr>
-                                    <p> Developer</p>
+                                    <p> Tester </p>
                                 </Paper>
                             </Grid>
                             <Grid item xs>
                                 <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
+                                    <h2> Karmadeepsinh Vala [201701047]</h2>
                                     <hr></hr>
-                                    <p> Developer</p>
+                                    <p> Tester </p>
                                 </Paper>
                             </Grid>
                         </Grid>
                         <Grid container spacing={6}>
                             <Grid item xs>
                                 <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
+                                    <h2> Deepesh Ludhiyani [201701054]</h2>
                                     <hr></hr>
-                                    <p> Developer</p>
+                                    <p> Front-End Developer</p>
                                 </Paper>
                             </Grid>
                             <Grid item xs>
                                 <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
+                                    <h2> Atharva Berge [201701067]</h2>
                                     <hr></hr>
-                                    <p> Developer</p>
+                                    <p>Front-End Developer </p>
                                 </Paper>
                             </Grid>
                             <Grid item xs>
                                 <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
+                                    <h2> Anish Deshpande [201701011]</h2>
                                     <hr></hr>
-                                    <p> Developer</p>
+                                    <p> Techincal Content Writer </p>
+                                </Paper>
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={6}>
+                            <Grid item xs>
+                                <Paper>
+                                    <h2> Siddharth Deshpande [201701024]</h2>
+                                    <hr></hr>
+                                    <p> Front-End Developer</p>
+                                </Paper>
+                            </Grid>
+                            <Grid item xs>
+                                <Paper>
+                                    <h2> Amit Yadav [201701042]</h2>
+                                    <hr></hr>
+                                    <p> Tester </p>
+                                </Paper>
+                            </Grid>
+                            <Grid item xs>
+                                <Paper>
+                                    <h2> Nayan Santoki [201701032]</h2>
+                                    <hr></hr>
+                                    <p> Back-End Developer </p>
                                 </Paper>
                             </Grid>
                         </Grid>
                         <Grid container spacing={6} justify="center" style={{ paddingRight: '200px', paddingLeft: '200px' }}>
                             <Grid item xs>
                                 <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
-                                    <hr></hr>
-                                    <p> Developer</p>
-                                </Paper>
-                            </Grid>
-                            <Grid item xs>
-                                <Paper>
-                                    <h2> Mann Shah [201701019]</h2>
+                                    <h2>Maitrey Vadgama [2016010433]</h2>
                                     <hr></hr>
                                     <p> Developer</p>
                                 </Paper>
