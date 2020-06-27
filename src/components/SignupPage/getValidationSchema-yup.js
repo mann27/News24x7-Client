@@ -14,8 +14,5 @@ export default function getYupValidationSchema(values) {
     passwordConfirmation: Yup.string()
       .oneOf([values.password], 'Passwords are not the same!')
       .required('Password confirmation is required!'),
-    consent: Yup.bool()
-      .test('consent', 'You have to agree with our Terms and Conditions!', value => value === true)
-      .required('You have to agree with our Terms and Conditions!'),
   })
 }

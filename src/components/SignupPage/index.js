@@ -32,7 +32,6 @@ class SignupPage extends Component {
           userName: '',
           password: '',
           passwordConfirmation: '',
-          consent: false,
         }}
         validate={validate(getValidationSchema)}
         onSubmit={(values, { setSubmitting, setErrors }) => {

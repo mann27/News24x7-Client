@@ -12,7 +12,7 @@ const AboutPage = () => {
             <h3>
                 Welcome to News24x7 !. This is a news portal where you can post the links of various trending news and enhance a discussion on the same. This website is developed by students of DAIICT as their Software Engineering Term Project under the guidance of Prof. Saurabh Tiwari.
 
-We hope that our website provides you a good platform for the discussion on the latest and trending news. If you have any queries feel free to contact our developers team! 
+                We hope that our website provides you a good platform for the discussion on the latest and trending news. If you have any queries feel free to contact our developers team!
 
             </h3>
             <center>
@@ -32,7 +32,7 @@ We hope that our website provides you a good platform for the discussion on the 
                                 <Paper>
                                     <h2> Mann Shah [201701019]</h2>
                                     <hr></hr>
-                                    <p> Front-End/Back-End Developer</p>
+                                    <p>Lead Front-End/Back-End Developer</p>
                                 </Paper>
                             </Grid>
                             <Grid item xs>
