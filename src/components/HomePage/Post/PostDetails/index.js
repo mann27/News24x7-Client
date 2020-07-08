@@ -143,7 +143,6 @@ class PostDetails extends Component {
                                         {
                                             authenticated && this.showDelete() ? <span className="delete-btn"><button type="button" onClick={this.onClickDelete}>delete</button></span> : null
                                         }
-                                        <BookmarkIcon />
                                         {this.state.copyText ? <p>{this.state.copyText}</p> : <a onClick={this.copyToClipBoard}><ShareIcon style={{ marginLeft: '15px', marginRight: '0px' }} /></a>}
                                         <ReportIcon />
                                     </div>

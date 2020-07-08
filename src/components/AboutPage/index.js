@@ -44,44 +44,44 @@ const AboutPage = () => {
                             </Grid>
                         </Grid>
                         <Grid container spacing={6}>
-                            <Grid item xs>
+                            <Grid item xs={4}>
                                 <Paper>
                                     <h2> Romil Joshi [201701014]</h2>
                                     <hr></hr>
                                     <p> Back-End Developer/ Tester </p>
                                 </Paper>
                             </Grid>
-                            <Grid item xs>
+                            <Grid item xs={3.5}>
                                 <Paper>
-                                    <h2> Avi Gupta [201701031]</h2>
+                                    <h2> Avi Gupta[201701031]</h2>
                                     <hr></hr>
                                     <p> Tester </p>
                                 </Paper>
                             </Grid>
-                            <Grid item xs>
+                            <Grid item xs={4.5}>
                                 <Paper>
-                                    <h2> Karmadeepsinh Vala [201701047]</h2>
+                                    <h2>Karmadeepsinh Vala[201701047]</h2>
                                     <hr></hr>
                                     <p> Tester </p>
                                 </Paper>
                             </Grid>
                         </Grid>
                         <Grid container spacing={6}>
-                            <Grid item xs>
+                            <Grid item xs={4.5}>
                                 <Paper>
-                                    <h2> Deepesh Ludhiyani [201701054]</h2>
+                                    <h2>Deepesh Ludhiyani[201701054]</h2>
                                     <hr></hr>
                                     <p> Front-End Developer</p>
                                 </Paper>
                             </Grid>
-                            <Grid item xs>
+                            <Grid item xs={3.5}>
                                 <Paper>
                                     <h2> Atharva Berge [201701067]</h2>
                                     <hr></hr>
                                     <p>Front-End Developer </p>
                                 </Paper>
                             </Grid>
-                            <Grid item xs>
+                            <Grid item xs={4}>
                                 <Paper>
                                     <h2> Anish Deshpande [201701011]</h2>
                                     <hr></hr>
@@ -90,21 +90,21 @@ const AboutPage = () => {
                             </Grid>
                         </Grid>
                         <Grid container spacing={6}>
-                            <Grid item xs>
+                            <Grid item xs={5}>
                                 <Paper>
-                                    <h2> Siddharth Deshpande [201701024]</h2>
+                                    <h2> Siddharth Deshpande[201701024]</h2>
                                     <hr></hr>
                                     <p> Front-End Developer</p>
                                 </Paper>
                             </Grid>
-                            <Grid item xs>
+                            <Grid item xs={3.5}>
                                 <Paper>
                                     <h2> Amit Yadav [201701042]</h2>
                                     <hr></hr>
                                     <p> Tester </p>
                                 </Paper>
                             </Grid>
-                            <Grid item xs>
+                            <Grid item xs={3.5}>
                                 <Paper>
                                     <h2> Nayan Santoki [201701032]</h2>
                                     <hr></hr>

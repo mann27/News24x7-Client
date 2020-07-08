@@ -17,9 +17,11 @@ class Post extends Component {
     constructor() {
         super();
         this.state = {
-            copyText: ''
+            copyText: '',
+            reported: false
         }
         this.copyToClipBoard = this.copyToClipBoard.bind(this);
+        this.handlereport = this.handlereport.bind(this);
     }
 
     copyToClipBoard = () => {
@@ -27,6 +29,12 @@ class Post extends Component {
         copy(el);
         this.setState({
             copyText: 'Copied!'
+        })
+    }
+
+    handlereport(e) {
+        this.setState({
+            reported: true
         })
     }
 
@@ -75,9 +83,8 @@ class Post extends Component {
 
                             <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
                             <p style={{ marginLeft: '5px' }}>{commentCount} Comments</p>
-                            <BookmarkIcon />
                             {this.state.copyText ? <p>{this.state.copyText}</p> : <a onClick={this.copyToClipBoard}><ShareIcon style={{ marginLeft: '15px', marginRight: '0px' }} /></a>}
-                            <ReportIcon />
+                            {this.state.reported ? <p>reported!</p> : <ReportIcon onClick={this.handlereport} />}
                         </div>
                     </Grid>
                     <Grid item={true} xs={3}>

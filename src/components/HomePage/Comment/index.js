@@ -7,8 +7,7 @@ export default class Comment extends Component {
         return (
             <div>
                 <div className="commentContainer">
-
-                    <b className="handle">{this.props.comment.userHandle}: </b>
+                    <h3 className="handle">{this.props.comment.userHandle}: </h3>
                     <p className="combody">{this.props.comment.body}</p>
                 </div>
                 <hr style={{
