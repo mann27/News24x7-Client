@@ -97,7 +97,7 @@ class PostDetails extends Component {
 
         const uiloading = this.props.ui.loading;
         return (
-            <div style={{ backgroundColor: '#08c' }}>
+            <div style={{ backgroundColor: '#08c', minHeight: 'calc(100vh - 138px)' }}>
                 <Container maxWidth="md" style={{ paddingTop: '30px' }}>
                     <Grid container spacing={1}>
                         <Grid item={true} xs={8}>
