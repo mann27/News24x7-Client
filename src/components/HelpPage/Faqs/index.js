@@ -7,7 +7,7 @@ export default class Faqs extends Component {
         return (
             <div>
                 <h1 className="title-right">FAQs</h1>
-                <img className="faq-img" src={faqimg}></img>
+                <img className="faq-img" src={faqimg} alt=''></img>
                 <p>Stuck up somewhere? Need the help of our developers? Feel free to contact anyone from the developers tema. For any queries just drop a mail at:
 sengrp3@gmail.com </p>
                 <div>

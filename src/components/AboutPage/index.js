@@ -7,7 +7,7 @@ const AboutPage = () => {
         <Container>
             <h1>About Us</h1>
             <center>
-                <img src="https://www.naranjadigital.mx/wp-content/uploads/2019/06/Millenials-Pic-696x392.jpg" alt="Group image" />
+                <img src="https://www.naranjadigital.mx/wp-content/uploads/2019/06/Millenials-Pic-696x392.jpg" alt="Group" />
             </center>
             <h3>
                 Welcome to News24x7 !. This is a news portal where you can post the links of various trending news and enhance a discussion on the same. This website is developed by students of DAIICT as their Software Engineering Term Project under the guidance of Prof. Saurabh Tiwari.
