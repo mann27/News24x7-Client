@@ -1,7 +1,7 @@
 import { SET_POST, SET_POSTS, LOADING_DATA, LOADING_UI, UNLOADING_UI, SUBMIT_COMMENT, SET_ERRORS, CREATE_POST, LIKE_POST, UNLIKE_POST, DELETE_POST, SET_USER_POSTS } from '../types';
 import axios from 'axios';
-import store from '../store';
-import { isEmptyArray } from 'formik';
+// import store from '../store';
+// import { isEmptyArray } from 'formik';
 
 
 export const getPosts = (type) => (dispatch) => {

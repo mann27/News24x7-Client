@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import ChatIcon from '@material-ui/icons/Chat';
 import ShareIcon from '@material-ui/icons/Share';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
+// import BookmarkIcon from '@material-ui/icons/Bookmark';
 import ReportIcon from '@material-ui/icons/Report';
 import copy from "copy-to-clipboard";
 
@@ -83,7 +83,7 @@ class Post extends Component {
 
                             <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
                             <p style={{ marginLeft: '5px' }}>{commentCount} Comments</p>
-                            {this.state.copyText ? <p>{this.state.copyText}</p> : <a onClick={this.copyToClipBoard}><ShareIcon style={{ marginLeft: '15px', marginRight: '0px' }} /></a>}
+                            {this.state.copyText ? <p>{this.state.copyText}</p> : <span style={{cursor: 'pointer', color: '#08c'}} onClick={this.copyToClipBoard}><ShareIcon style={{ marginLeft: '15px', marginRight: '0px' }} /></span>}
                             {this.state.reported ? <p>reported!</p> : <ReportIcon onClick={this.handlereport} />}
                         </div>
                     </Grid>

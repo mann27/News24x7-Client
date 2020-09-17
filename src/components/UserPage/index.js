@@ -38,6 +38,7 @@ class UserPage extends Component {
                 if (post.handleName === window.location.href.split("/").pop()) {
                     score += post.likeCount;
                 }
+                return null;
             });
         }
         else {
@@ -48,7 +49,7 @@ class UserPage extends Component {
                 <Grid container>
                     <Grid item xs={4}>
                         <center>
-                            <img src={imageUrl} alt="user image" className="img-user"></img>
+                            <img src={imageUrl} alt="user" className="img-user"></img>
                         </center>
                     </Grid>
                     <Grid item xs={8}>

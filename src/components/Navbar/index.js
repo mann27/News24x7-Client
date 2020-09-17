@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import propTypes from 'prop-types'
-import { AppBar, Toolbar, Typography, useScrollTrigger, Fab, Zoom, Grid } from '@material-ui/core';
+import { AppBar, Toolbar, useScrollTrigger, Fab, Zoom, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import colors from '../../utils/base-module';
-import styled from 'styled-components';
+// import colors from '../../utils/base-module';
+// import styled from 'styled-components';
 import { connect } from 'react-redux';
 import logo from './logo.png';
 import { logoutUser } from '../../redux/actions/userActions'
@@ -19,12 +19,12 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const NavButton = styled.button`
-    align-content:center;
-    color: ${colors.BASE_BLUE};
-    background-color:white;
-    margin-right:15px;
-`;
+// const NavButton = styled.button`
+//     align-content:center;
+//     color: ${colors.BASE_BLUE};
+//     background-color:white;
+//     margin-right:15px;
+// `;
 
 function ScrollTop(props) {
     const { children } = props;
