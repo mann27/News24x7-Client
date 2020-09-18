@@ -79,7 +79,6 @@ class NavBar extends Component {
                             <Grid item>
                             </Grid>
                             <Grid item style={{ padding: '0px', marginBottom: '10px' }}>
-                                <Link to="/about-us" className="nav-link" ><h3>About Us</h3></Link>
                                 <Link to="/help/faq" className="nav-link"><h3>Help</h3></Link>
                                 {authenticated ? (
                                     <span>
