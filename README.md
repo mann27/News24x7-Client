@@ -4,7 +4,7 @@ front-end app for the project created using react.js.
 The back-end code and API's for the project are at https://github.com/mann27/News24x7-Server
 
 ## Prerequisites
-Node.js should be installed [https://nodejs.org/en/](https://nodejs.org/en/) <br />
+* Node.js should be installed [https://nodejs.org/en/](https://nodejs.org/en/) <br />
 
 ## Available Scripts
 
@@ -20,10 +20,27 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-## Contribute
+# Contribution Guidelines
 
-If you see any issues or a possible feature create an issue.
+- Fork and star the repo
+- Create your feature branch
+    ```
+    git checkout -b <feature-name>
+    ```
+- Commit your changes
+    ```
+    git commit -am "Meaningful commit message
+    ```
+- Push to the branch
+    ```
+    git push origin <feature-name>
+    ```
 
-This project is a part of SLOP and I will be adding possible feature implementations for the selected students which would help gain knowledge on react.js and node.js
+- If you see any bug or you have a feature suggestion, create an issue.
+- Start working on an issue only after it has been approved by the maintainers.
+- Wait till the end of the day to get the reply on an issue or review of a PR.
 
-Wait till the EOD to get the reply on a issue or review of a PR.
+## SLoP Maintainers
+This project is a part of the SLOP program and is being currently maintained by:
+- [Mann Shah](https://github.com/mann27)
+- [Shivam Yadav](https://github.com/ExpressHermes)
