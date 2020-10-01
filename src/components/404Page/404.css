@@ -1,0 +1,18 @@
+div.wrapper{
+    min-height: calc(100vh - 170px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.status-code{
+    font-size: 4em;
+    font-weight: bolder;
+    text-align: center;
+}
+
+p{
+    font-size: 1.5em;
+    text-align: center;
+}
+
