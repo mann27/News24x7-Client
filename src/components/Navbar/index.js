@@ -68,7 +68,7 @@ class NavBar extends Component {
         const userlink = `/user/${handle}`;
         return (
             <React.Fragment>
-                <AppBar color='inherit'>
+                <AppBar color='inherit' position='sticky'>
                     <Toolbar>
                         <Link to="/"><img src={logo} alt="logo" className="nav-logo"></img></Link>
                         <Link to="/" style={{ textDecoration: 'none' }}><h1 className="nav-title">News24x7</h1></Link>

@@ -22,7 +22,7 @@ import HomePage from './components/HomePage';
 import HelpPage from './components/HelpPage';
 import PostDetails from './components/HomePage/Post/PostDetails'
 import userPage from './components/UserPage';
-
+import InvalidPage from './components/404Page';
 
 axios.defaults.baseURL = 'https://asia-east2-news-sen3.cloudfunctions.net/api';
 
@@ -48,7 +48,7 @@ function App() {
       <div className="App">
         <Router>
           <Navbar />
-          <div className="content" style={{ marginTop: '10px' }}>
+          <div className="content" style={{minHeight: 'calc(100vh - 115px)', paddingBottom:'50px' }}>
             <Switch>
               <Route path="/hello" component={HelloWorld} />
               <Route path="/help" component={HelpPage} />
@@ -57,6 +57,7 @@ function App() {
               <AuthRoute path="/signup" component={SignupPage} />
               <Route path="/post/:postId" component={PostDetails} />
               <Route path="/user/:handle" component={userPage} />
+              <Route path="*" component={InvalidPage} />
             </Switch>
           </div>
           <Footer />

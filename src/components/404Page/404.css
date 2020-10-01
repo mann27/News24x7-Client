@@ -1,0 +1,27 @@
+div.wrapper{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 170px);
+}
+
+div.wrapper > div{
+    text-align: center;
+}
+
+.status-code{
+    color: #f92323;
+    font-family: fantasy;
+    font-size: 10em;
+    text-shadow: 3px 3px black;
+}
+
+.pos{
+    position: relative;
+    top:-40px;
+}
+
+p{
+    font-size: 1.75em;
+    margin: 0;
+}
