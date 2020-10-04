@@ -1,5 +1,5 @@
 # News24x7
-front-end app for the project created using react.js.
+Front-end app for the project created using react.js.
 
 The back-end code and API's for the project are at https://github.com/mann27/News24x7-Server
 
