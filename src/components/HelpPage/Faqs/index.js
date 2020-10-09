@@ -63,6 +63,7 @@ const  Faqs=() =>   {
                                 </i>):""}
                                 {item.isShow === true?(<i 
                                     class="fa fa-minus"  
+
                                     style={{color:"blue"}} 
                                     onClick={() =>handleShowStatus(item.id)}>
                                 </i>):""}
