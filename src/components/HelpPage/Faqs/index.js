@@ -1,6 +1,5 @@
-import React,{useState,useCallback} from 'react'
+import React,{useState} from 'react'
 import '../help.css';
-import faqimg from './faq.png';
 
 const initialList=[
     {
@@ -18,12 +17,14 @@ const initialList=[
     {
         id:3,
         question:"Can I post something which is articulated by me?",
-        answer:"No, you just have to post the link of an article with its title, any relevant image and its corresponding tags."
+        answer:"No, you just have to post the link of an article with its title, any relevant image and its corresponding tags.",
+        isShow:false
     },
     {
         id:4,
         question:"Whom should I contact in case of any queries?",
-        answer:"The email-id of the developers team is given on the contact us page. You can drop an email in case of any queries."
+        answer:"The email-id of the developers team is given on the contact us page. You can drop an email in case of any queries.",
+        isShow:false
     }
 
 ]
@@ -46,7 +47,6 @@ const  Faqs=() =>   {
         return (
             <div>
                 <h1 className="title-right">FAQs</h1>
-                <img className="faq-img" src={faqimg} alt=''></img>
                 <p>
                     Stuck up somewhere? Need the help of our developers? Feel free to contact anyone from the developers tema. For any queries just drop a mail at:
                     sengrp3@gmail.com 
@@ -56,15 +56,13 @@ const  Faqs=() =>   {
 
                         {data.map(item => (
                             <li key={item.id} >
-                                {item.isShow == false?(<i 
-                                    class="fa fa-plus" 
-                                    aria-hidden="plus"  
+                                {item.isShow === false?(<i 
+                                    class="fa fa-plus"   
                                     style={{color:"blue"}} 
                                     onClick={() =>handleShowStatus(item.id)}>
                                 </i>):""}
-                                {item.isShow == true?(<i 
-                                    class="fa fa-minus" 
-                                    aria-hidden="minus"  
+                                {item.isShow === true?(<i 
+                                    class="fa fa-minus"  
                                     style={{color:"blue"}} 
                                     onClick={() =>handleShowStatus(item.id)}>
                                 </i>):""}
@@ -74,7 +72,7 @@ const  Faqs=() =>   {
                                     onClick={() =>handleShowStatus(item.id)}>
                                     {item.question}
                                 </h2>
-                                {item.isShow == true ? (<p style={{paddingLeft:"50px"}} className="faq-ans">{item.answer}</p>): ""}
+                                {item.isShow === true ? (<p style={{display:"inline-block",paddingLeft:"50px"}} className="faq-ans">{item.answer}</p>): ""}
                             <hr style={{wdith:"70%"}}/>
                         </li>
                         ))}
