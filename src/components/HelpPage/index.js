@@ -12,12 +12,9 @@ export default class HelpPage extends Component {
                 <Grid item={true} sm={4} style={{ marginTop: '150px', marginBottom: '160px' }} >
                     <center>
                         <Link to="/help/support" style={{ textDecoration: 'none' }}>
-                            <h1 className="side-menu-title">support</h1>
+                            <h1 className="side-menu-title">Support</h1>
                         </Link>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
+                    
                         <Link to="/help/faq" style={{ textDecoration: 'none' }}>
                             <h1 className="side-menu-title">FAQ's</h1>
                         </Link>
