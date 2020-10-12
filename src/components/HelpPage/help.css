@@ -1,3 +1,13 @@
+.help-navBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+}
+.help-content {
+  display: flex;
+  justify-content: space-around;
+}
 .side-menu-title {
   color: rgb(2, 76, 150);
   text-decoration: none;
@@ -19,6 +29,7 @@
   text-align: center;
   text-transform: uppercase;
   text-shadow: 2px 2px 5px rgb(105, 166, 228);
+  transform: translateX(25%);
 }
 
 .support-img {
@@ -145,9 +156,11 @@
   display: flex;
   box-shadow: 2px 2px 10px grey;
   padding: 20px;
-  margin-right: 20px;
-  margin-left: 20px;
+  align-items: center;
   border-radius: 10px;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  transform: translateX(16vw);
 }
 .main-inside {
   display: flex;
@@ -162,4 +175,70 @@
   font-family: "Nunito", sans-serif;
   text-align: start;
   font-size: 1.5vw;
+}
+.faq-header {
+  display: flex;
+  box-shadow: 2px 2px 10px grey;
+  padding: 2.2vw;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  border-radius: 20px;
+  transform: translateX(16vw);
+}
+.faq-image {
+  height: 15vw;
+  width: 20vw;
+}
+.faq-head-para {
+  text-shadow: 2px 2px 5px rgb(170, 169, 169);
+  font-size: 1.5vw;
+  font-weight: 500;
+  font-family: "Nunito", sans-serif;
+  border-left: 0.3vw dashed rgb(82, 140, 197);
+  padding-left: 2vw;
+}
+.faq-head-para span {
+  color: rgb(4, 86, 167);
+  text-shadow: 0px 0px 10px rgb(0, 173, 253);
+}
+.faq-list {
+  box-shadow: 2px 2px 10px grey;
+  padding: 2.2vw;
+  margin-right: 3vw;
+  border-radius: 20px;
+  font-family: "Nunito", sans-serif;
+  transition: all 0.5s ease;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  transform: translateX(16vw);
+}
+.faq-list-li .fa {
+  color: rgb(2, 58, 114);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgb(0, 173, 253);
+  background-color: rgb(82, 140, 197);
+  font-size: 2vw;
+  margin-left: 1vw;
+  padding: 0.3vw 0.6vw;
+  transition: all 0.2s ease;
+}
+.faq-list-li .fa:hover {
+  cursor: pointer;
+  background-color: rgb(2, 58, 114);
+  color: rgb(82, 140, 197);
+}
+.faq-que {
+  margin-left: 2vw;
+  text-shadow: 1px 1px 8px rgb(170, 169, 169);
+  font-size: 1.5vw;
+}
+.faq-ans {
+  font-size: 1.5vw;
+  margin: 0vw 5vw;
+  transition: all 0.5s ease;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+.list-hr {
+  background-color: rgb(2, 58, 114);
 }

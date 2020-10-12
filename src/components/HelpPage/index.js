@@ -9,8 +9,9 @@ export default class HelpPage extends Component {
     render() {
         return (
             <Grid container >
-                <Grid item={true} sm={4} style={{ marginTop: '150px', marginBottom: '160px' }} >
-                    <center>
+                <div className="help-main">
+                <Grid item={true} sm={4}  >
+                    <center className="help-navBar">
                         <Link to="/help/support" style={{ textDecoration: 'none' }}>
                             <h1 className="side-menu-title">Support</h1>
                         </Link>
@@ -20,9 +21,10 @@ export default class HelpPage extends Component {
                         </Link>
                     </center>
                 </Grid>
-                <Grid item={true} sm={8}>
+                <Grid item={true} sm={8} className="help-content">
                     <HelpRoutes />
                 </Grid>
+                </div>
             </Grid>
         )
     }
