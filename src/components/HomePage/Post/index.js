@@ -49,45 +49,48 @@ class Post extends Component {
         return (
             <Paper style={{ marginTop: '25px', paddingLeft: '10px', paddingRight: '10px', paddingBottom: '10px' }}>
                 <Link to={redirect} className="link">
-                    <Grid container spacing={2} className="postshape">
-                        <Grid item={true} xs={3} >
-                            <Grid container spacing={3}>
-                                <Grid item xs={4}>
-                                    <img src={userImage} alt="user" className="usershape" />
-                                </Grid>
-                                <Grid item xs={8} style={{ marginTop: '10px' }}>
-                                    <p className="handle"> {handleName} </p>
-                                </Grid>
-                            </Grid>
+                    <Grid container direction="row" justify="flex-start" style={{padding:'10px 10px',backgroundColor:'#E0EFFE'}}>
+                        {/* user image and handle name*/}
+                        <Grid xs={1} justify="flex-start">
+                            <img src={userImage} alt="user" className="usershape" />
                         </Grid>
-                        <Grid item={true} xs={9} className="title"  >
-                            <b style={{ marginBottom: '0px' }}>{title}</b>
-                            <div className="time-tags">
-                                <p style={{ fontSize: 'small' }}>{dayjs(createdAt).fromNow()}</p>
-                                <p style={{ marginLeft: '20px', fontSize: 'medium', color: 'black' }}><u>{tags}</u></p>
-                            </div>
+                        <Grid sx={6} direction="column" justify="flex-start" style={{paddingLeft:'10px',display:"flex"}}>
+                            <p className="handle" style={{color:'#001272',fontSize:'20px',fontWeight:400,marginTop:'-10px'}}> {handleName} </p>
+                            <p style={{ marginTop:'-10px',opacity:'70%',fontSize:'10px'}}>{dayjs(createdAt).fromNow()}</p>
                         </Grid>
                     </Grid>
+                    <hr style={{opacity:'30%'}}/>
+                    <Grid contianer direction="row" >
+                        {/* post title*/ }
+                        <p style={{ fontFamily: 'Piazzolla',textAlign:"center",fontSize:'30px',fontWeight:800,color:'#001794' }}>{title}</p>
+                    </Grid>
                 </Link>
-                <center>
-                    {postImage ? <img src={postImage} alt="img" className="postimage" /> : null}
-                </center>
-                <div style={{ paddingTop: '20px', paddingBottom: '10px' }}>
-                    <a href={body} className="postbody">{body}</a>
+                {/* Image */}
+                <div style={{textAlign:"center"}}>
+                    {postImage ? <img src={postImage} style={{width:'100%'}}alt="img" className="postimage" /> : null}
                 </div>
+                {/* tags */}
+                <Grid container direction="row" justify="space-between">
+                    <a href={body} style={{marginLeft:'20px'}}>Link</a>
+                    <p style={{ fontSize: 'medium', color: '#3351F3' ,marginRight:'20px'}}><u>{tags}</u></p>
+                </Grid>
+                {/* likes and comments count */}
+                <Grid container direction="row"  justify="flex-start" alignItems="center"> 
+                    <LikeButton />
+                    <p style={{fontSize:'14px'}}>{likeCount} </p>
+                    <ChatIcon style={{marginLeft:'10px'}}/>
+                    <p style={{fontSize:'14px'}}>{commentCount}</p>
+                </Grid>
+                <hr style={{opacity:'50%'}}/>
+                {/* like,share ,comment,report symbols */}
                 <Grid container spacing={3}>
-                    <Grid item={true} xs={9}>
+                    <Grid item={true} xs={12} >
                         <div className="like-share-comment-bookmark">
                             <LikeButton key={postId} postId={postId} />
-                            <p>{likeCount} likes</p>
-
                             <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
-                            <p style={{ marginLeft: '5px' }}>{commentCount} Comments</p>
                             {this.state.copyText ? <p>{this.state.copyText}</p> : <span style={{cursor: 'pointer', color: '#08c'}} onClick={this.copyToClipBoard}><ShareIcon style={{ marginLeft: '15px', marginRight: '0px' }} /></span>}
                             {this.state.reported ? <p>reported!</p> : <ReportIcon onClick={this.handlereport} />}
                         </div>
-                    </Grid>
-                    <Grid item={true} xs={3}>
                     </Grid>
                 </Grid>
             </Paper >
