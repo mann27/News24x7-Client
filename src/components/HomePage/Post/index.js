@@ -49,25 +49,6 @@ class Post extends Component {
         return (
             <Paper style={{ marginTop: '25px', paddingLeft: '10px', paddingRight: '10px', paddingBottom: '10px' }}>
                 <Link to={redirect} className="link">
-                    {/* <Grid container spacing={2} className="postshape">
-                        <Grid item={true} xs={3} >
-                            <Grid container spacing={3}>
-                                <Grid item xs={4}>
-                                    <img src={userImage} alt="user" className="usershape" />
-                                </Grid>
-                                <Grid item xs={8} style={{ marginTop: '10px' }}>
-                                    <p className="handle" style={{marginBottom:"10px"}}> {handleName} </p>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item={true} xs={9} className="title"  >
-                            <b style={{ marginBottom: '0px' }}>{title}</b>
-                            <div className="time-tags">
-                                <p style={{ fontSize: 'small' }}>{dayjs(createdAt).fromNow()}</p>
-                                <p style={{ marginLeft: '20px', fontSize: 'medium', color: 'black' }}><u>{tags}</u></p>
-                            </div>
-                        </Grid>
-                    </Grid> */}
                     <Grid container direction="row" justify="flex-start" style={{padding:'10px 10px',backgroundColor:'#E0EFFE'}}>
                         {/* user image and handle name*/}
                         <Grid xs={1} justify="flex-start">
@@ -86,11 +67,8 @@ class Post extends Component {
                 </Link>
                 {/* Image */}
                 <div style={{textAlign:"center"}}>
-                    {postImage ? <img src={postImage} style={{width:'100%' }}alt="img" className="postimage" /> : null}
+                    {postImage ? <img src={postImage} style={{width:'100%'}}alt="img" className="postimage" /> : null}
                 </div>
-                {/* <div style={{ paddingTop: '20px', paddingBottom: '10px' }}>
-                        <a href={body} className="postbody">{body}</a>
-                    </div> */}
                 {/* tags */}
                 <Grid container direction="row" justify="space-between">
                     <a href={body} style={{marginLeft:'20px'}}>Link</a>
@@ -106,20 +84,14 @@ class Post extends Component {
                 <hr style={{opacity:'50%'}}/>
                 {/* like,share ,comment,report symbols */}
                 <Grid container spacing={3}>
-                    <Grid item={true} xs={12}>
+                    <Grid item={true} xs={12} >
                         <div className="like-share-comment-bookmark">
                             <LikeButton key={postId} postId={postId} />
-                            {/* <p>{likeCount} likes</p> */}
-
                             <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
-                            {/* <p style={{ marginLeft: '5px' }}>{commentCount} Comments</p> */}
-                            {/* <p style={{ marginLeft:'-15px',fontSize:'14px' }}>{commentCount} Comments</p> */}
                             {this.state.copyText ? <p>{this.state.copyText}</p> : <span style={{cursor: 'pointer', color: '#08c'}} onClick={this.copyToClipBoard}><ShareIcon style={{ marginLeft: '15px', marginRight: '0px' }} /></span>}
                             {this.state.reported ? <p>reported!</p> : <ReportIcon onClick={this.handlereport} />}
                         </div>
                     </Grid>
-                    {/* <Grid item={true} xs={3}>
-                    </Grid> */}
                 </Grid>
             </Paper >
         )
