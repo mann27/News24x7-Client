@@ -56,7 +56,7 @@ class Post extends Component {
                         </Grid>
                         <Grid sx={6} direction="column" justify="flex-start" style={{paddingLeft:'10px',display:"flex"}}>
                             <p className="handle" style={{color:'#001272',fontSize:'20px',fontWeight:400,marginTop:'-10px'}}> {handleName} </p>
-                            <p style={{ fontSize: 'small',marginTop:'-10px',opacity:'70%',fontSize:'10px'}}>{dayjs(createdAt).fromNow()}</p>
+                            <p style={{ marginTop:'-10px',opacity:'70%',fontSize:'10px'}}>{dayjs(createdAt).fromNow()}</p>
                         </Grid>
                     </Grid>
                     <hr style={{opacity:'30%'}}/>
