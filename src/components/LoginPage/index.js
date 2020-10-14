@@ -1,15 +1,36 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import propTypes from 'prop-types'
-import { Formik } from "formik";
-import * as Yup from "yup";
+import { Formik } from "formik"
+import LockOpenIcon from '@material-ui/icons/LockOpen'
+import { Avatar, Typography, Grid, Container, TextField, CircularProgress } from '@material-ui/core'
+import { Alert } from '@material-ui/lab'
+import { withStyles } from '@material-ui/styles'
+import * as Yup from "yup"
 import '../SignupPage/signup.css'
 //Redux 
-import { connect } from 'react-redux';
-import { loginUser } from '../../redux/actions/userActions';
+import { connect } from 'react-redux'
+import { loginUser } from '../../redux/actions/userActions'
 
 const MIN_PASSWORD_LENGTH = 6;
 
+const styles = {
+    wrapper: {
+      alignItems:'center',
+      display:'flex', 
+      justifyContent: 'center', 
+      minHeight: 'calc(100vh - 170px)', 
+    },
+    avatar: {
+      background:'red', 
+      boxShadow: '0px 2px 3px #000000ad',
+      fontSize:'3em', 
+      height: 'fit-content', 
+      margin:'0 auto',
+      padding:'10px', 
+      width: 'fit-content', 
+    }
+}
 
 class LoginPage extends Component {
 
@@ -29,7 +50,7 @@ class LoginPage extends Component {
     }
 
     render() {
-        const { ui: { loading } } = this.props
+        const { ui: { loading }, classes } = this.props
         const { dberrors } = this.state
         return (
             <Formik
@@ -56,57 +77,64 @@ class LoginPage extends Component {
                         values,
                         touched,
                         errors,
-                        isSubmitting,
                         handleChange,
                         handleBlur,
                         handleSubmit
                     } = props;
                     return (
-                        <div className="form">
-                            <center>
-                                <h2 className="head-log">LOG IN</h2>
-                            </center>
-                            <form onSubmit={handleSubmit}>
-                                <label htmlFor="email" >Email</label>
-                                <input
-                                    name="email"
-                                    type="text"
-                                    placeholder="Enter your email"
-                                    value={values.email}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    className={errors.email && touched.email && "error"}
-                                />
-                                {errors.email && touched.email && (
-                                    <div className="form-field-error">{errors.email}</div>
-                                )}
-                                <label htmlFor="email" >Password</label>
-                                <input
-                                    name="password"
-                                    type="password"
-                                    placeholder="Enter your password"
-                                    value={values.password}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    className={errors.password && touched.password && "error"}
-                                />
-                                {errors.password && touched.password && (
-                                    <div className="form-field-error">{errors.password}</div>
-                                )}
-                                <center>
-                                    <button type="submit" disabled={isSubmitting}>
-                                        logIn
-                                </button>
-                                    <br style={{ margin: '0px', padding: '0px' }}></br>
-                                    <small>Don't have an Account? Sign Up <Link to="/signup">here</Link></small>
-                                </center>
-
-                                {loading ? <p>loading...</p> :
-                                    (dberrors.err && (<p className="dberrors">{dberrors.err}</p>))  /* validating user */
-                                    || (dberrors.general && (<p className="dberrors">{dberrors.general}</p>)) /* checking user cred */
-                                }
-                                <br /> <br /> <br /> <br /><br />
-                            </form>
+                        <div className={classes.wrapper} >
+                            <Container component='div' maxWidth='xs'>
+                                <div style={{textAlign: 'center'}}>
+                                    <Avatar className={classes.avatar} >
+                                        <LockOpenIcon style={{fontSize: 'inherit'}}/>
+                                    </Avatar>
+                                    <Typography component='h4' variant='h4' style={{padding: '15px 0'}}>Log In</Typography>
+                                    
+                                    <Grid container spacing={2}>
+                                        <Grid item xs={12}>
+                                            {!loading ? 
+                                            (dberrors.err && (<Alert severity="error" style={{textTransform: 'capitalize'}}>{dberrors.err}</Alert>)) 
+                                            || (dberrors.general && (<Alert severity="error" style={{textTransform: 'capitalize'}}>{dberrors.general}</Alert>)) : null}
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <TextField
+                                                autoFocus
+                                                error={errors.email && touched.email ? true:false}
+                                                fullWidth
+                                                helperText={(errors.email && touched.email) && errors.email}
+                                                id="email"
+                                                label="Email"
+                                                name="email"
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                required
+                                                type='email'
+                                                value={values.email}
+                                                variant="outlined"
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <TextField
+                                                error={errors.password && touched.password ? true:false}
+                                                fullWidth
+                                                helperText={(errors.password && touched.password) && errors.password}
+                                                id="password"
+                                                label="Password"
+                                                name="password"
+                                                onChange={handleChange}
+                                                required
+                                                type="password"
+                                                value={values.password}
+                                                variant="outlined"
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <button type='submit' onClick={handleSubmit} disabled={loading}>Log In! {loading ? <CircularProgress size={17} thickness={6} /> : null}</button>
+                                            <div><Link to="/signup">Don't have an Account? Sign Up here</Link></div>
+                                        </Grid>
+                                    </Grid>
+                                </div>
+                            </Container>
                         </div>
                     );
                 }}
@@ -130,4 +158,4 @@ const mapActionsToProps = {
     loginUser
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(LoginPage);
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(LoginPage));

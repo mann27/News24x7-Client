@@ -68,12 +68,14 @@ const  Faqs=() =>   {
                                 </i>):""}
                                 <h2 
                                     style={{display:"inline-block",paddingLeft:"50px"}} 
+
                                     className="faq-que" 
                                     onClick={() =>handleShowStatus(item.id)}>
                                     {item.question}
                                 </h2>
                                 {item.isShow === true ? (<p style={{display:"inline-block",paddingLeft:"50px"}} className="faq-ans">{item.answer}</p>): ""}
                             <hr style={{wdith:"70%"}}/>
+
                         </li>
                         ))}
 
