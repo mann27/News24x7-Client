@@ -45,21 +45,21 @@ class HomePage extends Component {
                 <Container maxWidth="md" style={{ paddingTop: '30px' }}>
                     <Grid container spacing={2}>
                         <Grid item={true} xs={8}>
-                            <Paper style={{ padding: '10px' }}>
+                            
                                 <CreatePost />
-                            </Paper>
+                            
                             <div style={{ marginTop: '20px' }}>
                                 {PostMarkup}
                             </div>
 
                         </Grid>
                         <Grid item={true} xs={4}>
-                            <Paper>
+                            
                                 {!uiloading ?
                                     (authenticated ? <UserDetails /> :
                                         <p><Link to="/login">login</Link> to see your details</p>
                                     ) : <UserDetailsSkleton />}
-                            </Paper>
+                            
                             <Paper style={{ marginTop: '20px' }}>
                                 <center className="btn-select">
                                     <p>Sort the posts by</p>

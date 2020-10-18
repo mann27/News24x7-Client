@@ -30,12 +30,15 @@ class UserDetails extends Component {
             <div className="userstyle">
                 <center>
                     <p className="heading">User Details</p>
-                    <img src={imageUrl} alt="user" height={100} width={100} style={{ borderRadius: '50%', marginTop: '20px' }} />
+                    <div className="User-box">
+                    <img src={imageUrl} alt="user" className="user-img" />
                     <input type="file" hidden="hidden" id="imageInput" onChange={this.handleChange} className="upload-file"></input>
-                    <button className="upload-btn" onClick={this.handleUserImage}>upload</button>
                     <br />
-                    <h3 className="hande-side">@{handle}</h3>
-                    <p>Email : {email}</p>
+                    <hr className="line" />
+                    <h3 className="hande-side">User Name : @{handle}</h3>
+                    <hr className="line" />
+                    <p className="email">Email : {email}</p>
+                    </div>
                 </center>
             </div>
         )
