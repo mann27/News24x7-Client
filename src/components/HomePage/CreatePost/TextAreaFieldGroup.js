@@ -12,10 +12,10 @@ const TextAreaFieldGroup = ({
     
 }) => {
     return (
-        <div className="form-group">
+        <div className="">
         <textarea
           id="text-area"
-          className={classnames('form-control form-control-lg', {
+          className={classnames('form-control form-control-lg form-textbox', {
             'is-invalid': error
           })}
           placeholder={placeholder}
