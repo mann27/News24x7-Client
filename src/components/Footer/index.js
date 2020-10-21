@@ -22,7 +22,6 @@ const useStyles = makeStyles(theme => ({
 
     footer: {
         padding: theme.spacing(1, 1),
-        marginTop: 'auto',
         
     },
 }));
