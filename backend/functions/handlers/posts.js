@@ -1,6 +1,8 @@
 const { db, admin } = require('../utils/admin');
 const firebaseConfig = require('../utils/config');
 
+const {validateAddPostData} =require('../utils/validators') // add post middleware
+
 exports.getAllPosts = function (req, res) {
     db.collection('posts')
         .orderBy('createdAt', 'desc').get()
@@ -79,6 +81,18 @@ exports.getAllPostsTrending = function (req, res) {
 }
 
 exports.addNewPost = function (req, res) {
+
+    const newPost = {
+        title:req.body.title,
+        body:req.body.body,
+        tags:req.body.tags
+    }
+
+    const { valid, errors } = validateAddPostData(newPost);
+    if (!valid) {
+        return res.status(400).json(errors);
+    }
+
     const newPost = {
         handleName: req.user.handle,
         title: req.body.title,

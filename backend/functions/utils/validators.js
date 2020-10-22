@@ -34,3 +34,32 @@ exports.validateLoginData = (data) => {
         valid: Object.keys(errors).length === 0 ? true : false
     };
 }
+
+const isValidLink = (link) => {
+    const regEx = "((http|https)://)(www.)?"
+    + "[a-zA-Z0-9@:%._\\+~#?&//=]"
+    + "{2,256}\\.[a-z]"
+    + "{2,6}\\b([-a-zA-Z0-9@:%"
+    + "._\\+~#?&//=]*)";
+    if(link.match(regEx)) return true;
+    else return false;
+}
+
+exports.validateAddPostData = (data) => {
+    let errors = {};
+    if(data.title.length <= 5) errors.title = 'title must be atleast 6 charcters long';
+    
+    /**
+     * The URL must start with either http or https and
+     * then followed by :// and 
+     * then it must contain www. and 
+     * then followed by subdomain of length (2, 256) and 
+     * last part contains top level domain like .com, .org etc.
+     */
+    if(!isValidLink(data.body)) errors.body = "url must be valid";
+    if(data.tags.length <= 5 ) errors.tags = "tag must be atleast 6 characters long";
+    return {
+        errors,
+        valid: Object.keys(errors).length === 0 ? true : false
+    };
+}
