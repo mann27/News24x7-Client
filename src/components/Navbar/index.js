@@ -70,8 +70,8 @@ class NavBar extends Component {
             <React.Fragment>
                 <AppBar className="navbar" position='sticky' color="rgb(0, 21, 65)">
                     <Toolbar>
-                        <Link to="/"><img src={logo} alt="News(24x7)" className="nav-logo"></img></Link>
-                        <Link to="/" style={{ textDecoration: 'none' }}><h4 className="nav-title">News&nbsp;24x7</h4></Link>
+                        <Link to="/news24x7"><img src={logo} alt="News(24x7)" className="nav-logo"></img></Link>
+                        <Link to="/news24x7" style={{ textDecoration: 'none' }}><h4 className="nav-title">News&nbsp;24x7</h4></Link>
                         <Grid
                             justify="space-around"
                             >
@@ -85,8 +85,7 @@ class NavBar extends Component {
                                         <div className="user-box">
                                           <Link to={userlink}>
                                             <img src={imageUrl} alt="user" className="usershape" />
-                                            
-                                             </Link> 
+                                            </Link> 
                                         </div>
                                     </>
                                 ) : (
@@ -94,15 +93,11 @@ class NavBar extends Component {
                                             <Link to="/login" className="nav-link"><h3>Login</h3></Link>
                                             <Link to="/signup" className="nav-link"><h3>Signup</h3></Link>
                                         </>
-
                                     )}
                                     
-
                             </Grid>
                         </Grid>
-                        
-                        
-                            
+                           
                     </Toolbar>
                 </AppBar >
                 <div id="back-to-top-anchor" />

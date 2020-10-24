@@ -1,0 +1,26 @@
+.VideoBg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+.fa-angle-double-down {
+  font-size: 30px;
+  animation: arrow 2s infinite;
+}
+@keyframes arrow {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.linkBtn {
+  z-index: 1000000000 !important;
+  text-decoration: none;
+}
