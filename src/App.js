@@ -48,7 +48,7 @@ function App() {
       <div className="App">
         <Router>
           <Navbar />
-          <div className="content" style={{minHeight: 'calc(100vh - 115px)', paddingBottom:'50px' }}>
+          <div className="content" style={{minHeight: 'calc(100vh - 115px)', marginBottom:'20px' }}>
             <Switch>
               <Route path="/hello" component={HelloWorld} />
               <Route path="/help" component={HelpPage} />

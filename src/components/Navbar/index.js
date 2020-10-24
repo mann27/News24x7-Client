@@ -68,38 +68,41 @@ class NavBar extends Component {
         const userlink = `/user/${handle}`;
         return (
             <React.Fragment>
-                <AppBar color='inherit' position='sticky'>
+                <AppBar className="navbar" position='sticky' color="rgb(0, 21, 65)">
                     <Toolbar>
-                        <Link to="/"><img src={logo} alt="logo" className="nav-logo"></img></Link>
-                        <Link to="/" style={{ textDecoration: 'none' }}><h1 className="nav-title">News24x7</h1></Link>
+                        <Link to="/"><img src={logo} alt="News(24x7)" className="nav-logo"></img></Link>
+                        <Link to="/" style={{ textDecoration: 'none' }}><h4 className="nav-title">News&nbsp;24x7</h4></Link>
                         <Grid
-                            justify="space-between"
-                            container
-                            spacing={4}>
-                            <Grid item>
-                            </Grid>
-                            <Grid item style={{ padding: '0px', marginBottom: '10px' }}>
+                            justify="space-around"
+                            >
+                            
+                            <Grid item className="nav-links">
                                 <Link to="/" className="nav-link"><h3>Home</h3></Link>
                                 <Link to="/help/faq" className="nav-link"><h3>Help</h3></Link>
                                 {authenticated ? (
-                                    <span>
-                                        <Link to="/" className="nav-link"><h3 onClick={this.handleLogoutClick} >Logout</h3></Link>
-                                        <Link to={userlink} className="nav-link">
-                                            <span>
-                                                <img src={imageUrl} alt="user" className="usershape" style={{ marginTop: '25px' }} />
-                                            </span>
-                                        </Link>
-                                    </span>
+                                    <>
+                                        <Link to="/" className="nav-link"><h3 onClick={this.handleLogoutClick}>Logout</h3></Link>
+                                        <div className="user-box">
+                                          <Link to={userlink}>
+                                            <img src={imageUrl} alt="user" className="usershape" />
+                                            
+                                             </Link> 
+                                        </div>
+                                    </>
                                 ) : (
-                                        <span>
+                                        <>
                                             <Link to="/login" className="nav-link"><h3>Login</h3></Link>
                                             <Link to="/signup" className="nav-link"><h3>Signup</h3></Link>
-                                        </span>
+                                        </>
 
                                     )}
+                                    
 
                             </Grid>
                         </Grid>
+                        
+                        
+                            
                     </Toolbar>
                 </AppBar >
                 <div id="back-to-top-anchor" />
