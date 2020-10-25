@@ -52,6 +52,7 @@ function App() {
             className="content"
             style={{ minHeight: "calc(100vh - 115px)", PaddingBottom: "20px" }}
           >
+
             <Switch>
               <Route path="/hello" component={HelloWorld} />
               <Route path="/help" component={HelpPage} />
