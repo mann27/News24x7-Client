@@ -1,12 +1,15 @@
 import * as Yup from 'yup'
 
 const MIN_PASSWORD_LENGTH = 6;
+const MIN_USERNAME_LENGTH = 6;
 export default function getYupValidationSchema(values) {
   return Yup.object().shape({
     email: Yup.string()
       .email('E-mail is not valid!')
       .required('E-mail is required!'),
-    userName: Yup.string().required('Required'),
+    userName: Yup.string()
+      .required('Required')
+      .min(MIN_USERNAME_LENGTH,`Username has to be longer than ${MIN_USERNAME_LENGTH} characters!`),
     password: Yup.string()
       .required('Password is required!')
       .min(MIN_PASSWORD_LENGTH, `Password has to be longer than ${MIN_PASSWORD_LENGTH} characters!`)
