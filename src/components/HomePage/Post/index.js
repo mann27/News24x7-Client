@@ -55,7 +55,6 @@ class Post extends Component {
         
         const redirect = `/post/${this.props.post.postId}`; //will be passed as props
         return (
-
                 <ReusablePost  
                     post={this.props.post} paperStyle={paperStyle}
                     redirect={redirect}
@@ -63,7 +62,6 @@ class Post extends Component {
                     handlereport={() => this.handlereport()}
                     copyToClipBoard={() => this.copyToClipBoard()} 
                     />
-                    
         )
     }
 }

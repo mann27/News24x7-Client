@@ -1,35 +1,80 @@
 .userstyle {
-    border-style: hidden;
-
+  border-style: hidden;
 }
 .heading {
-    padding: 10px;
-    background-color: rgb(59, 133, 207);
-    font-size: 24px;
-    font-weight: 600;
-    color: white;
-    outline: none;
+  color: #fff;
+  text-align: center;
+  padding: 10px 10px;
+  font-size: 20px;
+  font-family: "Prata", serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: #090979;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 5px grey;
+  text-transform: uppercase;
 }
 
 .upload-btn {
-    background-color: white;
-    color: black;
-    padding: 2px 4px;
-    font-size: 14px;
-    font-weight: 300;
-    display:inline-block;
+  background-color: white;
+  color: black;
+  padding: 3px 4px;
+  font-size: 14px;
+  font-weight: 300;
+  display: inline-block;
 }
 
 .upload-file {
-    width: 200px;
-    display:inline-block;
-    margin-right:10px;
-    font-size: 15px;
+  width: 200px;
+  display: inline-block;
+
+  font-size: 15px;
 }
 
 .hande-side {
-    color:black;
-    font-size: xx-large;
-    font-weight: 700;
-    margin: 10px;
+  color: black;
+  font-size: xx-large;
+  font-weight: 700;
+  margin: 10px;
+}
+.User-box {
+  border-radius: 10px;
+  box-shadow: 0 0 5px grey;
+  margin: 15px 0;
+  padding: 20px 5px;
+  background-color: #fff;
+}
+.user-img {
+  border-radius: 50%;
+  border: 2px solid #090979;
+  margin: 5px 0;
+  height: 10vw;
+  width: 10vw;
+}
+.upload-file {
+  text-align: center;
+  margin: 5px 0px;
+  width: 250px;
+  font-family: "Nunito", sans-serif;
+  opacity: 0.8;
+  letter-spacing: 0;
+  font-weight: 700;
+  font-size: 1vw;
+}
+.hande-side {
+  font-family: "Prata", serif;
+  font-size: 1.6vw;
+  letter-spacing: 1px;
+}
+.email {
+  font-family: "Prata", serif;
+  font-size: 1.3vw;
+  display: block;
+  letter-spacing: 1px;
+
+  padding-right: 10px;
+}
+.line {
+  background-color: grey;
 }
