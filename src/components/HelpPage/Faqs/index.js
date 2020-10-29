@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import '../help.css';
-import img from './faq.png';
 
 const initialList=[
     {
@@ -48,36 +47,35 @@ const  Faqs=() =>   {
         return (
             <div>
                 <h1 className="title-right">FAQs</h1>
-            <div className="faq-header">
-                <img src={img} alt="FAQs"  className="faq-image"/>
-                <p className="faq-head-para">
-                    Stuck up somewhere? <br></br> Need the help of our developers? <br></br> Feel free to contact anyone from the developers tema. <br></br> For any queries just drop a mail at:<br></br> <span>
-                    sengrp3@gmail.com </span>
+                <p>
+                    Stuck up somewhere? Need the help of our developers? Feel free to contact anyone from the developers tema. For any queries just drop a mail at:
+                    sengrp3@gmail.com 
                 </p>
-            </div>
                 <div>
-                    <ul style={{listStyle:"none"}} className="faq-list">
+                    <ul style={{listStyle:"none"}}>
 
                         {data.map(item => (
-                            <li key={item.id} className="faq-list-li">
+                            <li key={item.id} >
                                 {item.isShow === false?(<i 
                                     class="fa fa-plus"   
+                                    style={{color:"blue"}} 
                                     onClick={() =>handleShowStatus(item.id)}>
                                 </i>):""}
                                 {item.isShow === true?(<i 
                                     class="fa fa-minus"  
-
-                                    
+                                    style={{color:"blue"}} 
                                     onClick={() =>handleShowStatus(item.id)}>
                                 </i>):""}
                                 <h2 
-                                    style={{display:"inline-block"}} 
+                                    style={{display:"inline-block",paddingLeft:"50px"}} 
+
                                     className="faq-que" 
                                     onClick={() =>handleShowStatus(item.id)}>
                                     {item.question}
                                 </h2>
-                                {item.isShow === true ? (<p style={{display:"inline-block"}} className="faq-ans">{item.answer}</p>): ""}
-                            <hr style={{wdith:"70%"}} className="list-hr"/>
+                                {item.isShow === true ? (<p style={{display:"inline-block",paddingLeft:"50px"}} className="faq-ans">{item.answer}</p>): ""}
+                            <hr style={{wdith:"70%"}}/>
+
                         </li>
                         ))}
 
