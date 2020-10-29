@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Paper, Grid } from '@material-ui/core'
 import dayjs from 'dayjs';
-//import relativeTime from 'dayjs/plugin/relativeTime';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import ChatIcon from '@material-ui/icons/Chat';
 import ShareIcon from '@material-ui/icons/Share';
-// import BookmarkIcon from '@material-ui/icons/Bookmark';
 import ReportIcon from '@material-ui/icons/Report';
-//import copy from "copy-to-clipboard";
+import copy from "copy-to-clipboard";
 
 import './postStyle.css'
 import { Link } from 'react-router-dom'
@@ -14,10 +13,33 @@ import LikeButton from './LikeButton';
 
 class ReusablePost extends Component{
 
-  render(){
-  
-    let { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId, postImage } = this.props.post; //will be passed as props
+    constructor() {
+        super();
+        this.state = {
+            copyText: '',
+            reported: false
+        }
+        this.copyToClipBoard = this.copyToClipBoard.bind(this);
+        this.handlereport = this.handlereport.bind(this);
+    }
 
+    copyToClipBoard = () => {
+        const el = window.location.href + `post/${this.props.post.postId}`
+        copy(el);
+        this.setState({
+            copyText: 'Copied!'
+        })
+    }
+
+    handlereport = () => {
+        this.setState({
+            reported: true
+        })
+    }
+
+  render(){
+    const { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId, postImage } = this.props.post; //will be passed as props
+    dayjs.extend(relativeTime)
     return(
       <Paper style={this.props.paperStyle}>
           <Link to={this.props.redirect} className="link">
@@ -49,14 +71,10 @@ class ReusablePost extends Component{
           {/* likes and comments count */}
           <Grid container direction="row" spacing={4} alignItems="center" style={{margin:"10px"}}>
               <div style={{display:"flex"}}>
-                  <LikeButton />
-                  <p style={{fontSize:'14px',alignSelf:"center"}}>{likeCount} </p>
+                  <p style={{fontSize:'14px',alignSelf:"center"}}>{likeCount} likes</p>
               </div>
               <div style={{display:"flex"}}>
-                  <Link to={this.props.redirect} className="link">
-                    <ChatIcon style={{marginLeft:'10px'}}/>
-                  </Link >
-                  <p style={{fontSize:'14px',alignSelf:"center"}}>{commentCount}</p>
+                  <p style={{fontSize:'14px',alignSelf:"center", marginLeft:'10px'}}>{commentCount} comments</p>
               </div>
               
               <div style={{display:"flex"}}>
@@ -75,13 +93,13 @@ class ReusablePost extends Component{
                         <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
                       </Link>
                       {/* {this.props.copyText ? <p style={{ fontSize: 'medium', color: '#3351F3' ,marginRight:'20px',marginBottom:"5px"}}>{this.props.copyText}</p> : <span style={{cursor: 'pointer', color: '#08c'}} onClick={() => this.props.copyToClipBoard}><ShareIcon style={{ marginLeft: '15px', marginRight: '0px' }} /></span>} */}
-                      {this.props.copyText ? 
+                      {this.state.copyText ? 
                         <p style={{ fontSize: 'medium', color: '#3351F3' ,marginRight:'20px',marginBottom:"5px"}}>
-                          {this.props.copyText}</p>
+                          {this.state.copyText}</p>
                            : <span style={{cursor: 'pointer', color: '#08c'}}>
-                              <ShareIcon style={{ marginLeft: '15px', marginRight: '0px' }}  onClick={() => this.props.copyToClipBoard()} />
+                              <ShareIcon style={{ marginLeft: '15px', marginRight: '0px' }}  onClick={this.copyToClipBoard} />
                             </span>}
-                      {this.props.reported ? <p style={{ fontSize: 'medium', color: '#3351F3' ,marginRight:'20px',marginBottom:"5px"}}>reported!</p> : <ReportIcon onClick={() => this.props.handlereport()} />}
+                      {this.state.reported ? <p style={{ fontSize: 'medium', color: '#3351F3' ,marginRight:'20px',marginBottom:"5px"}}>reported!</p> : <ReportIcon onClick={this.handlereport} />}
                   </div>
               </Grid>
           </Grid>

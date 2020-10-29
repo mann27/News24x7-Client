@@ -6,19 +6,10 @@ import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getPost, submitComment, deletePost } from '../../../../redux/actions/dataActions';
-import copy from "copy-to-clipboard";
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import ChatIcon from '@material-ui/icons/Chat';
-import ShareIcon from '@material-ui/icons/Share';
-// import BookmarkIcon from '@material-ui/icons/Bookmark';
-import ReportIcon from '@material-ui/icons/Report';
 import Comment from '../../Comment';
 import './postDetailsStyle.css'
 import spin from '../../../../utils/black_spinner.gif';
-import LikeButton from '../LikeButton';
 import ReusablePost from  '../ReusablePost';
-
 
 class PostDetails extends Component {
 
@@ -27,21 +18,10 @@ class PostDetails extends Component {
         this.state = {
             commentbody: '',
             postId: '',
-            errors: {},
-            copyText: '',
-            reported:false,
-
+            errors: {}
         }
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.copyToClipBoard = this.copyToClipBoard.bind(this);
-        this.handlereport = this.handlereport.bind(this);
-
-    }
-    handlereport(e) {
-        this.setState({
-            reported: true
-        })
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -87,16 +67,6 @@ class PostDetails extends Component {
         this.props.history.push('/')
     }
 
-    copyToClipBoard = () => {
-        console.log("clicked copytoclipborad");
-        const el = window.location.href + `/post/${this.props.data.post.postId}`
-        copy(el);
-        this.setState({
-            copyText: 'Copied!'
-        })
-        // 
-    }
-
     render() {
 
         const paperStyle={
@@ -105,7 +75,6 @@ class PostDetails extends Component {
             paddingBottom: '10px' 
         }
         const { user: { authenticated } } = this.props;
-        dayjs.extend(relativeTime)
         //const { data: { post: { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId, postImage } } } = this.props;
         const post = this.props.data.post;
         const { data: { post: { comments } } } = this.props;
@@ -124,13 +93,11 @@ class PostDetails extends Component {
                             {!uiloading ? (
                                 <ReusablePost
                                     authenticated={authenticated}  paperStyle={paperStyle}
-                                    post={post} copyText={this.state.copyText} reported={this.state.reported}  
+                                    post={post}  
                                     handleOnChange={() => this.handleOnChange()}
-                                    handlereport={() => this.handlereport()}
                                     handleSubmit={() => this.handleSubmit()}
                                     showDelete={() => this.showDelete()}
-                                    onClickDelete={() => this.onClickDelete()}
-                                    copyToClipBoard={() => this.copyToClipBoard()}
+                                    onClickDelete={() => this.onClickDelete()}   
                                     />
                             ) : (
                                     <Paper style={{ padding: '30px' }}>

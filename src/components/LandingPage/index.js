@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Video from "./video.mp4";
+import Video from "./assets/video.mp4";
 import "./landing.css";
-import Icon1 from "./Icon1.svg";
-import Icon2 from "./Icon2.svg";
-import Icon3 from "./Icon3.svg";
-import Icon4 from "./Icon4.svg";
+import Icon1 from "./assets/Icon1.svg";
+import Icon2 from "./assets/Icon2.svg";
+import Icon3 from "./assets/Icon3.svg";
+import Icon4 from "./assets/Icon4.svg";
 import {
   HeroContainer,
   HeroBg,
@@ -27,9 +26,7 @@ import {
   TopLine,
   Heading,
   Subtitle,
-  BtnWrap,
   Img,
-  primary,
   ServiceCard,
   ServiceContainer,
   ServiceWrapper,

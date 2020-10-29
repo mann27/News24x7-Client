@@ -9,7 +9,7 @@ export const homeObjOne = {
     "News24x7 is to provide users a portal to share new news and discuss about the news. Its a system to post, comment and like through which users can express their views",
   buttonLabel: "Get Started",
   imgstart: false,
-  img: require("./landingImg1.svg"),
+  img: require("./assets/landingImg1.svg"),
   alt: "News 24x7",
   dark: true,
   primary: true,
@@ -31,7 +31,7 @@ export const homeObjTwo = {
   description5:
     "5) News provider can dynamically post headlines of recent news",
   imgStart: true,
-  img: require("./landingImg2.svg"),
+  img: require("./assets/landingImg2.svg"),
   alt: "News 24x7",
   dark: false,
   primary: false,
