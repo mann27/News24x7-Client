@@ -1,0 +1,40 @@
+export const homeObjOne = {
+  id: "idea",
+  lightBg: false,
+  lightText: true,
+  lightTextDesc: true,
+  topLine: "Idea",
+  headline: "Discussions on topics through links ",
+  description:
+    "News24x7 is to provide users a portal to share new news and discuss about the news. Its a system to post, comment and like through which users can express their views",
+  buttonLabel: "Get Started",
+  imgstart: false,
+  img: require("./landingImg1.svg"),
+  alt: "News 24x7",
+  dark: true,
+  primary: true,
+  darkText: false,
+  marginTop: false,
+};
+
+export const homeObjTwo = {
+  id: "Features",
+  lightBg: true,
+  lightText: false,
+  lightTextDesc: false,
+  topLine: "features",
+  headline: "What makes us stand out ?",
+  description1: "1) Email verification and forgot password",
+  description2: "2) You can add a poll along with posts",
+  description3: "3) Filter news based on tags",
+  description4: "4) A user can bookmark posts",
+  description5:
+    "5) News provider can dynamically post headlines of recent news",
+  imgStart: true,
+  img: require("./landingImg2.svg"),
+  alt: "News 24x7",
+  dark: false,
+  primary: false,
+  darkText: true,
+  marginTop: true,
+};

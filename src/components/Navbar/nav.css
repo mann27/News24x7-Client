@@ -1,31 +1,60 @@
+.navbar {
+  background-color: rgb(2, 11, 31) !important;
+  width: 100% !important;
+  position: fixed !important;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  height: 80px;
+  padding-top: 10px;
+}
+.nav-logo {
+  max-height: 10px;
+  max-width: 15px;
+  min-height: 6vw;
+  min-width: 7vw;
+}
 .nav-title {
-    font-size: xx-large;
-    font-family: cursive;
-    font-weight: 800;
-    margin: 0px;
-    color: rgba(216, 20, 20, 0.795);
-    padding-left: 10px;
+  font-size: 3vw;
+  font-family: "Piazzolla", serif;
+  font-weight: 600;
+  color: rgb(3, 64, 194);
+  padding-left: 15px;
+  padding-right: 5px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 2px black;
 }
-
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Piazzolla", serif;
+  padding-left: 1vw;
+}
 .nav-link {
-    text-decoration: none;
-    color: black;
-    float: left;
-    padding-left: 20px;
-    padding-right: 20px;
+  text-decoration: none;
+  color: #fff;
+  float: left;
+  padding-left: 1vw;
+  padding-right: 1vw;
 }
-
-.nav-link h3{
-    color: rgb(82, 140, 197);
+.user-box {
+  margin-right: 8vw !important;
+  margin-bottom: 3vw !important;
+  margin-top: 5px;
+  max-height: 8px;
+  max-width: 10px;
+  min-height: 3vw;
+  min-width: 4vw;
+  position: absolute;
+  top: 0;
+  right: 2vw;
+}
+.nav-link h3 {
+  color: #fff;
+  font-size: 17px;
 }
 
 .nav-link h3:hover {
-    color : blue;
-}
-
-.nav-logo {
-    height : 70px;
-    width: 100px;
-    margin: 0em;
-    padding: 0%;
+  color: rgb(3, 64, 194);
 }
