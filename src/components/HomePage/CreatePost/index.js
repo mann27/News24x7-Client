@@ -51,7 +51,7 @@ class CreatePost extends Component {
 
   handleChange(event) {
     if (event.target.files[0]) {
-      this.setState({ uploadmsg: "uploading..." })
+      this.setState({ uploadmsg: "Uploading..." })
       const image = event.target.files[0];
       const uploadTask = storage.ref(`images/${image.name}`).put(image);
       uploadTask.on('state_changed',
@@ -75,13 +75,13 @@ class CreatePost extends Component {
     const { user: { authenticated } } = this.props
     const { errors, uploadmsg } = this.state;
     return (
-      <div className="post-form mb-3 shadow rounded mt-4">
-        <div className="card card-info">
-          <div className="card-header bg-info text-white">Say <b>Something</b>...</div>
+      <div className="post-form mb-3 shadow rounded mt-4 ">
+        
+          <div className="card-header">Write Something</div>
           {authenticated ? (
-            <div className="card-body">
+           
               <form onSubmit={this.onPostSubmit}>
-                <div className="form-group">
+                <div className="card-body">
                   <TextFieldGroup
                     placeholder="Title"
                     name="title"
@@ -105,19 +105,23 @@ class CreatePost extends Component {
                     onChange={this.onChange}
                     error={errors.tags}
                   />
-                  <input type="file" hidden="hidden" id="imageInput" onChange={this.handleChange} className="upload-file"></input>
-                  <p>{uploadmsg}</p>
-                </div>
-                <center>
+                  <div className="upload">
+                  <div className="upload-box" >
+                  <input type="file" hidden="hidden" id="imageInput" onChange={this.handleChange} className="upload-file post-pic"></input>
+                  <p className="uplaod-msg">{uploadmsg}</p>
+                  </div>
+                  <div>
                   <button className="btn-post">
-                    Post
+                    POST
                 </button>
-                </center>
+                </div>
+                </div>
+                </div>
               </form>
-            </div>
+            
           ) : <p> <Link to="/login">login</Link>  or <Link to="/signup">signup</Link> to create the post</p>}
         </div>
-      </div>
+      
     )
   }
 }
