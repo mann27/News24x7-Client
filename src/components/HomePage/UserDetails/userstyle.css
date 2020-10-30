@@ -66,13 +66,14 @@
   font-family: "Prata", serif;
   font-size: 1.6vw;
   letter-spacing: 1px;
+  word-wrap: break-word;
 }
 .email {
   font-family: "Prata", serif;
   font-size: 1.3vw;
   display: block;
   letter-spacing: 1px;
-
+  word-wrap: break-word;
   padding-right: 10px;
 }
 .lineUserDetail {

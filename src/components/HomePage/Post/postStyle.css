@@ -135,6 +135,7 @@ button.outline {
   color: black;
   margin: 10px 20px;
   font-size: 20px;
+  word-wrap: break-word;
 }
 .PostPageImgBox {
   width: auto;
