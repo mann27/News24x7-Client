@@ -1,32 +1,49 @@
 .img-user {
-    border-radius: 50%;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border: 2px solid rgb(3, 64, 194);
+}
+
+.UserPage::-webkit-scrollbar {
+  display: none;
+}
+
+.line {
+  background-color: lightgray;
+  width: 100%;
+  margin: 0 20px;
 }
 
 .handle-user {
-    font-size: 45px;
-    font-weight: 500;
-    font-style: normal;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: rgb(82, 140, 197);
-    margin: 0em;
+  font-size: 45px;
+  font-weight: 500;
+  font-style: normal;
+  font-family: "Piazzolla", serif;
+  color: rgb(2, 51, 100);
+  margin: 0em;
 }
 
 .user-email {
-    color: black;
-    padding: 0%;
-    margin: 0px;
-    font-family: monospace;
-    font-size: large;
+  color: black;
+  font-weight: 600;
+  padding: 0%;
+  margin: 0px;
+  font-family: monospace;
+  font-size: large;
+  font-family: "Piazzolla", serif;
 }
 
 .user-cake {
-    margin-top: 20px;
-    color: black;
-    font-size: large;
+  margin-top: 20px;
+  color: black;
+  font-size: large;
+  font-family: "Piazzolla", serif;
 }
 
 .score {
-    font-weight: 500;
-    color: black;
-    margin: 0px;
+  font-weight: 500;
+  color: black;
+  margin: 0px;
+  font-family: "Piazzolla", serif;
 }

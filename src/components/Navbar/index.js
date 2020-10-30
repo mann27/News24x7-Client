@@ -73,10 +73,8 @@ class NavBar extends Component {
                         <Link to="/news24x7"><img src={logo} alt="News(24x7)" className="nav-logo"></img></Link>
                         <Link to="/news24x7" style={{ textDecoration: 'none' }}><h4 className="nav-title">News&nbsp;24x7</h4></Link>
                         <Grid
-                            justify="space-around"
-                            >
-                            
-                            <Grid item className="nav-links">
+                            justify="space-around">
+                            <Grid item style={{ padding: '0px', marginBottom: '10px' }}>
                                 <Link to="/" className="nav-link"><h3>Home</h3></Link>
                                 <Link to="/help/faq" className="nav-link"><h3>Help</h3></Link>
                                 {authenticated ? (

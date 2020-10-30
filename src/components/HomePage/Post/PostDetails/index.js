@@ -6,18 +6,10 @@ import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getPost, submitComment, deletePost } from '../../../../redux/actions/dataActions';
-import copy from "copy-to-clipboard";
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import ChatIcon from '@material-ui/icons/Chat';
-import ShareIcon from '@material-ui/icons/Share';
-// import BookmarkIcon from '@material-ui/icons/Bookmark';
-import ReportIcon from '@material-ui/icons/Report';
 import Comment from '../../Comment';
 import './postDetailsStyle.css'
 import spin from '../../../../utils/black_spinner.gif';
-import LikeButton from '../LikeButton';
-
+import ReusablePost from  '../ReusablePost';
 
 class PostDetails extends Component {
 
@@ -26,12 +18,10 @@ class PostDetails extends Component {
         this.state = {
             commentbody: '',
             postId: '',
-            errors: {},
-            copyText: ''
+            errors: {}
         }
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.copyToClipBoard = this.copyToClipBoard.bind(this);
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -77,18 +67,16 @@ class PostDetails extends Component {
         this.props.history.push('/')
     }
 
-    copyToClipBoard = () => {
-        const el = window.location.href + `/post/${this.props.data.post.postId}`
-        copy(el);
-        this.setState({
-            copyText: 'Copied!'
-        })
-    }
-
     render() {
+
+        const paperStyle={
+            paddingLeft: '10px', 
+            paddingRight: '10px', 
+            paddingBottom: '10px' 
+        }
         const { user: { authenticated } } = this.props;
-        dayjs.extend(relativeTime)
-        const { data: { post: { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId, postImage } } } = this.props;
+        //const { data: { post: { userImage, handleName, title, body, likeCount, commentCount, createdAt, tags, postId, postImage } } } = this.props;
+        const post = this.props.data.post;
         const { data: { post: { comments } } } = this.props;
         const commentMarkUp = comments ? (
             comments.map((comment) =>
@@ -98,56 +86,19 @@ class PostDetails extends Component {
 
         const uiloading = this.props.ui.loading;
         return (
-            <div style={{ backgroundColor: '#08c', minHeight: 'calc(100vh - 138px)' }}>
+            <div style={{ backgroundColor:"rgba(238,238,238)", minHeight: 'calc(100vh - 138px)' }}>
                 <Container maxWidth="md" style={{ paddingTop: '30px' }}>
                     <Grid container spacing={1}>
                         <Grid item={true} xs={8}>
                             {!uiloading ? (
-                                <Paper style={{ paddingLeft: '10px', paddingRight: '10px' }}>
-                                    <Grid container spacing={3} className="postshape">
-                                        <Grid item={true} xs={3} >
-                                            <Grid container spacing={3}>
-                                                <Grid item xs={4}>
-                                                    <img src={userImage} alt="user" className="usershape" />
-                                                </Grid>
-                                                <Grid item xs={8}>
-                                                    <p className="handle"> {handleName} </p>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                        <Grid item={true} xs={9}  >
-                                            <div className="title">
-                                                <b style={{ marginBottom: '0px' }}>{title}</b>
-                                            </div>
-                                            <div className="time-tags">
-                                                <div className="time">
-                                                    <p>{dayjs(createdAt).fromNow()}</p>
-                                                </div>
-                                                <div className="tags">
-                                                    <p style={{ marginLeft: '20px', fontSize: 'medium' }}><u>{tags}</u></p>
-                                                </div>
-                                            </div>
-                                        </Grid>
-                                    </Grid>
-                                    <center>
-                                        {postImage ? <img src={postImage} alt="img" className="postimage" /> : null}
-                                    </center>
-                                    <div style={{ paddingTop: '20px', paddingBottom: '10px' }}>
-                                        <a href={body} className="postbody">{body}</a>
-                                    </div>
-                                    <div className="like-share-comment-bookmark">
-                                        <LikeButton key={postId} postId={postId} />
-                                        <p>{likeCount} likes</p>
-
-                                        <ChatIcon style={{ marginLeft: '15px', marginRight: '0px' }} />
-                                        <p style={{ marginLeft: '10px' }}>{commentCount} Comments</p>
-                                        {
-                                            authenticated && this.showDelete() ? <span className="delete-btn"><button type="button" onClick={this.onClickDelete}>delete</button></span> : null
-                                        }
-                                        {this.state.copyText ? <p>{this.state.copyText}</p> : <span style={{cursor: 'pointer', color: '#08c'}} onClick={this.copyToClipBoard}><ShareIcon style={{ marginLeft: '15px', marginRight: '0px' }} /></span>}
-                                        <ReportIcon />
-                                    </div>
-                                </Paper>
+                                <ReusablePost
+                                    authenticated={authenticated}  paperStyle={paperStyle}
+                                    post={post}  
+                                    handleOnChange={() => this.handleOnChange()}
+                                    handleSubmit={() => this.handleSubmit()}
+                                    showDelete={() => this.showDelete()}
+                                    onClickDelete={() => this.onClickDelete()}   
+                                    />
                             ) : (
                                     <Paper style={{ padding: '30px' }}>
                                         <center>
