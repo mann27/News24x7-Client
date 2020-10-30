@@ -1,25 +1,24 @@
-import React, { Component } from 'react'
-import './createPostStyle.css'
-import TextAreaFieldGroup from './TextAreaFieldGroup';
-import TextFieldGroup from './TextFieldGroup';
-import { connect } from 'react-redux';
-import propTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { createPost } from '../../../redux/actions/dataActions';
+import React, { Component } from "react";
+import "./createPostStyle.css";
+import TextAreaFieldGroup from "./TextAreaFieldGroup";
+import TextFieldGroup from "./TextFieldGroup";
+import { connect } from "react-redux";
+import propTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { createPost } from "../../../redux/actions/dataActions";
 
-import { storage } from '../../../firebase';
+import { storage } from "../../../firebase";
 
 class CreatePost extends Component {
-
   constructor() {
     super();
     this.state = {
-      title: '',
-      body: '',
-      tags: '',
+      title: "",
+      body: "",
+      tags: "",
       errors: {},
-      url: '',
-      uploadmsg: ''
+      url: "",
+      uploadmsg: "",
     };
     this.onPostSubmit = this.onPostSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -32,16 +31,16 @@ class CreatePost extends Component {
       title: this.state.title,
       body: this.state.body,
       tags: this.state.tags,
-      imgurl: this.state.url
-    }
+      imgurl: this.state.url,
+    };
     console.log(postData);
     this.props.createPost(postData);
     this.setState({
-      title: '',
-      body: '',
-      tags: '',
-      url: '',
-      uploadmsg: ''
+      title: "",
+      body: "",
+      tags: "",
+      url: "",
+      uploadmsg: "",
     });
   }
 
@@ -51,10 +50,11 @@ class CreatePost extends Component {
 
   handleChange(event) {
     if (event.target.files[0]) {
-      this.setState({ uploadmsg: "Uploading..." })
+      this.setState({ uploadmsg: "Uploading..." });
       const image = event.target.files[0];
       const uploadTask = storage.ref(`images/${image.name}`).put(image);
-      uploadTask.on('state_changed',
+      uploadTask.on(
+        "state_changed",
         (snapshot) => {
           // progress fn
         },
@@ -62,82 +62,104 @@ class CreatePost extends Component {
           console.log(error);
         },
         () => {
-          storage.ref('images').child(image.name).getDownloadURL().then(url => {
-            this.setState({ url: url });
-            this.setState({ uploadmsg: "Uploaded !" })
-          })
-        });
+          storage
+            .ref("images")
+            .child(image.name)
+            .getDownloadURL()
+            .then((url) => {
+              this.setState({ url: url });
+              this.setState({ uploadmsg: "Uploaded !" });
+            });
+        }
+      );
     }
   }
 
-
   render() {
-    const { user: { authenticated } } = this.props
+    const {
+      user: { authenticated },
+    } = this.props;
     const { errors, uploadmsg } = this.state;
     return (
       <div className="post-form mb-3 shadow rounded mt-4 ">
-        
-          <div className="card-header">Write Something</div>
-          {authenticated ? (
-           
-              <form onSubmit={this.onPostSubmit}>
-                <div className="card-body">
-                  <TextFieldGroup
-                    placeholder="Title"
-                    name="title"
-                    type="title"
-                    value={this.state.title}
-                    onChange={this.onChange}
-                    error={errors.title}
-                  />
-                  <TextAreaFieldGroup
-                    placeholder="Enter your link here"
-                    name="body"
-                    value={this.state.body}
-                    onChange={this.onChange}
-                    error={errors.body}
-                  />
-                  <TextFieldGroup
-                    placeholder="Add Tags seperated with a space"
-                    name="tags"
-                    type="text"
-                    value={this.state.tags}
-                    onChange={this.onChange}
-                    error={errors.tags}
-                  />
-                  <div className="upload">
-                  <div className="upload-box" >
-                  <input type="file" hidden="hidden" id="imageInput" onChange={this.handleChange} className="upload-file post-pic"></input>
-                  <p className="uplaod-msg">{uploadmsg}</p>
+        {authenticated ? (
+          <div>
+            <div className="card-header">Write Something</div>
+            <form onSubmit={this.onPostSubmit}>
+              <div className="card-body">
+                <TextFieldGroup
+                  placeholder="Title"
+                  name="title"
+                  type="title"
+                  value={this.state.title}
+                  onChange={this.onChange}
+                  error={errors.title}
+                />
+                <TextAreaFieldGroup
+                  placeholder="Enter your link here"
+                  name="body"
+                  value={this.state.body}
+                  onChange={this.onChange}
+                  error={errors.body}
+                />
+                <TextFieldGroup
+                  placeholder="Add Tags seperated with a space"
+                  name="tags"
+                  type="text"
+                  value={this.state.tags}
+                  onChange={this.onChange}
+                  error={errors.tags}
+                />
+                <div className="upload">
+                  <div className="upload-box">
+                    <input
+                      type="file"
+                      hidden="hidden"
+                      id="imageInput"
+                      onChange={this.handleChange}
+                      className="upload-file post-pic"
+                    ></input>
+                    <p className="uplaod-msg">{uploadmsg}</p>
                   </div>
                   <div>
-                  <button className="btn-post">
-                    POST
-                </button>
+                    <button className="btn-post">POST</button>
+                  </div>
                 </div>
-                </div>
-                </div>
-              </form>
-            
-          ) : <p> <Link to="/login">login</Link>  or <Link to="/signup">signup</Link> to create the post</p>}
-        </div>
-      
-    )
+              </div>
+            </form>
+          </div>
+        ) : (
+          <div className="NotSignInPostPage">
+            <p>
+              {" "}
+              <Link to="/login" className="NotSignInLink">
+                Login
+              </Link>{" "}
+              or{" "}
+              <Link to="/signup" className="NotSignInLink">
+                Signup
+              </Link>{" "}
+              to create the post
+            </p>
+          </div>
+        )}
+      </div>
+    );
   }
 }
 
 CreatePost.propTypes = {
-  user: propTypes.object.isRequired
-}
+  user: propTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
-  }
-}
+    user: state.user,
+  };
+};
 
 const mapActionsToProps = {
-  createPost
-}
+  createPost,
+};
 
 export default connect(mapStateToProps, mapActionsToProps)(CreatePost);
