@@ -120,3 +120,25 @@
   align-items: center;
   margin: 10px 0;
 }
+.NotSignInPostPage {
+  height: 100px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px lightgray;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+  background-color: #fff;
+  color: gray !important;
+  text-transform: uppercase;
+}
+.NotSignInLink {
+  text-decoration: none !important;
+  padding: 0 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #090979;
+  text-shadow: 1px 1px 5px lightblue;
+}

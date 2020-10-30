@@ -49,6 +49,9 @@
   position: absolute;
   top: 0;
   right: 2vw;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid rgb(3, 3, 126);
 }
 .nav-link h3 {
   color: #fff;
@@ -57,4 +60,7 @@
 
 .nav-link h3:hover {
   color: rgb(3, 64, 194);
+}
+.NavBarUserShape {
+  object-fit: contain;
 }
