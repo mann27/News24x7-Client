@@ -1,0 +1,13 @@
+<div>
+              {!uiloading ? (
+                authenticated ? (
+                  <UserDetails />
+                ) : (
+                  <p>
+                    <Link to="/login">login</Link> to see your details
+                  </p>
+                )
+              ) : (
+                <UserDetailsSkleton />
+              )}
+            </div>

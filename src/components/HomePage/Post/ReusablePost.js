@@ -10,7 +10,7 @@ import ReportIcon from "@material-ui/icons/Report";
 import copy from "copy-to-clipboard";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import InsertCommentIcon from "@material-ui/icons/InsertComment";
-
+import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import "./postStyle.css";
 import { Link } from "react-router-dom";
 import LikeButton from "./LikeButton";
@@ -73,10 +73,23 @@ class ReusablePost extends Component {
               <p className="userHandleDate">{dayjs(createdAt).fromNow()}</p>
             </div>
           </div>
-
-          <div className="PostPageTitle">
-            {/* post title*/}
-            {title}
+          <div className="PostPageTitleBox">
+            <div className="PostPageTitle">
+              {/* post title*/}
+              {title}
+            </div>
+            <div>
+              {this.props.authenticated && this.props.showDelete() ? (
+                <span className="PostPageDeleteBox">
+                  <IconButton>
+                    <DeleteForeverIcon
+                      className="PostPageDeleteButton"
+                      onClick={() => this.props.onClickDelete()}
+                    />
+                  </IconButton>
+                </span>
+              ) : null}
+            </div>
           </div>
         </Link>
         {/* Image */}
@@ -106,18 +119,6 @@ class ReusablePost extends Component {
           <div className="PostPageComment">
             <InsertCommentIcon className="PostPageCommentButton" />
             <p>{commentCount}</p>
-          </div>
-          <div style={{ display: "flex" }}>
-            {this.props.authenticated && this.props.showDelete() ? (
-              <span className="delete-btn">
-                <button
-                  type="button"
-                  onClick={() => this.props.onClickDelete()}
-                >
-                  delete
-                </button>
-              </span>
-            ) : null}
           </div>
         </div>
         {/* like,share ,comment,report symbols */}

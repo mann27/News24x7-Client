@@ -1,66 +1,176 @@
-.addCommentContainer{
-    margin-top: 0px;
-    display: flex;
-    align-items: center;
-    padding-bottom: 10px;
-    padding-right: 5px;
+.addCommentContainer {
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  padding-right: 5px;
 }
 .comments {
-    padding-left: 5px;
-    font-family: monospace;
+  padding-left: 5px;
+  font-family: monospace;
+}
+.commentinp {
+  margin: 0px 5px;
+  font-family: monospace;
+}
 
+.commentbtn {
+  margin: 0px 5px;
 }
-.commentinp{
-    margin:0px 5px;
-    font-family: monospace;
+.delete-btn button {
+  float: right;
+  color: red;
+  background-color: whitesmoke;
 }
-
-.commentbtn{
-    margin:0px 5px;
+.postshape {
+  margin-left: 15px;
+  border: #007eff;
+  border-style: hidden;
 }
-.delete-btn button{
-    float: right;
-    color: red;
-    background-color: whitesmoke;
-}
-.postshape{
-    margin-left: 15px;
-    border: #007eff;
-    border-style: hidden;
- }
 
 .time-tags {
-margin-top: 0px;
-display: flex;
-align-items: center;
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
 
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-.like-share-comment-bookmark{
-margin-top: 0px;
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-align-items: center;
-}  
+.like-share-comment-bookmark {
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 
 .handle {
-    display: inline;
-    font-weight: 100;
-    font-size: medium;
-    float: left;
-    padding-top: 10px;
-    padding-left: 5px;
-    margin-right: 0px;
+  display: inline;
+  font-weight: 100;
+  font-size: medium;
+  float: left;
+  padding-top: 10px;
+  padding-left: 5px;
+  margin-right: 0px;
 }
 
 .postimage {
-    min-width: 400px;
-    min-height:150px ;
-    max-width: 500px;
-    max-height: 200px;
-  }
-  
-p{
-    color: black;
+  min-width: 400px;
+  min-height: 150px;
+  max-width: 500px;
+  max-height: 200px;
+}
+
+p {
+  color: black;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.PostDetailContainer {
+  padding: 20px;
+  padding-bottom: 50px;
+  overflow: scroll;
+}
+.PostDetailContainer::-webkit-scrollbar {
+  display: none;
+}
+.PostDetailInnerBox {
+  margin: 20px;
+  padding: 20px;
+  padding-top: 0px;
+  display: flex;
+  align-items: center;
+}
+.PostDetailPostBox {
+  object-fit: contain;
+  flex: 0.4;
+  transform: scale(0.9);
+}
+.PostDetailCommentBox {
+  flex: 0.6;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px lightgray;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95);
+}
+.PostDetailPreHeading {
+  text-align: center;
+  color: rgb(131, 131, 131);
+  text-transform: uppercase;
+}
+
+.PostDetailNotSignInPostPage {
+  height: 100px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px lightgray;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+  background-color: #fff;
+  color: gray !important;
+  text-transform: uppercase;
+}
+.PostDetailNotSignInLink {
+  text-decoration: none !important;
+  padding: 0 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #090979;
+  text-shadow: 1px 1px 5px lightblue;
+}
+.PostDetailAddComment {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.PostDetailCommentInputBox {
+  flex: 1;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid slategray;
+  padding: 10px;
+}
+.PostDetailSubmitButton {
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(4, 4, 94);
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+.PostDetailSubmitButton:hover {
+  background-color: rgb(6, 6, 155);
+}
+.PostDetailAllCommentBox {
+  margin: 10px;
+  padding: 20px;
+  margin-top: 25px;
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.PostDetailAllCommentBox::-webkit-scrollbar {
+  width: 8px;
+}
+.PostDetailAllCommentBox::-webkit-scrollbar-thumb {
+  background: rgb(189, 188, 188);
+  border-radius: 6px;
+}
+.PostDetailAllCommentBox::-webkit-scrollbar-thumb:hover {
+  background: rgb(126, 125, 125);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.NoCommentYet {
+  font-size: 30px;
+  font-family: "Abel", sans-serif;
 }
