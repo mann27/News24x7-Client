@@ -1,18 +1,40 @@
-.commentContainer{
-    margin-top: 0px;
-    display: flex;
-    align-items: center;
+.commentContainer {
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
 }
 
-.handle{
-    padding-top: 0px;
-    padding-right: 5px;
-    margin-top: 0px;
-    font-weight: 600;
-    font-size: larger;
-    color: black;
+.handle {
+  padding-top: 0px;
+  padding-right: 5px;
+  margin-top: 0px;
+  font-weight: 600;
+  font-size: larger;
+  color: black;
 }
 .combody {
-    padding-left: 5px;
-    color: black;
+  padding-left: 5px;
+  color: black;
+}
+.CommentSectionContainer {
+  margin: 10px 0px;
+  height: auto;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 5px lightgray;
+  display: flex;
+  align-items: center;
+}
+.CommentSectionHandle {
+  flex: 0.2;
+  margin: 0 10px;
+  color: rgb(92, 91, 91);
+  font-weight: 400;
+}
+.CommentSectionCommentBody {
+  flex: 0.8;
+  word-wrap: break-word;
+  font-size: 20px;
+  font-family: "Abel", sans-serif;
+  font-weight: 600;
 }

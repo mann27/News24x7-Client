@@ -131,6 +131,7 @@ button.outline {
   margin-top: -18px;
 }
 .PostPageTitle {
+  flex: 1;
   text-decoration: none;
   color: black;
   margin: 10px 20px;
@@ -242,4 +243,13 @@ button.outline {
 }
 .PostPageReportButtonFooter {
   color: rgb(156, 2, 2);
+}
+.PostPageDeleteBox {
+  margin: 20px;
+}
+.PostPageDeleteButton {
+  color: rgb(214, 10, 10);
+}
+.PostPageTitleBox {
+  display: flex;
 }
