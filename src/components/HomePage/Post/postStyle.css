@@ -89,9 +89,10 @@ button.outline {
 
 .PostPagePostContainer {
   background-color: #fff;
-  margin: 20px 10px;
+  margin: 10px 10px !important;
   border-radius: 10px;
   box-shadow: 0 0 20px lightgray;
+  transform: scale(0.9);
 }
 .PostPagePostHeader {
   display: flex;

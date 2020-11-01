@@ -1,19 +1,19 @@
 .userstyle {
   border-style: hidden;
+  transform: scale(0.9);
 }
 .heading {
   color: #fff;
   text-align: center;
   padding: 10px 10px;
-  font-size: 20px;
+  font-size: 15px;
   font-family: "Prata", serif;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   background: #090979;
   border: none;
   border-radius: 15px;
   box-shadow: 0 0 5px grey;
-  text-transform: uppercase;
 }
 
 .upload-btn {

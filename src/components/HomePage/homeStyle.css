@@ -28,7 +28,7 @@
 }
 .sortPost {
   height: 300px;
-  margin: 20px;
+  margin: 0 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px lightgray;
   padding: 20px;
@@ -42,6 +42,7 @@
   font-weight: 600;
   font-size: 10px;
   text-transform: uppercase;
+  transform: scale(0.9);
 }
 .sortPost > p {
   margin-bottom: 20px;
@@ -57,4 +58,7 @@
 .sortPostButton:hover {
   background-color: #0606a0;
   box-shadow: inset 0px 0px 5px black;
+}
+.HomePageContainer {
+  padding: 20px;
 }
