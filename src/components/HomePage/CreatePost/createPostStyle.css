@@ -53,12 +53,12 @@
   text-align: center;
   font-family: "Prata", serif;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   background: #090979;
   border: none;
   border-radius: 15px;
   box-shadow: 0 0 5px grey;
-  text-transform: uppercase;
+  font-size: 15px;
 }
 .card-body {
   border-radius: 10px;
@@ -141,4 +141,8 @@
   text-transform: uppercase;
   color: #090979;
   text-shadow: 1px 1px 5px lightblue;
+}
+.post-form {
+  transform: scale(0.95);
+  margin-top: 10px;
 }

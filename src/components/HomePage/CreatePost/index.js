@@ -80,11 +80,20 @@ class CreatePost extends Component {
       user: { authenticated },
     } = this.props;
     const { errors, uploadmsg } = this.state;
+
+    const {
+      user: {
+        creds: { handle },
+      },
+    } = this.props;
+
     return (
-      <div className="post-form mb-3 shadow rounded mt-4 ">
+      <div className="post-form">
         {authenticated ? (
           <div>
-            <div className="card-header">Write Something</div>
+            <div className="card-header">
+              What's on your mind{`, ${handle} ?`}
+            </div>
             <form onSubmit={this.onPostSubmit}>
               <div className="card-body">
                 <TextFieldGroup
@@ -120,9 +129,9 @@ class CreatePost extends Component {
                       className="upload-file post-pic"
                     ></input>
                     <p className="uplaod-msg">{uploadmsg}</p>
-                  </div>
-                  <div>
-                    <button className="btn-post">POST</button>
+                    <div>
+                      <button className="btn-post">POST</button>
+                    </div>
                   </div>
                 </div>
               </div>

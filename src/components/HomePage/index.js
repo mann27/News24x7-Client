@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getPosts } from "../../redux/actions/dataActions";
 import adv from "../../utils/images/ad.png";
+import Ad from "./advertisment/Ad";
 
 class HomePage extends Component {
   constructor() {
@@ -49,9 +50,9 @@ class HomePage extends Component {
     );
     return (
       <div style={{ backgroundColor: colors.LIGHT_GREY }}>
-        <Container maxWidth="md" style={{ paddingTop: "30px" }}>
-          <Grid container spacing={2}>
-            <Grid item={true} xs={8}>
+        <Container maxWidth="md" style={{ paddingTop: "00px" }}>
+          <Grid container>
+            <Grid item={true} xs={7}>
               <CreatePost />
 
               <div style={{ marginTop: "20px" }}>{PostMarkup}</div>
@@ -99,15 +100,7 @@ class HomePage extends Component {
                 </button>
               </center>
 
-              <Paper style={{ marginTop: "40px" }}>
-                <center>
-                  <img
-                    src={adv}
-                    alt="advertisement"
-                    style={{ width: "270px", height: "600px" }}
-                  ></img>
-                </center>
-              </Paper>
+              <Ad />
             </Grid>
           </Grid>
         </Container>
