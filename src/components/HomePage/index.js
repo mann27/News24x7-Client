@@ -75,7 +75,7 @@ class HomePage extends Component {
                 <UserDetailsSkleton />
               )}
 
-              <center className="btn-select" className="sortPost">
+              <center className="btn-select sortPost">
                 <p>Sort the posts by</p>
                 <button
                   type="button"

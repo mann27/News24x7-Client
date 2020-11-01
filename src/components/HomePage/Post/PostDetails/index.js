@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Container, Grid, Paper } from "@material-ui/core";
-import UserDetails from "../../UserDetails";
-import UserDetailsSkleton from "../../../../utils/UserDetailsSkleton";
+import { Paper } from "@material-ui/core";
 import propTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";

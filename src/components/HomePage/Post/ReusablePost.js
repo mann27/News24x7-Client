@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Paper, Grid, Avatar, IconButton } from "@material-ui/core";
+import { Grid, Avatar, IconButton } from "@material-ui/core";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import ChatIcon from "@material-ui/icons/Chat";
@@ -95,9 +95,9 @@ class ReusablePost extends Component {
         {/* Image */}
         <div className="PostPageImgBox">
           {postImage ? (
-            <img src={postImage} alt="img" className="PostPagePostImage" />
+            <img src={postImage} alt="post-img" className="PostPagePostImage" />
           ) : (
-            <img style={{ display: "none" }} />
+            <img alt="post-img" style={{ display: "none" }} />
           )}
         </div>
         {/* tags */}
