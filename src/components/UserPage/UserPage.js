@@ -16,7 +16,8 @@ export const UserPagePost = styled.div`
   justify-content: center;
   flex-direction: column;
   border-right: 2px solid grey;
-  margin-right: 30px;
+  margin-right: 0px;
+  transform: scale(0.8);
 `;
 
 export const UserPageProfile = styled.div`
@@ -26,7 +27,9 @@ export const UserPageProfile = styled.div`
   flex-direction: column;
   border-radius: 10px;
   margin-right: 100px;
+  margin-left: -60px;
   box-shadow: 0 0 10px lightgray;
+  transform: scale(0.8);
 `;
 export const UserPageImg = styled.div`
   height: 150px;

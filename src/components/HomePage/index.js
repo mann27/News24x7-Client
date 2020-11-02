@@ -49,61 +49,60 @@ class HomePage extends Component {
       <PostSkleton />
     );
     return (
-      <div style={{ backgroundColor: colors.LIGHT_GREY }}>
-        <Container maxWidth="md" style={{ paddingTop: "00px" }}>
-          <Grid container>
-            <Grid item={true} xs={7}>
-              <CreatePost />
-
-              <div style={{ marginTop: "20px" }}>{PostMarkup}</div>
-            </Grid>
-            <Grid item={true} xs={4}>
-              {!uiloading ? (
-                authenticated ? (
-                  <UserDetails />
-                ) : (
-                  <div className="NotSignInPost">
-                    <p>
-                      <Link to="/login" className="NotSignInLink">
-                        login
-                      </Link>{" "}
-                      to see your details
-                    </p>
-                  </div>
-                )
+      <div className="HomePageContainer">
+        <div className="HomePageBox">
+          <div className="HomePageUserDetailSection">
+            {!uiloading ? (
+              authenticated ? (
+                <UserDetails />
               ) : (
-                <UserDetailsSkleton />
-              )}
+                <div className="NotSignInPost">
+                  <p>
+                    <Link to="/login" className="NotSignInLink">
+                      login
+                    </Link>{" "}
+                    to see your details
+                  </p>
+                </div>
+              )
+            ) : (
+              <UserDetailsSkleton />
+            )}
 
-              <center className="btn-select sortPost">
-                <p>Sort the posts by</p>
-                <button
-                  type="button"
-                  className="sortPostButton"
-                  onClick={() => this.onClickType("r")}
-                >
-                  Recent
-                </button>
-                <button
-                  className="sortPostButton"
-                  type="button"
-                  onClick={() => this.onClickType("ml")}
-                >
-                  Most Liked
-                </button>
-                <button
-                  type="button"
-                  className="sortPostButton"
-                  onClick={() => this.onClickType("t")}
-                >
-                  Trending
-                </button>
-              </center>
+            <center className="btn-select sortPost">
+              <p>Sort the posts by</p>
+              <button
+                type="button"
+                className="sortPostButton"
+                onClick={() => this.onClickType("r")}
+              >
+                Recent
+              </button>
+              <button
+                className="sortPostButton"
+                type="button"
+                onClick={() => this.onClickType("ml")}
+              >
+                Most Liked
+              </button>
+              <button
+                type="button"
+                className="sortPostButton"
+                onClick={() => this.onClickType("t")}
+              >
+                Trending
+              </button>
+            </center>
+          </div>
+          <div className="HomePageCreatePostSection">
+            <CreatePost />
 
-              <Ad />
-            </Grid>
-          </Grid>
-        </Container>
+            <div style={{ marginTop: "20px" }}>{PostMarkup}</div>
+          </div>
+          <div className="HomePageSortAndAdSection">
+            <Ad />
+          </div>
+        </div>
       </div>
     );
   }

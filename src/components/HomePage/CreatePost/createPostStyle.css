@@ -29,9 +29,9 @@
 .btn-post {
   width: 100px;
   background: #090979;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   margin: 0px 3vw;
   margin-right: 50px;
   border: none;
@@ -143,6 +143,9 @@
   text-shadow: 1px 1px 5px lightblue;
 }
 .post-form {
-  transform: scale(0.95);
-  margin-top: 10px;
+  margin-top: 0px;
+}
+.form-textbox {
+  height: 40px !important;
+  text-align: center;
 }
