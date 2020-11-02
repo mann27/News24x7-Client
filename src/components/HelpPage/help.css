@@ -3,6 +3,7 @@
   justify-content: space-around;
   align-items: center;
   width: 100vw;
+  margin-top: -30px;
 }
 .help-content {
   display: flex;
@@ -241,4 +242,10 @@
 }
 .list-hr {
   background-color: rgb(2, 58, 114);
+}
+.help-main {
+  transform: scale(0.9);
+}
+.FaqSectionContainer {
+  transform: scale(0.9);
 }

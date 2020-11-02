@@ -62,7 +62,7 @@ class UserPage extends Component {
       <UserPageContainer className="UserPage">
         <UserPagePost>
           <center>
-            <h1 className="handle-user">Your posts</h1>
+            <h1 className="handle-post">Your posts</h1>
           </center>
           <hr></hr>
           {userPostMarkup}

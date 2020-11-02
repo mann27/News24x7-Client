@@ -48,7 +48,7 @@ const Faqs = () => {
   };
 
   return (
-    <div>
+    <div className="FaqSectionContainer">
       <h1 className="title-right">FAQs</h1>
       <div className="faq-header">
         <img src={img} alt="FAQs" className="faq-image" />
