@@ -187,7 +187,6 @@ class LoginPage extends Component {
                       type="submit"
                       onClick={handleSubmit}
                       disabled={loading}
-                      onClick={this.changeAvatarOriginal}
                     >
                       Log In{" "}
                       {loading ? (

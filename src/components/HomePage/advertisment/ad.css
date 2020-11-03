@@ -10,23 +10,24 @@
 .adHeading {
   color: rgb(117, 116, 116);
   padding: 10px;
-  font-size: 20px;
+  font-size: 1.8vw;
 }
 .adImage {
-  max-width: 270px;
+  max-width: 20vw;
   object-fit: contain;
 }
 .adTitle {
+  font-size: 2.2vw;
   padding-bottom: 0px;
-  margin-top: -10px;
+  margin-top: 10px;
   color: rgb(53, 52, 52);
   text-shadow: 0 0 2px rgb(94, 94, 94);
 }
 .adDesc {
-  font-size: 20px;
+  font-size: 1.5vw;
   color: rgb(172, 171, 171);
-  line-height: 22px;
-  margin-top: -20px;
+  line-height: 1.6vw;
+  margin-top: 0px;
 }
 .adLink {
   background-color: rgb(152, 152, 250);
@@ -34,6 +35,7 @@
   cursor: pointer;
   border-radius: 10px;
   margin-top: 10px;
+  font-size: 1.3vw;
 }
 .adLink a {
   text-decoration: none;

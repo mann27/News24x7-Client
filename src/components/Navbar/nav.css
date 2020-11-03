@@ -64,3 +64,24 @@
 .NavBarUserShape {
   object-fit: contain;
 }
+.scrollToTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15px;
+  width: 15px;
+  background-color: rgb(3, 98, 161);
+  border: 2px solid rgb(3, 98, 161);
+  padding: 20px;
+  margin: 5px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.scrollToTop:hover {
+  color: rgb(3, 98, 161);
+  background-color: #fff;
+  border: 2px solid rgb(3, 98, 161);
+}

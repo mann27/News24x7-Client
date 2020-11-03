@@ -209,7 +209,6 @@ class SignupPage extends Component {
                     onClick={handleSubmit}
                     style={{ margin: "5px" }}
                     disabled={loading}
-                    onClick={this.changeAvatarOriginal}
                   >
                     Sign Up{" "}
                     {loading ? (
