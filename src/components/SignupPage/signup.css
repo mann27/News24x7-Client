@@ -1,111 +1,108 @@
-/* 
-.form {
-    display: flex;
-    width: 20em;
-    margin: 0 auto;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  
-  .form-field {
-    margin: 1em;
-  }
-  
-  .form-field-error {
-    margin-right: 1em;
-    font-size: 0.8em;
-    color: red;
-  }
-  
-  label span {
-    margin-right: 0.5em;
-  }
-  
-  button {
-    align-self: center;
-    margin: 1em;
-  }
-  * {
-    box-sizing: border-box;
- 
-  }
-   */
-   *{
-    box-sizing: border-box;
-   }
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    width: 100%;
-    line-height: 2;
-    color: #24292e;
-    background-color: #fff;
-   
-  }
-  
-  .app {
-    margin: 2rem;
-  }
-  
-  a {
-    color: #08c;
-  }
-  
-  p.dberrors, p.loading{
-    color: red;
-    font-size: 1em;
-    margin: 0 auto;
-    text-transform: CAPITALIZE;
-  }
-  
-  input.error {
-    color: red;
-  }
-  
-  .form-field-error {
-    margin-right: 1em;
-    font-size: 0.8em;
-    color: red;
-    text-transform: capitalize;
-  }
-  
-  button {
-    max-width: 150px;
-    padding: 12px 20px;
-    border-style: none;
-    border-radius: 5px;
-    background-color: #08c;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-    font-size: 17px;
-    font-weight: 500;
-    color: #fff;
-    cursor: pointer;
-    outline: none;
-    -webkit-appearance: none;
-  }
-  
-  button:disabled {
-    cursor: not-allowed !important;
-  }
-  
-  button + button {
-    margin-left: .5rem;
-  }
-  
-  button.outline {
-    background-color: #eee;
-    border: 1px solid #aaa;
-    color: #555;
-  }
+.SignUpContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-top: 10px;
+  background-color: rgb(247, 244, 244);
+}
+.SignUpBox {
+  position: relative;
+  margin: 20px;
+  margin-top: -20px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px lightgray;
+  border-radius: 10px;
+  max-width: 600px;
+  background-color: #fff;
+  transform: scale(0.85);
+}
+.DefaultPic {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 0;
+  right: 0;
+}
+/* .DefaultPicLook {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 0;
+  right: 0;
+} */
+.SignUpHeader {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid rgb(224, 223, 223);
+  margin-bottom: 10px;
+}
+.SignUpHeaderImg {
+  padding: 10px 20px;
+}
+.SignUpHeader img {
+  height: 100px;
+  width: 100px;
+}
+.SignUpHeading {
+  flex: 0.9;
+  font-size: 40px;
+  text-align: center;
+  font-family: "Piazzolla", serif;
+  color: rgb(4, 2, 119);
+}
+.SignUpUserName {
+  border: none !important;
+}
+.SignUpSubmit {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 10px;
+  justify-content: space-evenly;
+}
+.SignUpSubmit button {
+  flex: 0.4;
+  background-color: rgb(2, 2, 66);
+  color: #fff;
+  text-transform: uppercase;
+  transition: all 0.5s ease-in-out;
+}
+.SignUpSubmit button:hover {
+  background-color: rgb(7, 7, 172);
+}
+.SignUpLink {
+  flex: 0.6;
+}
+/*::::::::::::::::::::::::::::::::::::::::*/
 
-  .head-log{
-    background-color: white;
-    color: black;
-    margin-right: 90px;
-    font-size: 44px;
-    font-weight: 800;
-    font-family: fantasy;
-  }
-  
+.LogInContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-top: 0px;
+  background-color: rgb(247, 244, 244);
+}
+.LogInBox {
+  position: relative;
+  margin: 20px;
+  margin-top: -80px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px lightgray;
+  border-radius: 10px;
+  max-width: 600px;
+  background-color: #fff;
+  transform: scale(0.85);
+}
