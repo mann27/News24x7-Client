@@ -68,7 +68,7 @@ class CreatePost extends Component {
             .getDownloadURL()
             .then((url) => {
               this.setState({ url: url });
-              this.setState({ uploadmsg: "Uploaded !" });
+              this.setState({ uploadmsg: "Uploaded!" });
             });
         }
       );

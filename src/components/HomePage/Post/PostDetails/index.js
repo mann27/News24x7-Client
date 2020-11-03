@@ -10,8 +10,8 @@ import {
 } from "../../../../redux/actions/dataActions";
 import Comment from "../../Comment";
 import "./postDetailsStyle.css";
-import spin from "../../../../utils/black_spinner.gif";
 import ReusablePost from "../ReusablePost";
+import PostSkleton from "../../../../utils/PostSkleton";
 
 class PostDetails extends Component {
   constructor() {
@@ -111,7 +111,7 @@ class PostDetails extends Component {
             ) : (
               <Paper style={{ padding: "30px" }}>
                 <center>
-                  <img src={spin} alt="loading..."></img>
+                  <PostSkleton />
                 </center>
               </Paper>
             )}

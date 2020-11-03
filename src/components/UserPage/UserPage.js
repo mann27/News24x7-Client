@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const UserPageContainer = styled.div`
   padding: 50px;
+  padding-top: 10px;
   box-shadow: 0 0 10px grey;
   width: 100%;
   height: auto;
@@ -12,6 +13,7 @@ export const UserPageContainer = styled.div`
 export const UserPagePost = styled.div`
   flex: 0.6;
   padding: 30px;
+  padding-top: 0px;
   display: flex;
   justify-content: center;
   flex-direction: column;
