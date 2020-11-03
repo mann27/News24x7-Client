@@ -1,17 +1,14 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
-import { Container, Grid, Paper } from "@material-ui/core";
 import Post from "./Post";
 import UserDetails from "./UserDetails";
 import CreatePost from "./CreatePost";
 import PostSkleton from "../../utils/PostSkleton";
 import UserDetailsSkleton from "../../utils/UserDetailsSkleton";
-import colors from "../../utils/base-module";
 import "./homeStyle.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getPosts } from "../../redux/actions/dataActions";
-import adv from "../../utils/images/ad.png";
 import Ad from "./advertisment/Ad";
 
 class HomePage extends Component {

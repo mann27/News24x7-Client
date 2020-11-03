@@ -66,6 +66,9 @@
   justify-content: center;
   overflow: scroll;
 }
+.HomePageContainer::-webkit-scrollbar {
+  display: none;
+}
 .HomePageBox {
   display: flex;
 }
@@ -76,6 +79,11 @@
 .HomePageCreatePostSection {
   flex: 0.6;
   margin: 0 20px;
+  overflow-y: scroll;
+  max-height: 2000px;
+}
+.HomePageCreatePostSection::-webkit-scrollbar {
+  display: none;
 }
 .HomePageSortAndAdSection {
   flex: 0.2;
