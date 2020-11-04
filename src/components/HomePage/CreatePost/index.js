@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./createPostStyle.css";
-import TextAreaFieldGroup from "./TextAreaFieldGroup";
 import TextFieldGroup from "./TextFieldGroup";
 import { connect } from "react-redux";
 import propTypes from "prop-types";

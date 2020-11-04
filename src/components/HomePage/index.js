@@ -97,7 +97,7 @@ class HomePage extends Component {
             <div style={{ marginTop: "20px" }}>{PostMarkup}</div>
           </div>
           <div className="HomePageSortAndAdSection">
-            <Ad />
+            <Ad key={Math.random()*5} />
           </div>
         </div>
       </div>

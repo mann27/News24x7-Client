@@ -5,7 +5,6 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import ChatIcon from "@material-ui/icons/Chat";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ShareIcon from "@material-ui/icons/Share";
-// import BookmarkIcon from '@material-ui/icons/Bookmark';
 import ReportIcon from "@material-ui/icons/Report";
 import copy from "copy-to-clipboard";
 import FavoriteIcon from "@material-ui/icons/Favorite";

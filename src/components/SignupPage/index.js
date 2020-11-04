@@ -62,7 +62,6 @@ class SignupPage extends Component {
   render() {
     const {
       ui: { loading },
-      classes,
     } = this.props;
     const { dberrors } = this.state;
 
@@ -95,7 +94,7 @@ class SignupPage extends Component {
               <div className="SignUpHeader">
                 <h1 className="SignUpHeading">SIGN UP</h1>
                 <div className="SignUpHeaderImg">
-                  <img
+                  <img alt="monkey img"
                     src={
                       this.state.avatar
                         ? this.state.avatarPassword

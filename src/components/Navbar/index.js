@@ -83,7 +83,7 @@ class NavBar extends Component {
     const userlink = `/user/${handle}`;
     return (
       <React.Fragment>
-        <AppBar className="navbar" position="sticky" color="rgb(0, 21, 65)">
+        <AppBar className="navbar" position="sticky">
           <div className="navBarContainer">
             <div className="NavBarSectionLogoBox">
               <Link to="/news24x7">
@@ -131,7 +131,7 @@ class NavBar extends Component {
 
             <MobileIcons>
               <i
-                class="fa fa-bars"
+                className="fa fa-bars"
                 aria-hidden="true"
                 onClick={this.openSidebar}
               ></i>
@@ -147,7 +147,7 @@ class NavBar extends Component {
         <div id="back-to-top-anchor" />
         <ScrollTop {...this.props}>
           <div className="scrollToTop">
-            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            <i className="fa fa-arrow-up" aria-hidden="true"></i>
           </div>
         </ScrollTop>
       </React.Fragment>

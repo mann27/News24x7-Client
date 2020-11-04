@@ -48,7 +48,7 @@ const adList = [
 ];
 
 function Ad() {
-  const [data, setData] = useState(adList);
+  const [data] = useState(adList);
   const [rand, setRand] = useState();
 
   useEffect(() => {

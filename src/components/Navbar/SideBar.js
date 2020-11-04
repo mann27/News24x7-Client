@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { logoutUser } from "../../redux/actions/userActions";
+import React from "react";
 import {
   SideBarContainer,
   Icons,
@@ -9,9 +8,6 @@ import {
   SideBarLinks,
 } from "./SideBarStyles";
 
-const handleLogoutClick = () => {
-  this.props.logoutUser();
-};
 
 function SideBar({ isOpen, toggle, auth, logoutFunc }) {
   return (
