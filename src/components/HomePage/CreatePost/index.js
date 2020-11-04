@@ -104,13 +104,15 @@ class CreatePost extends Component {
                   onChange={this.onChange}
                   error={errors.title}
                 />
-                <TextAreaFieldGroup
-                  placeholder="Enter your link here"
-                  name="body"
-                  value={this.state.body}
-                  onChange={this.onChange}
-                  error={errors.body}
-                />
+                <div className="LinkBoxCreatePage">
+                  <TextFieldGroup
+                    placeholder="Enter your link here"
+                    name="body"
+                    value={this.state.body}
+                    onChange={this.onChange}
+                    error={errors.body}
+                  />
+                </div>
                 <TextFieldGroup
                   placeholder="Add Tags seperated with a space"
                   name="tags"
@@ -126,7 +128,7 @@ class CreatePost extends Component {
                       hidden="hidden"
                       id="imageInput"
                       onChange={this.handleChange}
-                      className="upload-file post-pic"
+                      className="upload-fileCreatePage post-pic"
                     ></input>
                     <p className="uplaod-msg">{uploadmsg}</p>
                     <div>

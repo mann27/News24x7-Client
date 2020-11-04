@@ -126,9 +126,9 @@ class NavBar extends Component {
         </AppBar>
         <div id="back-to-top-anchor" />
         <ScrollTop {...this.props}>
-          <Fab color="secondary" size="small" aria-label="scroll back to top">
-            X
-          </Fab>
+          <div className="scrollToTop">
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+          </div>
         </ScrollTop>
       </React.Fragment>
     );

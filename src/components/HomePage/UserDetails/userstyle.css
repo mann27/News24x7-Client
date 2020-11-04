@@ -24,13 +24,6 @@
   display: inline-block;
 }
 
-.upload-file {
-  width: 200px;
-  display: inline-block;
-
-  font-size: 15px;
-}
-
 .hande-side {
   color: black;
   font-size: xx-large;
@@ -38,6 +31,7 @@
   margin: 10px;
 }
 .User-box {
+  text-align: center;
   border-radius: 10px;
   box-shadow: 0 0 10px lightgrey;
   margin: 15px 0;
@@ -52,6 +46,8 @@
   width: 10vw;
 }
 .upload-file {
+  display: inline-block;
+  flex: 1;
   text-align: center;
   margin: 5px 0px;
   width: 250px;

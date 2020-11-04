@@ -27,11 +27,11 @@
   text-shadow: 1px 1px 5px lightblue;
 }
 .sortPost {
-  height: 300px;
+  height: 22vw;
   margin: 0 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px lightgray;
-  padding: 20px;
+  padding: 1vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,13 +42,16 @@
   font-weight: 600;
   font-size: 10px;
   text-transform: uppercase;
+  word-wrap: break-word;
 }
 .sortPost > p {
-  margin-bottom: 20px;
+  font-size: 1.3vw;
 }
 .sortPostButton {
-  margin: 10px;
-  width: 100%;
+  font-size: 1vw;
+  margin: 0.5vw !important;
+  width: 2vw;
+  padding: 1.5vw 1.5vw;
   text-transform: uppercase;
   font-family: "Nunito", sans-serif;
   background-color: #090979 !important;
@@ -62,9 +65,7 @@
   padding: 20px;
   background-color: rgb(234, 241, 245);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: scroll;
+  overflow-x: scroll;
 }
 .HomePageContainer::-webkit-scrollbar {
   display: none;
