@@ -8,58 +8,37 @@
   height: 80px;
   padding-top: 10px;
 }
-.nav-logo {
-  max-height: 10px;
-  max-width: 15px;
-  min-height: 6vw;
-  min-width: 7vw;
-}
-.nav-title {
-  font-size: 3vw;
-  font-family: "Piazzolla", serif;
-  font-weight: 600;
-  color: rgb(3, 64, 194);
-  padding-left: 15px;
-  padding-right: 5px;
-  letter-spacing: 1px;
-  text-shadow: 0 0 2px black;
+.navBarContainer {
+  display: flex;
+  align-items: center;
 }
 .nav-links {
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Piazzolla", serif;
-  padding-left: 1vw;
+  padding-left: 20px;
+  flex: 0.6;
 }
 .nav-link {
   text-decoration: none;
   color: #fff;
-  float: left;
   padding-left: 1vw;
   padding-right: 1vw;
-}
-.user-box {
-  margin-right: 8vw !important;
-  margin-bottom: 3vw !important;
-  margin-top: 5px;
-  max-height: 8px;
-  max-width: 10px;
-  min-height: 3vw;
-  min-width: 4vw;
-  position: absolute;
-  top: 0;
-  right: 2vw;
-  overflow: hidden;
-  border-radius: 50%;
-  border: 2px solid rgb(3, 3, 126);
-}
-.nav-link h3 {
-  color: #fff;
-  font-size: 17px;
+  font-size: 20px;
 }
 
+.nav-link h3 {
+  padding-bottom: 5px;
+  color: #fff;
+  font-size: 20px;
+  border-top: 2px solid rgb(3, 64, 194);
+  transition: all 0.3s ease-in-out;
+}
 .nav-link h3:hover {
   color: rgb(3, 64, 194);
+  border-top: none;
+  border-bottom: 2px solid rgb(3, 64, 194);
 }
 .NavBarUserShape {
   object-fit: contain;
@@ -84,4 +63,95 @@
   color: rgb(3, 98, 161);
   background-color: #fff;
   border: 2px solid rgb(3, 98, 161);
+}
+.NavBarSectionLogoBox {
+  flex: 0.2;
+  position: relative;
+  display: flex;
+}
+.nav-logo {
+  position: absolute;
+  top: -3.5vw;
+  left: 1vw;
+  max-height: 10px;
+  max-width: 15px;
+  min-height: 6vw;
+  min-width: 7vw;
+}
+.nav-title {
+  position: absolute;
+  font-size: 3vw;
+  font-family: "Piazzolla", serif;
+  font-weight: 600;
+  color: rgb(3, 64, 194);
+  padding-left: 15px;
+  padding-right: 5px;
+  letter-spacing: 1px;
+  top: -6.5vw;
+  left: 2vw;
+  text-shadow: 0 0 2px black;
+}
+.UserButtonBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0.2;
+}
+.userButtonImgBox {
+  flex: 0.2;
+  margin-bottom: 20px;
+  max-height: 10px;
+  max-width: 10px;
+  min-height: 4vw;
+  min-width: 4vw;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid rgb(3, 3, 126);
+}
+.userButtonImg {
+  max-height: 10px;
+  max-width: 10px;
+  min-height: 4vw;
+  min-width: 4vw;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-logo {
+    position: absolute;
+    top: 8px;
+    max-height: 10px;
+    max-width: 15px;
+    min-height: 8vw;
+    min-width: 9vw;
+  }
+  .nav-title {
+    position: absolute;
+    font-size: 5vw;
+    font-family: "Piazzolla", serif;
+    font-weight: 600;
+    color: rgb(3, 64, 194);
+    padding-left: 15px;
+    padding-right: 5px;
+    letter-spacing: 1px;
+    top: -4.7vw;
+    left: 2vw;
+    text-shadow: 0 0 2px black;
+  }
+  .nav-links {
+    display: none;
+  }
+  .UserButtonBox {
+    display: none;
+  }
+  .NavBarSectionLogoBox {
+    flex: 0.7;
+  }
+}
+.fa-bars {
+  font-size: 30px;
+  transition: all 0.3s ease-in-out;
+}
+.fa-bars:hover {
+  color: rgb(5, 5, 170);
 }

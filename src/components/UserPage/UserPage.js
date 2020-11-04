@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const UserPageContainer = styled.div`
-  padding: 50px;
+  padding: 50px !important;
   padding-top: 10px;
   box-shadow: 0 0 10px grey;
-  width: 100%;
+  width: auto;
   height: auto;
   display: flex;
   overflow: scroll;
@@ -37,6 +37,7 @@ export const UserPageImg = styled.div`
   height: 150px;
   top: 0;
   margin: 20px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;

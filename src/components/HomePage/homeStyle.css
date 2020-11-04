@@ -5,18 +5,18 @@
 }
 
 .NotSignInPost {
-  height: 60px;
+  height: 3vw;
   margin: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px lightgray;
-  padding: 5px;
+  padding: 1vw;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Nunito", sans-serif;
   background-color: #fff;
   color: gray !important;
-  font-size: 7px;
+  font-size: 0.6vw;
   text-transform: uppercase;
 }
 .NotSignInLink {

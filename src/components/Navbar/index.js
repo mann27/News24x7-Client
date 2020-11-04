@@ -1,14 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import propTypes from "prop-types";
-import {
-  AppBar,
-  Toolbar,
-  useScrollTrigger,
-  Fab,
-  Zoom,
-  Grid,
-} from "@material-ui/core";
+import { AppBar, useScrollTrigger, Zoom } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 // import colors from '../../utils/base-module';
 // import styled from 'styled-components';
@@ -16,6 +9,8 @@ import { connect } from "react-redux";
 import logo from "./logo.png";
 import { logoutUser } from "../../redux/actions/userActions";
 import "./nav.css";
+import { MobileIcons } from "./NavBarStyles";
+import SideBar from "./SideBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,7 +58,16 @@ class NavBar extends Component {
   constructor() {
     super();
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    this.state = {
+      open: false,
+    };
   }
+
+  openSidebar = () => {
+    this.setState({
+      open: !this.state.open,
+    });
+  };
 
   handleLogoutClick = () => {
     this.props.logoutUser();
@@ -80,49 +84,65 @@ class NavBar extends Component {
     return (
       <React.Fragment>
         <AppBar className="navbar" position="sticky" color="rgb(0, 21, 65)">
-          <Toolbar>
-            <Link to="/news24x7">
-              <img src={logo} alt="News(24x7)" className="nav-logo"></img>
-            </Link>
-            <Link to="/news24x7" style={{ textDecoration: "none" }}>
-              <h4 className="nav-title">News&nbsp;24x7</h4>
-            </Link>
-            <Grid justify="space-around">
-              <Grid item className="nav-links">
-                <Link to="/" className="nav-link">
-                  <h3>Home</h3>
-                </Link>
-                <Link to="/help/faq" className="nav-link">
-                  <h3>Help</h3>
-                </Link>
-                {authenticated ? (
-                  <>
-                    <Link to="/" className="nav-link">
-                      <h3 onClick={this.handleLogoutClick}>Logout</h3>
-                    </Link>
-                    <div className="user-box">
-                      <Link to={userlink}>
-                        <img
-                          src={imageUrl}
-                          alt="user"
-                          className="NavBarUserShape"
-                        />
-                      </Link>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <Link to="/login" className="nav-link">
-                      <h3>Login</h3>
-                    </Link>
-                    <Link to="/signup" className="nav-link">
-                      <h3>Signup</h3>
-                    </Link>
-                  </>
-                )}
-              </Grid>
-            </Grid>
-          </Toolbar>
+          <div className="navBarContainer">
+            <div className="NavBarSectionLogoBox">
+              <Link to="/news24x7">
+                <img src={logo} alt="News(24x7)" className="nav-logo"></img>
+              </Link>
+              <Link to="/news24x7" style={{ textDecoration: "none" }}>
+                <h4 className="nav-title">News&nbsp;24x7</h4>
+              </Link>
+            </div>
+            <div className="nav-links">
+              <Link to="/" className="nav-link">
+                <h3>Home</h3>
+              </Link>
+              <Link to="/help/faq" className="nav-link">
+                <h3>Help</h3>
+              </Link>
+              {authenticated ? (
+                <>
+                  <Link to="/" className="nav-link">
+                    <h3 onClick={this.handleLogoutClick}>Logout</h3>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="nav-link">
+                    <h3>Login</h3>
+                  </Link>
+                  <Link to="/signup" className="nav-link">
+                    <h3>Signup</h3>
+                  </Link>
+                </>
+              )}
+            </div>
+            <div className="UserButtonBox">
+              {authenticated ? (
+                <div className="userButtonImgBox">
+                  <Link to={userlink}>
+                    <img src={imageUrl} alt="user" className="userButtonImg" />
+                  </Link>
+                </div>
+              ) : (
+                " "
+              )}
+            </div>
+
+            <MobileIcons>
+              <i
+                class="fa fa-bars"
+                aria-hidden="true"
+                onClick={this.openSidebar}
+              ></i>
+            </MobileIcons>
+          </div>
+          <SideBar
+            isOpen={this.state.open}
+            toggle={this.openSidebar}
+            auth={authenticated}
+            logoutFunc={this.handleLogoutClick}
+          ></SideBar>
         </AppBar>
         <div id="back-to-top-anchor" />
         <ScrollTop {...this.props}>

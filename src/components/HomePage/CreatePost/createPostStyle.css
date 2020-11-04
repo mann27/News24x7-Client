@@ -125,7 +125,7 @@
   margin: 10px 0;
 }
 .NotSignInPostPage {
-  height: 100px;
+  height: 5vw;
   margin: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px lightgray;
@@ -137,9 +137,11 @@
   background-color: #fff;
   color: gray !important;
   text-transform: uppercase;
+  font-size: 1vw;
 }
 .NotSignInLink {
   text-decoration: none !important;
+
   padding: 0 5px;
   font-weight: 600;
   text-transform: uppercase;
