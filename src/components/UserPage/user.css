@@ -4,15 +4,18 @@
   height: 150px;
   border: 2px solid rgb(3, 64, 194);
 }
-
+.UserPage {
+  overflow-x: scroll !important;
+}
 .UserPage::-webkit-scrollbar {
   display: none;
 }
 
-.line {
+.UserPageLine {
   background-color: lightgray;
   width: 100%;
   margin: 0 20px;
+  margin-bottom: 40px;
 }
 .handle-post {
   font-size: 45px;

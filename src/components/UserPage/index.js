@@ -72,7 +72,7 @@ class UserPage extends Component {
             <img src={imageUrl} alt="user" className="img-user"></img>
           </UserPageImg>
           <UserPageInfo>
-            <hr className="line"></hr>
+            <hr className="UserPageLine"></hr>
             <h1 className="handle-user">{handle}</h1>
             <p className="user-email">{email}</p>
             <p className="user-cake">
