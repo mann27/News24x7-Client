@@ -25,14 +25,10 @@ class Support extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="SupportSectionContainer">
         <h1 className="title-right">Support</h1>
         <div className="main-box">
-          <img
-            className="support-img"
-            src={img}
-            alt="SUPPORT"
-          ></img>
+          <img className="support-img" src={img} alt="SUPPORT"></img>
           <div className="main-inside">
             <center>
               <h2 className="sup-text">Hi, How can we help you?</h2>
@@ -42,8 +38,7 @@ class Support extends Component {
               onSubmit={this.handlesubmit}
             >
               <Grid>
-                
-                  <div className="que-label">
+                <div className="que-label">
                   <input
                     type="text"
                     value={this.state.inp}
@@ -55,20 +50,21 @@ class Support extends Component {
                   />
                   <label className="label-name">
                     <span className="content-name">Write your question</span>
-                    </label>
-                  </div>
-                  
-                
+                  </label>
+                </div>
+
                 <Grid>
-                  <button className="btn-ask" type="submit">SUBMIT</button>
+                  <button className="btn-ask" type="submit">
+                    SUBMIT
+                  </button>
                 </Grid>
               </Grid>
             </form>
             {this.state.status ? (
               <p className="responce-msg">Thanks for asking!</p>
             ) : (
-                ""
-              )}
+              ""
+            )}
           </div>
         </div>
       </div>

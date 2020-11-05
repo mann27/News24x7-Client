@@ -60,14 +60,7 @@ class UserPage extends Component {
     }
     return (
       <UserPageContainer className="UserPage">
-        <UserPagePost>
-          <center>
-            <h1 className="handle-post">Your posts</h1>
-          </center>
-          <hr></hr>
-          {userPostMarkup}
-        </UserPagePost>
-        <UserPageProfile>
+        <UserPageProfile className="UserPageProfileContainer">
           <UserPageImg>
             <img src={imageUrl} alt="user" className="img-user"></img>
           </UserPageImg>
@@ -82,6 +75,13 @@ class UserPage extends Component {
             <h3 className="score">Posts score : {score}</h3>
           </UserPageInfo>
         </UserPageProfile>
+        <UserPagePost className="UserPagePostContainer">
+          <center>
+            <h1 className="handle-post">Your posts</h1>
+          </center>
+          <hr></hr>
+          {userPostMarkup}
+        </UserPagePost>
       </UserPageContainer>
     );
   }

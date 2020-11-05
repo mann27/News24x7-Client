@@ -60,3 +60,33 @@
   margin: 0px;
   font-family: "Piazzolla", serif;
 }
+.UserPagePostContainer {
+  overflow: scroll;
+}
+.UserPagePostContainer::-webkit-scrollbar {
+  display: none;
+}
+@media screen and (max-width: 590px) {
+  .UserPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .UserPageProfileContainer {
+    margin: 0 !important;
+    flex: 1 !important;
+    background-color: #fff;
+  }
+  .UserPagePostContainer {
+    border: none !important;
+    width: 400px !important;
+    flex: 1;
+    margin-top: -40px;
+    height: 1000px !important;
+  }
+  .user-cake {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+}

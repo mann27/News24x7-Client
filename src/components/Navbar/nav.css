@@ -44,6 +44,10 @@
   object-fit: contain;
 }
 .scrollToTop {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 100000000000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,7 +155,31 @@
 .fa-bars {
   font-size: 30px;
   transition: all 0.3s ease-in-out;
+  z-index: 100000000000;
 }
 .fa-bars:hover {
   color: rgb(5, 5, 170);
+}
+@media screen and (max-width: 590px) {
+  .nav-logo {
+    position: absolute;
+    top: 8px;
+    max-height: 10px;
+    max-width: 15px;
+    min-height: 12vw;
+    min-width: 13vw;
+  }
+  .nav-title {
+    position: absolute;
+    font-size: 8vw;
+    font-family: "Piazzolla", serif;
+    font-weight: 600;
+    color: rgb(3, 64, 194);
+    padding-left: 15px;
+    padding-right: 5px;
+    letter-spacing: 1px;
+    top: -8.7vw;
+    left: 2vw;
+    text-shadow: 0 0 2px black;
+  }
 }

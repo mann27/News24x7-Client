@@ -59,7 +59,7 @@ const Faqs = () => {
           <span>sengrp3@gmail.com </span>
         </p>
       </div>
-      <div>
+      <div className="FaqSectionList">
         <ul style={{ listStyle: "none" }} className="faq-list">
           {data.map((item) => (
             <li key={item.id} className="faq-list-li">

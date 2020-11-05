@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 import propTypes from "prop-types";
 import { Formik } from "formik";
 
-import {
-  Grid,
-  TextField,
-  CircularProgress,
-} from "@material-ui/core";
+import { Grid, TextField, CircularProgress } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import { withStyles } from "@material-ui/styles";
 import * as Yup from "yup";
@@ -111,7 +107,8 @@ class LoginPage extends Component {
                 <div className="SignUpHeader">
                   <h1 className="SignUpHeading">LOG IN</h1>
                   <div className="SignUpHeaderImg">
-                    <img alt="monkey-img"
+                    <img
+                      alt="monkey-img"
                       src={
                         this.state.avatar
                           ? this.state.avatarPassword
@@ -191,7 +188,7 @@ class LoginPage extends Component {
                         <CircularProgress size={17} thickness={6} />
                       ) : null}
                     </button>
-                    <div>
+                    <div className="linkToSignUp">
                       <Link to="/signup">
                         Don't have an Account? Sign Up here
                       </Link>

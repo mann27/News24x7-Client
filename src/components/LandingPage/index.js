@@ -104,7 +104,11 @@ function Index() {
             </Column1>
             <Column2>
               <ImgWrap>
-                <Img src={homeObjOne.img} alt={homeObjOne.alt} />
+                <Img
+                  src={homeObjOne.img}
+                  alt={homeObjOne.alt}
+                  className="LandingPageImage"
+                />
               </ImgWrap>
             </Column2>
           </InfoRow>

@@ -66,6 +66,10 @@ export const HeroP = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 14px;
   }
+  @media screen and (max-width: 480px) {
+    margin-top: 20px;
+    line-height: 30px;
+  }
 `;
 
 export const HeroBtnWrapper = styled.div`
@@ -186,6 +190,10 @@ export const Subtitle = styled.p`
   font-size: 18px;
   line-height: 24px;
   color: ${({ darkText }) => (darkText ? "#010060" : "#fff")};
+  @media screen and (max-width: 480px) {
+    margin-top: 20px;
+    line-height: 30px;
+  }
 `;
 export const BtnWrap = styled.div`
   display: flex;
@@ -201,12 +209,17 @@ export const Img = styled.img`
   width: 100%;
   margin: 0 0 10px 0;
   padding-right: 0;
+  @media screen and (max-width: 480px) {
+    padding-right: 20px;
+  }
 `;
 
 export const ImgSecond = styled.img`
   width: 100%;
   margin: 0 0 10px 0;
-  padding-right: 0;
+  @media screen and (max-width: 480px) {
+    padding-right: 20px;
+  }
 `;
 
 export const ServiceContainer = styled.div`
