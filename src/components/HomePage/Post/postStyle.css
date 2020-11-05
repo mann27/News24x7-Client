@@ -198,9 +198,9 @@ button.outline {
 }
 .PostPageLikeBox {
   display: flex !important;
-  align-items: center;
   justify-content: center;
-  height: 50px;
+  padding: 10px 0;
+  height: 30px;
   border-bottom: 2px solid rgb(238, 236, 236);
 }
 .PostPageLike {
@@ -256,4 +256,96 @@ button.outline {
 }
 .PostPageTitleBox {
   display: flex;
+}
+@media screen and (max-width: 780px) {
+  .PostPagePostContainer {
+    margin: 0;
+    padding: 0;
+    width: 330px;
+    box-shadow: 0 0 5px lightgray;
+  }
+  .PostPageTitle {
+    flex: 1;
+    text-decoration: none;
+    color: black;
+    margin: 10px 20px;
+    font-size: 13px;
+    word-wrap: break-word;
+  }
+  .PostPagePostHeader {
+    display: flex;
+    align-items: center;
+    padding: 2px 5px;
+    border-bottom: 2px solid rgb(238, 236, 236);
+  }
+  .PostPageUserShape {
+    padding: 0 2px;
+    margin-top: 5px;
+  }
+  .PostPageUserHandleHeader {
+    margin-left: 5px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .PostPageUserHandleInfo {
+    display: flex;
+    align-items: center;
+  }
+  .PostPageHandle {
+    display: flex;
+    flex: 1 !important;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(61, 60, 60);
+    font-family: "Nunito", sans-serif;
+  }
+  .PostPageMoreIcon {
+    color: #555;
+    margin-right: 2px;
+    margin-top: 2px;
+    transform: scale(0.7);
+  }
+  .iconButton {
+    transform: scale(0.7);
+  }
+  .userHandleDate {
+    font-size: 10px;
+    color: #aaa;
+    margin-top: -4px;
+  }
+  .PostPagePostLink {
+    font-size: 7px;
+    margin-right: 10px;
+  }
+  .PostPagePostTag {
+    font-size: 7px;
+    word-wrap: break-word;
+  }
+  .PostPageLikeBox {
+    padding: 0px 10px;
+  }
+  .PostPageLike {
+    transform: scale(0.7);
+    margin: 0;
+    padding: 2px 20px;
+    border: none;
+    border-radius: 2px;
+  }
+  .PostPageComment {
+    transform: scale(0.7);
+    margin: 0;
+    padding: 2px 20px;
+    border: none;
+    border-radius: 2px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .PostPagePostContainer {
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    box-shadow: 0 0 5px lightgray;
+  }
 }

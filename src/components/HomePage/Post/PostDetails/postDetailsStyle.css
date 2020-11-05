@@ -68,7 +68,7 @@ p {
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .PostDetailContainer {
-  padding: 20px;
+  padding: 10px;
   padding-bottom: 50px;
   overflow: scroll;
 }
@@ -76,20 +76,21 @@ p {
   display: none;
 }
 .PostDetailInnerBox {
-  margin: 20px;
-  padding: 20px;
-  padding-top: 0px;
+  margin: 10px;
+  padding: 0 20px !important;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 .PostDetailPostBox {
   object-fit: contain;
   flex: 0.4;
-  transform: scale(0.9);
+  transform: scale(1);
 }
 .PostDetailCommentBox {
   flex: 0.6;
   margin: 20px;
+  margin-left: 0;
+  margin-top: 30px;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px lightgray;
@@ -97,7 +98,7 @@ p {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  transform: scale(0.95);
+  transform: scale(1);
 }
 .PostDetailPreHeading {
   text-align: center;
@@ -154,7 +155,7 @@ p {
   margin: 10px;
   padding: 20px;
   margin-top: 25px;
-  max-height: 300px;
+  max-height: 250px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -173,4 +174,76 @@ p {
 .NoCommentYet {
   font-size: 30px;
   font-family: "Abel", sans-serif;
+}
+@media screen and (max-width: 590px) {
+  .PostDetailInnerBox {
+    margin: 10px;
+    padding: 0 20px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .PostDetailPostBox {
+    object-fit: contain;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    margin-left: -15px;
+    transform: scale(1);
+  }
+  .PostDetailCommentBox {
+    flex: 1;
+    margin: 20px;
+    margin-left: 0;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px lightgray;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    transform: scale(1);
+    width: 250px;
+  }
+  .commentInputBox {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .PostDetailSubmitButton {
+    padding: 8px;
+    font-size: 8px;
+    margin: 10px;
+    background-color: rgb(4, 4, 94);
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+  }
+}
+@media screen and (max-width: 300px) {
+  .PostDetailPostBox {
+    flex: 1;
+    margin: 0;
+    margin-left: -20px;
+    padding: 0;
+    margin-left: -25px;
+    transform: scale(1);
+  }
+  .PostDetailCommentBox {
+    flex: 1;
+    margin: 20px;
+    margin-left: -20px;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px lightgray;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    transform: scale(1);
+    width: 200px;
+  }
 }

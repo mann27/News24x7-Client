@@ -124,16 +124,18 @@ class PostDetails extends Component {
                     onSubmit={this.handleSubmit}
                     className="PostDetailAddComment"
                   >
-                    <input
-                      className="PostDetailCommentInputBox"
-                      type="text"
-                      value={this.state.commentbody}
-                      placeholder="Add Comment"
-                      onChange={this.handleOnChange}
-                    />
-                    <button className="PostDetailSubmitButton" type="submit">
-                      comment
-                    </button>
+                    <div className="commentInputBox">
+                      <input
+                        className="PostDetailCommentInputBox"
+                        type="text"
+                        value={this.state.commentbody}
+                        placeholder="Add Comment"
+                        onChange={this.handleOnChange}
+                      />
+                      <button className="PostDetailSubmitButton" type="submit">
+                        comment
+                      </button>
+                    </div>
                   </form>
                 </>
               ) : (

@@ -113,7 +113,7 @@ class CreatePost extends Component {
                   />
                 </div>
                 <TextFieldGroup
-                  placeholder="Add Tags seperated with a space"
+                  placeholder="Add Tags"
                   name="tags"
                   type="text"
                   value={this.state.tags}
