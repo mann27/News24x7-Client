@@ -126,7 +126,7 @@
   left: 0;
   bottom: 0;
   height: 100%;
-  width: 100%;
+  width: 200%;
   border-bottom: 2px solid rgb(82, 140, 197);
   transform: translateX(-100%);
   transition: all 0.3s ease;
@@ -248,4 +248,147 @@
 }
 .FaqSectionContainer {
   transform: scale(0.9);
+}
+@media screen and (max-width: 590px) {
+  .help-main {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .help-navBar {
+    background-color: rgb(2, 2, 77);
+    flex: 1;
+    color: #fff !important;
+  }
+  .side-menu-title {
+    color: #fff !important;
+  }
+  .FaqSectionContainer {
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(0, 0, 255, 0.356); */
+  }
+  .faq-header {
+    margin: 20px;
+    transform: translateX(0vw);
+    height: auto;
+  }
+  .faq-head-para {
+    padding: 10px;
+    padding-right: 0;
+    word-wrap: break-word;
+    text-shadow: 2px 2px 5px rgb(170, 169, 169);
+    font-size: 13px;
+    font-weight: 500;
+    font-family: "Nunito", sans-serif;
+    border-left: 0.3vw dashed rgb(82, 140, 197);
+    padding-left: 2vw;
+    line-height: 20px;
+  }
+  .faq-image {
+    height: 30vw;
+    width: 35vw;
+  }
+  .faq-list {
+    box-shadow: 2px 2px 10px grey;
+    padding: 2.2vw;
+    margin-right: 3vw;
+    border-radius: 20px;
+    font-family: "Nunito", sans-serif;
+    transition: all 0.5s ease;
+    margin-right: 0vw;
+    margin-left: 0vw;
+    width: 340px;
+    flex: 1;
+    height: auto;
+    transform: translateX(0vw);
+    font-size: 20px;
+    word-wrap: break-word;
+  }
+  .faq-que {
+    font-size: 10px;
+  }
+  .faq-ans {
+    font-size: 12px;
+    font-weight: 800px;
+  }
+  .SupportSectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title-right {
+    color: rgb(3, 94, 185);
+    font-size: 3vw;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    margin-bottom: 0em;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgb(105, 166, 228);
+    transform: translateX(0%);
+    margin-top: 20px;
+  }
+  .main-box {
+    display: flex;
+    box-shadow: 2px 2px 10px grey;
+    padding: 20px;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-right: 5vw;
+    margin-left: 5vw;
+    transform: translateX(0vw);
+  }
+  .support-img {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+  }
+  .sup-text {
+    background: none;
+    font-size: 15px;
+    word-wrap: break-word;
+  }
+  .que-label {
+    height: auto;
+    width: 100px;
+  }
+  .inp-ask {
+    padding: 5px 0;
+    padding-top: 10px;
+    background: none;
+    font-size: 8px;
+  }
+  .content-name {
+    font-size: 10px;
+    padding-bottom: 10px;
+  }
+  .inp-ask:focus + .label-name .content-name,
+  .inp-ask:valid + .label-name .content-name {
+    transform: translateY(-20%);
+    font-size: 8px;
+    left: 0.1vw;
+    color: rgb(82, 140, 197);
+  }
+  .btn-ask {
+    margin: 10px;
+    margin-left: 1vw;
+    height: 20px;
+    padding: 2px 5px;
+    background: none;
+    border: 1px solid rgb(82, 140, 197);
+    color: rgb(82, 140, 197);
+    font-weight: 200;
+    font-size: 6px;
+    transition: all 0.5s ease-in-out;
+  }
 }

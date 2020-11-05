@@ -8,8 +8,7 @@ import {
   SideBarLinks,
 } from "./SideBarStyles";
 
-
-function SideBar({ isOpen, toggle, auth, logoutFunc }) {
+function SideBar({ isOpen, toggle, auth, logoutFunc, userlink }) {
   return (
     <SideBarContainer isOpen={isOpen} onClick={toggle}>
       <Icons>
@@ -27,9 +26,12 @@ function SideBar({ isOpen, toggle, auth, logoutFunc }) {
             Help
           </SideBarLinks>
           {auth ? (
-            <SideBarLinks to="/" onClick={logoutFunc}>
-              Logout
-            </SideBarLinks>
+            <>
+              <SideBarLinks to={userlink}>Profile</SideBarLinks>
+              <SideBarLinks to="/" onClick={logoutFunc}>
+                Logout
+              </SideBarLinks>
+            </>
           ) : (
             <>
               <SideBarLinks to="/login" onClick={toggle}>

@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const UserPageContainer = styled.div`
   padding: 50px !important;
-  padding-top: 10px;
+  padding-top: 5px !important;
   box-shadow: 0 0 10px grey;
   width: auto;
-  height: auto;
+  height: 100vh;
   display: flex;
   overflow: scroll;
 `;
@@ -14,10 +14,10 @@ export const UserPagePost = styled.div`
   flex: 0.6;
   padding: 30px;
   padding-top: 0px;
+  height: 600px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  border-right: 2px solid grey;
+  border-left: 2px solid grey;
   margin-right: 0px;
   transform: scale(0.8);
 `;
@@ -28,8 +28,8 @@ export const UserPageProfile = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  margin-right: 100px;
-  margin-left: -60px;
+  margin-right: 0px;
+  background-color: #fff;
   box-shadow: 0 0 10px lightgray;
   transform: scale(0.8);
 `;

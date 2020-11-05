@@ -24,3 +24,8 @@
   z-index: 1000000000 !important;
   text-decoration: none;
 }
+@media screen and (max-width: 590px) {
+  .LandingPageImage {
+    padding-right: 50px !important;
+  }
+}

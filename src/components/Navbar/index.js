@@ -142,6 +142,7 @@ class NavBar extends Component {
             toggle={this.openSidebar}
             auth={authenticated}
             logoutFunc={this.handleLogoutClick}
+            userlink={userlink}
           ></SideBar>
         </AppBar>
         <div id="back-to-top-anchor" />
