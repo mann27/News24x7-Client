@@ -64,7 +64,7 @@ class ReusablePost extends Component {
             <div className="PostPageUserHandleHeader">
               <div className="PostPageUserHandleInfo">
                 <p className="PostPageHandle"> {handleName} </p>
-                <IconButton>
+                <IconButton className="iconButton">
                   <MoreVertIcon className="PostPageMoreIcon" />
                 </IconButton>
               </div>
@@ -80,7 +80,7 @@ class ReusablePost extends Component {
             <div>
               {this.props.authenticated && this.props.showDelete() ? (
                 <span className="PostPageDeleteBox">
-                  <IconButton>
+                  <IconButton className="iconButton">
                     <DeleteForeverIcon
                       className="PostPageDeleteButton"
                       onClick={() => this.props.onClickDelete()}
@@ -127,7 +127,7 @@ class ReusablePost extends Component {
               <LikeButton key={postId} postId={postId} />
 
               <Link to={this.props.redirect} className="link">
-                <IconButton>
+                <IconButton className="iconButton">
                   <ChatIcon className="PostPageCommentButtonFooter" />
                 </IconButton>
               </Link>
@@ -148,7 +148,7 @@ class ReusablePost extends Component {
                   style={{ cursor: "pointer", color: "#08c" }}
                   onClick={this.copyToClipBoard}
                 >
-                  <IconButton>
+                  <IconButton className="iconButton">
                     <ShareIcon className="PostPageShareButtonFooter" />
                   </IconButton>
                 </span>
@@ -165,7 +165,7 @@ class ReusablePost extends Component {
                   reported!
                 </p>
               ) : (
-                <IconButton>
+                <IconButton className="iconButton">
                   <ReportIcon
                     onClick={this.handlereport}
                     className="PostPageReportButtonFooter"

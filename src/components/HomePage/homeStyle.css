@@ -90,3 +90,84 @@
   flex: 0.2;
   margin: 0 20px;
 }
+.HomePageRecentMenu {
+  display: none;
+}
+@media screen and (max-width: 1100px) {
+  .HomePageBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .HomePageContainer {
+    padding: 0px;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 20px;
+    background-color: rgb(234, 241, 245);
+  }
+  .HomePageUserDetailSection {
+    flex: 0.2;
+    margin: 0 10px;
+    width: 200px;
+  }
+  .HomePageCreatePostSection {
+    flex: 0.6;
+    margin: 0 10px;
+    overflow-y: scroll;
+    max-height: 1500px;
+    width: 500px;
+  }
+  .HomePageSortAndAdSection {
+    flex: 0.2;
+    margin: 0 10px;
+    width: 200px;
+  }
+}
+@media screen and (max-width: 780px) {
+  .HomePageBox {
+    display: flex;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-x: hidden;
+  }
+  .HomePageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px;
+    padding-top: 20px;
+    background-color: rgb(234, 241, 245);
+    position: relative;
+  }
+  .HomePageUserDetailSection {
+    display: none;
+  }
+  .HomePageCreatePostSection {
+    flex: 1;
+    margin: 35px 0px;
+    overflow-y: scroll;
+    max-height: 1500px;
+    width: 350px;
+  }
+  .HomePageSortAndAdSection {
+    display: none;
+  }
+  .HomePageRecentMenu {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: darkblue;
+  }
+  .sortPostButton {
+    font-size: 10px;
+    padding: 0;
+    margin: 2px 0;
+    width: 100px;
+    height: 40px;
+  }
+}

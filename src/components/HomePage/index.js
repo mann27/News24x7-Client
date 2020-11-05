@@ -47,6 +47,29 @@ class HomePage extends Component {
     );
     return (
       <div className="HomePageContainer">
+        <div className="HomePageRecentMenu">
+          <button
+            type="button"
+            className="sortPostButton"
+            onClick={() => this.onClickType("r")}
+          >
+            Recent
+          </button>
+          <button
+            className="sortPostButton"
+            type="button"
+            onClick={() => this.onClickType("ml")}
+          >
+            Most Liked
+          </button>
+          <button
+            type="button"
+            className="sortPostButton"
+            onClick={() => this.onClickType("t")}
+          >
+            Trending
+          </button>
+        </div>
         <div className="HomePageBox">
           <div className="HomePageUserDetailSection">
             {!uiloading ? (
@@ -97,7 +120,7 @@ class HomePage extends Component {
             <div style={{ marginTop: "20px" }}>{PostMarkup}</div>
           </div>
           <div className="HomePageSortAndAdSection">
-            <Ad key={Math.random()*5} />
+            <Ad key={Math.random() * 5} />
           </div>
         </div>
       </div>
