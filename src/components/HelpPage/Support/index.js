@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../help.css";
-import { Grid } from "@material-ui/core";
+import { Grid, TextField } from "@material-ui/core";
 import img from "./support.png";
 
 class Support extends Component {
@@ -39,18 +39,15 @@ class Support extends Component {
             >
               <Grid>
                 <div className="que-label">
-                  <input
-                    type="text"
+                  <TextField
+                    id="standard-basic"
+                    label="Write your question"
                     value={this.state.inp}
-                    className="inp-ask"
                     name="inp"
                     autoComplete="off"
                     required
                     onChange={this.handlechange}
                   />
-                  <label className="label-name">
-                    <span className="content-name">Write your question</span>
-                  </label>
                 </div>
 
                 <Grid>
